@@ -21,10 +21,10 @@ jobs:
         aws-region: ${{ vars.AWS_REGION }}
     - name: List files
       run: ls -lRa
-    # - name: Retrieve S3 bucket ARN
-    #   id: get-bucket
-    #   run: |
-    #     BUCKET_NAME=$(aws ssm get-parameter --name ${{ vars.SSM_BUCKET_NAME }} --query "Parameter.Value" --output text)
-    #     echo "name=$BUCKET_NAME" >> "$GITHUB_OUTPUT"
-    # - name: Sync S3 bucket
-    #   run: aws s3 sync . "s3://${{ steps.get-bucket.outputs.name }}" --delete
+    - name: Retrieve S3 bucket ARN
+      id: get-bucket
+      run: |
+        BUCKET_NAME=$(aws ssm get-parameter --name ${{ vars.SSM_BUCKET_NAME }} --query "Parameter.Value" --output text)
+        echo "name=$BUCKET_NAME" >> "$GITHUB_OUTPUT"
+    - name: Sync S3 bucket
+      run: aws s3 sync --delete ./resume "s3://${{ steps.get-bucket.outputs.name }}"
