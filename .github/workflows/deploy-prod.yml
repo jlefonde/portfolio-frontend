@@ -1,4 +1,6 @@
 name: Deploy Frontend
+env:
+  Production
 on:
   push:
     branches:
@@ -9,7 +11,7 @@ permissions:
   contents: read
 jobs:
   deploy:
-    name: Deploy to S3
+    name: Deploy to S3 bucket
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -20,7 +22,9 @@ jobs:
         role-to-assume: ${{ vars.ROLE_ARN }}
         aws-region: ${{ vars.AWS_REGION }}
     - name: Retrieve S3 bucket ARN
-      id: bucket-arn
+      id: get-bucket
       run: |
-        BUCKET_ARN=$(aws ssm get-parameter --name ${{ vars.SSM_BUCKET_NAME }} --query "Parameter.Value" --output text)
-        echo "bucket-arn=$BUCKET_ARN" >> "$GITHUB_OUTPUT"
+        BUCKET_NAME=$(aws ssm get-parameter --name ${{ vars.SSM_BUCKET_NAME }} --query "Parameter.Value" --output text)
+        echo "bucket-name=$BUCKET_NAME" >> "$GITHUB_OUTPUT"
+    - name: Sync S3 bucket
+      run: aws s3 sync . "s3://${{ steps.get-bucket.outputs.name }}"
