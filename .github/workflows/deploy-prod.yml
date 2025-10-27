@@ -23,6 +23,6 @@ jobs:
       id: get-bucket
       run: |
         BUCKET_NAME=$(aws ssm get-parameter --name ${{ vars.SSM_BUCKET_NAME }} --query "Parameter.Value" --output text)
-        echo "bucket-name=$BUCKET_NAME" >> "$GITHUB_OUTPUT"
+        echo "name=$BUCKET_NAME" >> "$GITHUB_OUTPUT"
     - name: Sync S3 bucket
       run: aws s3 sync . "s3://${{ steps.get-bucket.outputs.name }}"
