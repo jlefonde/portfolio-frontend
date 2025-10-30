@@ -8,6 +8,7 @@ permissions:
   contents: read
 jobs:
   deploy:
+    environment: Production
     name: Deploy to S3 bucket
     runs-on: ubuntu-latest
     steps:
