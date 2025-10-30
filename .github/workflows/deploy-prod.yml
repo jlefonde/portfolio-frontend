@@ -13,4 +13,5 @@ jobs:
       contents: read
     with:
       environment: Production
-    secrets: inherit
+    secrets:
+      role-arn: ${{ vars.ROLE_ARN }}
