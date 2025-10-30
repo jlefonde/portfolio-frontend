@@ -1,0 +1,69 @@
+name: Deploy Frontend
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      invalid-cache:
+        type: boolean
+        default: true
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    environment: ${{ inputs.environment }}
+    name: Deploy to S3 bucket
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          role-to-assume: ${{ vars.ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Restore file timestamps
+        run: |
+          git ls-files | while read file; do
+            timestamp=$(git log -1 --date=iso --format=%ad -- "$file")
+            touch -d "$timestamp" $file
+          done
+
+      - name: Retrieve S3 bucket ARN
+        id: get-bucket
+        run: |
+          BUCKET_NAME=$(aws ssm get-parameter \
+            --name ${{ vars.SSM_BUCKET_NAME }} \
+            --query "Parameter.Value" \
+            --output text)
+          echo "name=$BUCKET_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Synchronize S3 bucket
+        run: aws s3 sync ./resume "s3://${{ steps.get-bucket.outputs.name }}" --delete --no-progress | tee s3_sync.stdout
+
+      - name: Retrieve CloudFront distribution ID
+        id: get-distribution
+        run: |
+          DISTRIBUTION_ID=$(aws ssm get-parameter \
+            --name ${{ vars.SSM_DISTRIBUTION_ID }} \
+            --query "Parameter.Value" \
+            --output text)
+          echo "id=$DISTRIBUTION_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Invalidate CloudFront cache
+        if: ${{ inputs.invalid-cache }}
+        run: |
+          if grep -qE "upload|delete" s3_sync.stdout; then
+            aws cloudfront create-invalidation \
+              --distribution-id ${{ steps.get-distribution.outputs.id }} \
+              --paths /*
+          else
+            echo "No changes detected, skipping cache invalidation"
+          fi
