@@ -13,3 +13,4 @@ jobs:
       contents: read
     with:
       environment: Production
+    secrets: inherit
