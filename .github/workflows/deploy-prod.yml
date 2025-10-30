@@ -42,7 +42,9 @@ jobs:
       - name: Invalidate CloudFront cache
         run: |
           if grep -qE "upload|delete" s3_sync.stdout; then
-            aws cloudfront create-invalidation --distribution-id ${{ vars.SSM_DISTRIBUTION_ID }}
+            aws cloudfront create-invalidation \
+              --distribution-id ${{ vars.SSM_DISTRIBUTION_ID }} \
+              --paths /*
           else
             echo "No changes detected, skipping cache invalidation"
           fi
