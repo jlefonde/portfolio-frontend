@@ -9,6 +9,9 @@ on:
       invalid-cache:
         type: boolean
         default: true
+    secrets:
+      role-arn:
+        required: true
 
 jobs:
   deploy:
