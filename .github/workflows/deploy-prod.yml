@@ -39,11 +39,20 @@ jobs:
       - name: Synchronize S3 bucket
         run: aws s3 sync ./resume "s3://${{ steps.get-bucket.outputs.name }}" --delete --no-progress | tee s3_sync.stdout
 
+      - name: Retrieve CloudFront distribution ID
+        id: get-distribution
+        run: |
+          DISTRIBUTION_ID=$(aws ssm get-parameter \
+            --name ${{ vars.SSM_DISTRIBUTION_ID }} \
+            --query "Parameter.Value" \
+            --output text)
+          echo "id=$DISTRIBUTION_ID" >> "$GITHUB_OUTPUT"
+
       - name: Invalidate CloudFront cache
         run: |
           if grep -qE "upload|delete" s3_sync.stdout; then
             aws cloudfront create-invalidation \
-              --distribution-id ${{ vars.SSM_DISTRIBUTION_ID }} \
+              --distribution-id ${{ steps.get-distribution.outputs.id }} \
               --paths /*
           else
             echo "No changes detected, skipping cache invalidation"
