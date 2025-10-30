@@ -14,4 +14,4 @@ jobs:
     with:
       environment: Production
     secrets:
-      role-arn: ${{ vars.ROLE_ARN }}
+      role-arn: ${{ secrets.ROLE_ARN }}
