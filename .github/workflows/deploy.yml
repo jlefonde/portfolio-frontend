@@ -13,10 +13,6 @@ on:
       role-arn:
         required: true
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
   deploy:
     environment: ${{ inputs.environment }}

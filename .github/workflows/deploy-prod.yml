@@ -8,6 +8,9 @@ on:
 jobs:
   deploy:
     uses: ./.github/workflows/deploy.yml
+    permissions:
+      id-token: write
+      contents: read
     with:
       environment: Production
     secrets: inherit
