@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 permissions:
   id-token: write
   contents: read
@@ -31,8 +30,14 @@ jobs:
       - name: Retrieve S3 bucket ARN
         id: get-bucket
         run: |
-          BUCKET_NAME=$(aws ssm get-parameter --name ${{ vars.SSM_BUCKET_NAME }} --query "Parameter.Value" --output text)
+          BUCKET_NAME=$(aws ssm get-parameter \
+            --name ${{ vars.SSM_BUCKET_NAME }} \
+            --query "Parameter.Value" \
+            --output text)
           echo "name=$BUCKET_NAME" >> "$GITHUB_OUTPUT"
 
-      - name: Sync S3 bucket
-        run: aws s3 sync ./resume "s3://${{ steps.get-bucket.outputs.name }}" --delete
+      - name: Synchronize S3 bucket
+        run: aws s3 sync ./resume "s3://${{ steps.get-bucket.outputs.name }}" --delete --no-progress
+
+      - name: Invalidate CloudFront cache
+        run: aws create-invalidation --distribution-id ${{ vars.SSM_DISTRIBUTION_ID }}
