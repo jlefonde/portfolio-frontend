@@ -29,7 +29,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v5
         with:
-          role-to-assume: arn:aws:iam::640983357613:role/oidc-frontend-role
+          role-to-assume: ${{ vars.ROLE_ARN }}
           aws-region: ${{ vars.AWS_REGION }}
 
       - name: Restore file timestamps
