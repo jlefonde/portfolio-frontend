@@ -6,7 +6,7 @@ on:
       environment:
         required: true
         type: string
-      invalid-cache:
+      invalidate-cache:
         type: boolean
         default: true
 
@@ -54,7 +54,7 @@ jobs:
           echo "id=$DISTRIBUTION_ID" >> "$GITHUB_OUTPUT"
 
       - name: Invalidate CloudFront cache
-        if: ${{ inputs.invalid-cache }}
+        if: ${{ inputs.invalidate-cache }}
         run: |
           if grep -qE "upload|delete" s3_sync.stdout; then
             aws cloudfront create-invalidation \
