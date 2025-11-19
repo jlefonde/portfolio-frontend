@@ -11,4 +11,4 @@ jobs:
       id-token: write
       contents: read
     with:
-      environment: Production
+      environment: prod
