@@ -59,7 +59,7 @@ jobs:
           if grep -qE "upload|delete" s3_sync.stdout; then
             aws cloudfront create-invalidation \
               --distribution-id ${{ steps.get-distribution.outputs.id }} \
-              --paths /*
+              --paths "/*"
           else
             echo "No changes detected, skipping cache invalidation"
           fi
