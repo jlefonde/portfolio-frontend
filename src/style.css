@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+    --color-grafana-primary: #111217;
+    --color-grafana-secondary: #181b1f;
+}
