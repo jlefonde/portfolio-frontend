@@ -1,10 +1,16 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header.vue";
+import Sidebar from "./components/Sidebar.vue";
 </script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
+  <div class="flex h-screen">
+    <Sidebar />
+    <div class="flex flex-1 flex-col">
+      <Header />
+      <main class="bg-base-350 flex-1"></main>
+    </div>
+  </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
