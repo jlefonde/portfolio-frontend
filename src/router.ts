@@ -1,5 +1,4 @@
-import { createWebHistory, createRouter } from "vue-router";
-
+import { createWebHistory, createRouter, type RouteRecordRaw } from "vue-router";
 import AboutView from "./views/About.vue";
 import SkillsView from "./views/Skills.vue";
 import ExperiencesView from "./views/Experiences.vue";
@@ -7,7 +6,6 @@ import EducationView from "./views/Education.vue";
 import ProjectsView from "./views/Projects.vue";
 import CertificationsView from "./views/Certifications.vue";
 import ContactView from "./views/Contact.vue";
-import type { Component } from "vue";
 import {
   UserIcon,
   CodeIcon,
@@ -19,29 +17,25 @@ import {
 } from "lucide-vue-next";
 import type { LucideIcon } from "lucide-vue-next";
 
-interface Route {
-  name: string;
-  path: string;
-  component: Component;
-  icon: LucideIcon;
-  selectedColor: string;
+interface RouteMetadata {
+  icon?: LucideIcon;
+  color?: string;
   addToNav?: boolean;
 }
 
+type Route = RouteRecordRaw & RouteMetadata;
+
 export const routes: Route[] = [
   {
-    name: "About",
     path: "/",
-    component: AboutView,
-    icon: UserIcon,
-    selectedColor: "red-light",
+    redirect: "/about",
   },
   {
     name: "About",
     path: "/about",
     component: AboutView,
     icon: UserIcon,
-    selectedColor: "red-light",
+    color: "red-light",
     addToNav: true,
   },
   {
@@ -49,7 +43,7 @@ export const routes: Route[] = [
     path: "/skills",
     component: SkillsView,
     icon: CodeIcon,
-    selectedColor: "orange-light",
+    color: "orange-light",
     addToNav: true,
   },
   {
@@ -57,7 +51,7 @@ export const routes: Route[] = [
     path: "/experiences",
     component: ExperiencesView,
     icon: BriefcaseIcon,
-    selectedColor: "yellow-light",
+    color: "yellow-light",
     addToNav: true,
   },
   {
@@ -65,7 +59,7 @@ export const routes: Route[] = [
     path: "/education",
     component: EducationView,
     icon: GraduationCapIcon,
-    selectedColor: "green-light",
+    color: "green-light",
     addToNav: true,
   },
   {
@@ -73,14 +67,14 @@ export const routes: Route[] = [
     path: "/projects",
     component: ProjectsView,
     icon: FolderCodeIcon,
-    selectedColor: "cyan-light",
+    color: "cyan-light",
   },
   {
     name: "Certifications",
     path: "/certifications",
     component: CertificationsView,
     icon: TrophyIcon,
-    selectedColor: "blue-light",
+    color: "blue-light",
     addToNav: true,
   },
   {
@@ -88,7 +82,7 @@ export const routes: Route[] = [
     path: "/contact",
     component: ContactView,
     icon: MailIcon,
-    selectedColor: "purple-light",
+    color: "purple-light",
     addToNav: true,
   },
 ];

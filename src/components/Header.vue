@@ -14,9 +14,9 @@ import { Sun, Download } from "lucide-vue-next";
       <div class="text-green-light mr-2">AVAILABLE FOR HIRE</div>
     </div>
     <div class="bg-base-150 h-8 w-px"></div>
-    <Download class="stroke-base-100 hover:stroke-base-50" />
+    <Download class="stroke-base-100 hover:stroke-base-50 cursor-pointer" />
     <div class="bg-base-150 h-8 w-px"></div>
-    <Sun class="stroke-base-100 hover:stroke-base-50" />
+    <Sun class="stroke-base-100 hover:stroke-base-50 cursor-pointer" />
   </header>
 </template>
 
