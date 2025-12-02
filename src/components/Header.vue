@@ -19,5 +19,3 @@ import { Sun, Download } from "lucide-vue-next";
     <Sun class="stroke-base-100 hover:stroke-base-50 cursor-pointer" />
   </header>
 </template>
-
-<style scoped></style>

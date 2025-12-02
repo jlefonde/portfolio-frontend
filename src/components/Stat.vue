@@ -5,7 +5,7 @@ import { useRouter } from "vue-router";
 const props = defineProps<{
   name: string;
   value: string;
-  colorClass: string;
+  color: string;
   redirect?: string;
 }>();
 
@@ -27,8 +27,6 @@ function redirectTo() {
         class="hover:stroke-base-50 stroke-base-100 absolute right-0 cursor-pointer"
       />
     </div>
-    <div class="m-auto text-6xl font-bold" :class="`${colorClass}`">{{ value }}</div>
+    <div class="m-auto text-6xl font-bold" :class="`text-${color}`">{{ value }}</div>
   </div>
 </template>
-
-<style scoped></style>
