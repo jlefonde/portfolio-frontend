@@ -18,7 +18,7 @@ function redirectTo() {
 </script>
 
 <template>
-  <div class="bg-base-300 flex h-48 w-full flex-col items-center rounded-xl p-3">
+  <div class="bg-base-300 flex w-full flex-col items-center rounded-xl p-3">
     <div class="relative flex w-full items-center justify-center">
       <div class="text-base-50 font-bold">{{ name }}</div>
       <ArrowRight
