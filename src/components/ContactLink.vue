@@ -1,15 +1,8 @@
 <script setup lang="ts">
 import Title from "../components/Title.vue";
-import type { LucideIcon } from "lucide-vue-next";
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import type { Contact } from "../contacts.ts"
 
-defineProps<{
-  title: string;
-  icon: LucideIcon | IconDefinition;
-  color: string;
-  href: string;
-  linkText: string;
-}>();
+defineProps<Contact>();
 </script>
 
 <template>
