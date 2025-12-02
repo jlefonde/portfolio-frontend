@@ -1,23 +1,31 @@
 <script setup lang="ts">
-import { User, Code } from "lucide-vue-next";
+import { routes } from "../router.ts";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
 </script>
 
 <template>
   <aside class="bg-base-300 border-base-150 flex h-screen w-96 flex-col border-r">
     <header class="border-base-150 h-14 border-b"></header>
-    <nav class="flex flex-1 flex-col gap-1 p-5">
-      <div
-        class="border-red-light text-base-50 bg-base-200 flex h-10 w-80 items-center gap-3 rounded-md border-l-4 p-2"
+    <nav class="flex flex-1 flex-col gap-3 p-5">
+      <RouterLink
+        v-for="navRoute in routes.filter((r) => r.addToNav === true)"
+        :key="navRoute.path"
+        class="group hover:bg-base-200 hover:text-base-50 flex h-10 w-80 items-center gap-3 rounded-md p-2"
+        :class="
+          route.path === navRoute.path
+            ? `border-${navRoute.selectedColor} bg-base-200 text-base-50 border-l-4`
+            : 'text-base-100'
+        "
+        :to="navRoute.path"
       >
-        <User class="stroke-base-50" />
-        About
-      </div>
-      <div
-        class="hover:text-base-50 group hover:bg-base-200 text-base-100 flex h-10 w-80 items-center gap-3 rounded-md p-2"
-      >
-        <Code class="group-hover:stroke-base-50 stroke-base-100" />
-        Skills
-      </div>
+        <component
+          :is="navRoute.icon"
+          :class="route.path === navRoute.path ? 'stroke-base-50' : 'stroke-base-100 group-hover:stroke-base-50'"
+        />
+        {{ navRoute.name }}
+      </RouterLink>
     </nav>
   </aside>
 </template>
