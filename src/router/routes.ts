@@ -1,11 +1,11 @@
-import { createWebHistory, createRouter, type RouteRecordRaw } from "vue-router";
-import AboutView from "./views/About.vue";
-import SkillsView from "./views/Skills.vue";
-import ExperiencesView from "./views/Experiences.vue";
-import EducationView from "./views/Education.vue";
-import ProjectsView from "./views/Projects.vue";
-import CertificationsView from "./views/Certifications.vue";
-import ContactView from "./views/Contact.vue";
+import { type RouteRecordRaw } from "vue-router";
+import AboutView from "../views/About.vue";
+import SkillsView from "../views/Skills.vue";
+import ExperiencesView from "../views/Experiences.vue";
+import EducationView from "../views/Education.vue";
+import ProjectsView from "../views/Projects.vue";
+import CertificationsView from "../views/Certifications.vue";
+import ContactView from "../views/Contact.vue";
 import {
   UserIcon,
   CodeIcon,
@@ -68,6 +68,7 @@ export const routes: Route[] = [
     component: ProjectsView,
     icon: FolderCodeIcon,
     color: "cyan-light",
+    addToNav: true,
   },
   {
     name: "Certifications",
@@ -86,10 +87,3 @@ export const routes: Route[] = [
     addToNav: true,
   },
 ];
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-});
-
-export default router;

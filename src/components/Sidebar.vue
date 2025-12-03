@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { routes } from "../router.ts";
+import { routes } from "../router/router";
 import { useRoute } from "vue-router";
 import { PanelLeftIcon } from "lucide-vue-next";
 
