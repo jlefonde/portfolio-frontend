@@ -24,3 +24,11 @@ export type Certification = {
   verifyLink?: string;
   tags?: Tag[];
 };
+
+export type Availability = {
+  location: string;
+  currently: string;
+  lookingFor: string;
+  openTo: string;
+  available: string;
+};

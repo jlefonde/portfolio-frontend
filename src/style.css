@@ -28,3 +28,9 @@
 
   --font-inter: Inter, sans-serif;
 }
+
+@layer components {
+  .card {
+    @apply bg-base-300 flex flex-col gap-3 rounded-xl p-3;
+  }
+}

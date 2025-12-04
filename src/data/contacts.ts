@@ -1,6 +1,6 @@
 import { AtSignIcon } from "lucide-vue-next";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import type { Contact } from "../types";
+import type { Contact, Availability } from "../types";
 
 export const CONTACTS = {
   email: {
@@ -25,3 +25,11 @@ export const CONTACTS = {
     linkText: "linkedin.com/in/jorislefondeur",
   },
 } as const satisfies Record<string, Contact>;
+
+export const availability: Availability = {
+  location: "Thionville, France",
+  currently: "Student at 42 Luxembourg",
+  lookingFor: "Junior Devops Position",
+  openTo: "Hybrid",
+  available: "Immediatly",
+};
