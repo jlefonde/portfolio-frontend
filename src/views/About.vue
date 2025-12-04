@@ -32,18 +32,18 @@ const navRoute = routes.find((r) => r.path == route.path);
         <a
           href="/resume/resume.pdf"
           download
-          class="bg-green-dark hover:bg-green-dark/80 flex w-1/2 items-center justify-center gap-2 rounded-md p-3 transition-colors"
+          class="bg-green-dark hover:bg-green-dark/80 flex w-1/2 items-center justify-center gap-2 rounded-md p-3 transition-colors hover:opacity-80"
         >
           <DownloadIcon class="stroke-green-light size-5" />
           <span class="text-green-light text-sm font-bold">Download Resume</span>
         </a>
       </div>
     </div>
-    <Stat class="col-start-4 row-span-2" name="Visitors Count" value="50" color="orange-light" />
-    <Stat class="col-start-5 row-span-2" name="Month Cost-to-Date" value="$0.95" color="red-light" />
-    <Stat class="col-start-4 row-span-2 row-start-3" name="Response Time" value="<24h" color="green-light" />
+    <Stat class="col-start-4 row-span-2 min-h-56" name="Visitors Count" value="50" color="orange-light" />
+    <Stat class="col-start-5 row-span-2 min-h-56" name="Month Cost-to-Date" value="$0.95" color="red-light" />
+    <Stat class="col-start-4 row-span-2 row-start-3 min-h-56" name="Response Time" value="<24h" color="green-light" />
     <Stat
-      class="col-start-5 row-span-2 row-start-3"
+      class="col-start-5 row-span-2 row-start-3 min-h-56"
       name="Certifications Earned"
       value="1"
       color="blue-light"

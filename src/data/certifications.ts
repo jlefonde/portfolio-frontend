@@ -1,0 +1,13 @@
+import type { Certification } from "../types";
+
+export const certifications: Certification[] = [
+  {
+    name: "Terraform Associate 003",
+    issuer: "HaschiCorp",
+    logoSrc: "/certifications/hashicorp-terraform-associate-003.png",
+    issued: "Oct 2025",
+    expires: "Oct 2027",
+    verifyLink: "https://www.credly.com/badges/7e953b86-4e48-426d-a313-249c1e6ef4bb/public_url",
+    tags: [{ name: "Infrastructure as Code" }, { name: "Cloud" }, { name: "Terraform" }],
+  },
+];

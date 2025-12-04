@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Title from "../components/Title.vue";
-import type { Contact } from "../constants/contacts"
+import type { Contact } from "../types";
 
 defineProps<Contact>();
 </script>
