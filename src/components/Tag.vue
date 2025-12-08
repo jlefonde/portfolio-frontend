@@ -8,5 +8,5 @@ withDefaults(defineProps<Tag>(), {
 </script>
 
 <template>
-  <span class="rounded-full px-2 py-1 text-xs font-bold" :class="`bg-${bgColor} text-${textColor}`">{{ name }}</span>
+  <span class="rounded-full px-3 py-1 text-xs font-bold" :class="`bg-${bgColor} text-${textColor}`">{{ name }}</span>
 </template>

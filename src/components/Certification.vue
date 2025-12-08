@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { CalendarCheck2Icon, CalendarX2Icon, SquareArrowOutUpRight } from "lucide-vue-next";
-import Tag from "../components/Tag.vue";
+import Tag from "./Tag.vue";
+import InfoItem from "./InfoItem.vue";
 import type { Certification } from "../types";
 
 defineProps<Certification>();
@@ -16,14 +17,8 @@ defineProps<Certification>();
       </div>
     </div>
     <div class="flex flex-col gap-3">
-      <div class="flex items-center gap-3">
-        <CalendarCheck2Icon class="stroke-base-100 size-4" />
-        <span class="text-base-100 text-sm">Issued: {{ issued }}</span>
-      </div>
-      <div class="flex items-center gap-3">
-        <CalendarX2Icon class="stroke-base-100 size-4" />
-        <span class="text-base-100 text-sm">Expires: {{ expires }}</span>
-      </div>
+      <InfoItem label="Issued" :value="issued" :icon="CalendarCheck2Icon" text-color="base-100" icon-color="base-100" />
+      <InfoItem label="Expires" :value="expires" :icon="CalendarX2Icon" text-color="base-100" icon-color="base-100" />
     </div>
     <div v-if="tags" class="flex flex-wrap gap-2">
       <Tag v-for="tag in tags" :key="tag.name" v-bind="tag" />

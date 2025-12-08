@@ -19,7 +19,8 @@ import type { LucideIcon } from "lucide-vue-next";
 
 interface RouteMetadata {
   icon?: LucideIcon;
-  color?: string;
+  primaryColor?: string;
+  secondaryColor?: string;
   addToNav?: boolean;
 }
 
@@ -35,7 +36,8 @@ export const routes: Route[] = [
     path: "/about",
     component: AboutView,
     icon: UserIcon,
-    color: "red-light",
+    primaryColor: "red-light",
+    secondaryColor: "red-dark",
     addToNav: true,
   },
   {
@@ -43,7 +45,8 @@ export const routes: Route[] = [
     path: "/skills",
     component: SkillsView,
     icon: CodeIcon,
-    color: "orange-light",
+    primaryColor: "orange-light",
+    secondaryColor: "orange-dark",
     addToNav: true,
   },
   {
@@ -51,7 +54,8 @@ export const routes: Route[] = [
     path: "/experiences",
     component: ExperiencesView,
     icon: BriefcaseIcon,
-    color: "yellow-light",
+    primaryColor: "yellow-light",
+    secondaryColor: "yellow-dark",
     addToNav: true,
   },
   {
@@ -59,7 +63,8 @@ export const routes: Route[] = [
     path: "/education",
     component: EducationView,
     icon: GraduationCapIcon,
-    color: "green-light",
+    primaryColor: "green-light",
+    secondaryColor: "green-dark",
     addToNav: true,
   },
   {
@@ -67,7 +72,8 @@ export const routes: Route[] = [
     path: "/projects",
     component: ProjectsView,
     icon: FolderCodeIcon,
-    color: "cyan-light",
+    primaryColor: "cyan-light",
+    secondaryColor: "cyan-dark",
     addToNav: true,
   },
   {
@@ -75,7 +81,8 @@ export const routes: Route[] = [
     path: "/certifications",
     component: CertificationsView,
     icon: TrophyIcon,
-    color: "blue-light",
+    primaryColor: "blue-light",
+    secondaryColor: "blue-dark",
     addToNav: true,
   },
   {
@@ -83,7 +90,8 @@ export const routes: Route[] = [
     path: "/contact",
     component: ContactView,
     icon: MailIcon,
-    color: "purple-light",
+    primaryColor: "purple-light",
+    secondaryColor: "purple-dark",
     addToNav: true,
   },
 ];

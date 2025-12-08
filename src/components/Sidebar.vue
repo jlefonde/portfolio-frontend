@@ -25,7 +25,7 @@ const route = useRoute();
         class="group hover:bg-base-200 hover:text-base-50 flex h-10 w-full items-center gap-3 rounded-md p-2"
         :class="
           route.path === navRoute.path
-            ? `border-${navRoute.color} text-base-50 bg-base-200 border-l-4`
+            ? `border-${navRoute.primaryColor} text-base-50 bg-base-200 border-l-4`
             : 'text-base-100'
         "
         :to="navRoute.path"
@@ -33,7 +33,9 @@ const route = useRoute();
         <component
           :is="navRoute.icon"
           :class="
-            route.path === navRoute.path ? `stroke-${navRoute.color}` : 'stroke-base-100 group-hover:stroke-base-50'
+            route.path === navRoute.path
+              ? `stroke-${navRoute.primaryColor}`
+              : 'stroke-base-100 group-hover:stroke-base-50'
           "
         />
         {{ navRoute.name }}

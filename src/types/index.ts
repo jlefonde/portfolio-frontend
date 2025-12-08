@@ -32,3 +32,13 @@ export type Availability = {
   openTo: string;
   available: string;
 };
+
+export type Timeline = {
+  name: string;
+  location: string;
+  from: string;
+  to: string;
+  description?: string;
+  highlights?: string[];
+  tags?: Tag[];
+};

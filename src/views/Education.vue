@@ -1,3 +1,27 @@
+<script setup lang="ts">
+import { routes } from "../router/routes";
+import { education } from "../data/education";
+import { useRoute } from "vue-router";
+import Title from "../components/Title.vue";
+import TimelineItem from "../components/TimelineItem.vue";
+
+const route = useRoute();
+const navRoute = routes.find((r) => r.path == route.path);
+const highlightColor = navRoute?.primaryColor ?? "";
+const highlightRingColor = navRoute?.secondaryColor ?? "";
+</script>
+
 <template>
-  <h1>EDUCATION</h1>
+  <div class="card bg-base-300 w-full">
+    <Title :title="navRoute?.name?.toString() ?? ''" :icon="navRoute?.icon" :icon-color="highlightColor" />
+    <div class="flex w-full flex-col gap-5">
+      <TimelineItem
+        v-for="(degree, index) in education"
+        :timeline="degree"
+        :highlight-color="highlightColor"
+        :highlight-ring-color="highlightRingColor"
+        :is-latest="index == 0"
+      />
+    </div>
+  </div>
 </template>

@@ -2,6 +2,7 @@
 import Stat from "../components/Stat.vue";
 import ContactLink from "../components/ContactLink.vue";
 import Title from "../components/Title.vue";
+import InfoItem from "../components/InfoItem.vue";
 import { CONTACTS, availability } from "../data/contacts";
 import { routes } from "../router/routes";
 import {
@@ -26,7 +27,7 @@ const navRoute = routes.find((r) => r.path == route.path);
 <template>
   <div class="grid-row-2 grid grid-cols-5 gap-5">
     <div class="card col-span-2">
-      <Title :title="navRoute?.name?.toString() ?? ''" :icon="navRoute?.icon" :iconColor="navRoute?.color" />
+      <Title :title="navRoute?.name?.toString() ?? ''" :icon="navRoute?.icon" :iconColor="navRoute?.primaryColor" />
       <ContactLink v-for="contact in CONTACTS" v-bind="contact" />
     </div>
     <div class="flex flex-col gap-5">
@@ -43,26 +44,11 @@ const navRoute = routes.find((r) => r.path == route.path);
     <div class="card col-span-2 gap-5">
       <Title title="Availability" :icon="CalendarSearchIcon" />
       <div class="flex flex-1 flex-col justify-around">
-        <div class="text-base-50 flex gap-2 text-sm">
-          <MapPinIcon />
-          <b>Location:</b> {{ availability.location }}
-        </div>
-        <div class="text-base-50 flex gap-2 text-sm">
-          <ActivityIcon />
-          <b>Currently:</b> {{ availability.currently }}
-        </div>
-        <div class="text-base-50 flex gap-2 text-sm">
-          <TargetIcon />
-          <b>Looking For:</b> {{ availability.lookingFor }}
-        </div>
-        <div class="text-base-50 flex gap-2 text-sm">
-          <MapPinHouseIcon />
-          <b>Open To:</b> {{ availability.openTo }}
-        </div>
-        <div class="text-base-50 flex gap-2 text-sm">
-          <CalendarCheck2Icon />
-          <b>Available:</b> {{ availability.available }}
-        </div>
+        <InfoItem label="Location" :value="availability.location" :icon="MapPinIcon" />
+        <InfoItem label="Currently" :value="availability.currently" :icon="ActivityIcon" />
+        <InfoItem label="Looking For" :value="availability.lookingFor" :icon="TargetIcon" />
+        <InfoItem label="Open To" :value="availability.openTo" :icon="MapPinHouseIcon" />
+        <InfoItem label="Available" :value="availability.available" :icon="CalendarCheck2Icon" />
       </div>
     </div>
     <form class="card col-span-3 row-start-2 flex flex-col" @submit.prevent="">
@@ -90,7 +76,7 @@ const navRoute = routes.find((r) => r.path == route.path);
       <textarea class="bg-base-350 text-base-50 min-h-48 rounded-md p-3 text-sm" placeholder="Message"></textarea>
       <button
         type="submit"
-        class="bg-green-dark hover:bg-green-dark/80 flex items-center justify-center gap-2 rounded-md p-3 transition-colors hover:opacity-80"
+        class="bg-green-dark hover:bg-green-dark/80 flex h-14 items-center justify-center gap-2 rounded-md p-3 transition-colors hover:opacity-80"
       >
         <SendIcon class="stroke-green-light size-5" />
         <span class="text-green-light text-sm font-bold">Send Message</span>

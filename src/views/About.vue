@@ -14,7 +14,7 @@ const navRoute = routes.find((r) => r.path == route.path);
 <template>
   <div class="grid grid-cols-5 grid-rows-8 gap-5">
     <div class="card col-span-3 row-span-4">
-      <Title :title="navRoute?.name?.toString() ?? ''" :icon="navRoute?.icon" :iconColor="navRoute?.color" />
+      <Title :title="navRoute?.name?.toString() ?? ''" :icon="navRoute?.icon" :iconColor="navRoute?.primaryColor" />
       <p class="text-base-50 text-justify text-sm leading-relaxed">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer consequat lacus posuere metus blandit, ac
         dignissim neque mollis. Nulla tincidunt rutrum blandit. Donec auctor non ante nec feugiat. Pellentesque porta
