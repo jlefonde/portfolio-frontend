@@ -53,3 +53,10 @@ export type Log = {
   logLevel?: LogLevel;
   message: string;
 };
+
+export type Bar = {
+  label: string;
+  percentage: number;
+  mediumThreshold?: number;
+  highThreshold?: number;
+};

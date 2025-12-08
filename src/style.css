@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@source inline("{text,stroke,border,bg,ring}-{red,orange,green,blue,cyan,purple,yellow}-{light,dark}");
+@source inline("{text,stroke,border,bg,ring,border-r}-{red,orange,green,blue,cyan,purple,yellow}-{light,dark}");
 @source inline("{text,stroke,border,bg,ring}-base-{50,{50..350..50},350}");
 
 @theme {

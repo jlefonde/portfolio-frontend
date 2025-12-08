@@ -9,7 +9,7 @@ const level = props.logLevel || logLevels.INFO;
 <template>
   <div class="flex gap-5">
     <div class="text-base-100 text-sm whitespace-nowrap">{{ timestamp }}</div>
-    <div class="text-sm font-bold" :class="`text-${level?.color}`">{{ level?.name }}</div>
+    <div class="w-20 text-sm font-bold" :class="`text-${level?.color}`">{{ level?.name }}</div>
     <div class="text-base-50 text-sm leading-relaxed">{{ message }}</div>
   </div>
 </template>

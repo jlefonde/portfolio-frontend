@@ -3,6 +3,7 @@ import Stat from "../components/Stat.vue";
 import Title from "../components/Title.vue";
 import ContactLink from "../components/ContactLink.vue";
 import Log from "../components/Log.vue";
+import HorizontalBar from "../components/HorizontalBar.vue";
 import { routes } from "../router/routes";
 import { logs } from "../data/logs";
 import { CONTACTS } from "../data/contacts";
@@ -59,6 +60,11 @@ const navRoute = routes.find((r) => r.path == route.path);
     </div>
     <div class="card col-span-2 col-start-4 row-span-4 row-start-5">
       <Title title="Languages" :icon="LanguagesIcon" />
+      <div class="flex h-full flex-col justify-around">
+        <HorizontalBar label="French" :percentage="100" />
+        <HorizontalBar label="English" :percentage="80" />
+        <HorizontalBar label="German" :percentage="25" />
+      </div>
     </div>
   </div>
 </template>
