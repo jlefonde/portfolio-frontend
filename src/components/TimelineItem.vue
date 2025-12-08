@@ -38,11 +38,7 @@ const secondaryColor = computed(() => {
         />
         <InfoItem :value="timeline.location" :icon="MapPinIcon" text-color="base-100" icon-color="base-100" />
       </div>
-      <p
-        v-if="timeline.description"
-        class="text-base-50 text-justify text-sm leading-relaxed"
-        v-html="timeline.description"
-      ></p>
+      <p v-if="timeline.description" class="text-base-50 text-sm leading-relaxed" v-html="timeline.description"></p>
       <ul v-if="timeline.highlights" class="text-base-50 list-inside list-disc text-sm">
         <li
           v-for="(highlight, index) in timeline.highlights"

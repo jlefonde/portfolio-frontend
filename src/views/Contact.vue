@@ -27,7 +27,7 @@ const navRoute = routes.find((r) => r.path == route.path);
 <template>
   <div class="grid-row-2 grid grid-cols-5 gap-5">
     <div class="card col-span-2">
-      <Title :title="navRoute?.name?.toString() ?? ''" :icon="navRoute?.icon" :iconColor="navRoute?.primaryColor" />
+      <Title :title="navRoute?.name?.toString() ?? ''" :icon="navRoute?.icon" :icon-color="navRoute?.primaryColor" />
       <ContactLink v-for="contact in CONTACTS" v-bind="contact" />
     </div>
     <div class="flex flex-col gap-5">
@@ -55,21 +55,21 @@ const navRoute = routes.find((r) => r.path == route.path);
       <Title title="Contact Form" :icon="InboxIcon" />
       <div class="relative h-14 w-full rounded-md">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <UserIcon class="stroke-base-100" />
+          <UserIcon class="stroke-base-100 size-5" />
         </div>
         <input
           placeholder="Name"
-          class="text-base-50 bg-base-350 block h-full w-full rounded-md p-3 pl-12 text-sm"
+          class="text-base-50 bg-base-350 block h-full w-full rounded-md p-3 pl-10 text-sm"
           type="text"
         />
       </div>
       <div class="relative h-14 w-full rounded-md">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <AtSignIcon class="stroke-base-100" />
+          <AtSignIcon class="stroke-base-100 size-5" />
         </div>
         <input
           placeholder="Email"
-          class="text-base-50 bg-base-350 block h-full w-full rounded-md p-3 pl-12 text-sm"
+          class="text-base-50 bg-base-350 block h-full w-full rounded-md p-3 pl-10 text-sm"
           type="email"
         />
       </div>

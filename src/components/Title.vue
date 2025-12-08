@@ -12,11 +12,13 @@ const props = withDefaults(
     icon?: LucideIcon | IconDefinition;
     iconColor?: string;
     iconSize?: string;
+    headerSize?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   }>(),
   {
     titleColor: "base-50",
     iconSize: "6",
     iconColor: "base-50",
+    headerSize: "h1",
   },
 );
 
@@ -56,9 +58,9 @@ const fontAwesomeSize = computed((): FontAwesomeSize => {
 </script>
 
 <template>
-  <div class="flex items-center gap-2">
+  <component :is="headerSize" class="flex items-center gap-2">
     <FontAwesomeIcon v-if="icon && isFontAwesome" :icon="icon" :size="fontAwesomeSize" :class="`text-${iconColor}`" />
     <component v-else-if="icon" :is="icon" :class="`stroke-${iconColor} size-${iconSize}`" />
     <div class="font-bold" :class="`text-${titleSize} text-${titleColor}`">{{ title }}</div>
-  </div>
+  </component>
 </template>

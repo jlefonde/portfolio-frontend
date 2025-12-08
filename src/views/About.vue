@@ -2,10 +2,12 @@
 import Stat from "../components/Stat.vue";
 import Title from "../components/Title.vue";
 import ContactLink from "../components/ContactLink.vue";
+import Log from "../components/Log.vue";
 import { routes } from "../router/routes";
+import { logs } from "../data/logs";
 import { CONTACTS } from "../data/contacts";
 import { useRoute } from "vue-router";
-import { DownloadIcon } from "lucide-vue-next";
+import { DownloadIcon, TerminalIcon, LanguagesIcon } from "lucide-vue-next";
 
 const route = useRoute();
 const navRoute = routes.find((r) => r.path == route.path);
@@ -14,7 +16,7 @@ const navRoute = routes.find((r) => r.path == route.path);
 <template>
   <div class="grid grid-cols-5 grid-rows-8 gap-5">
     <div class="card col-span-3 row-span-4">
-      <Title :title="navRoute?.name?.toString() ?? ''" :icon="navRoute?.icon" :iconColor="navRoute?.primaryColor" />
+      <Title :title="navRoute?.name?.toString() ?? ''" :icon="navRoute?.icon" :icon-color="navRoute?.primaryColor" />
       <p class="text-base-50 text-justify text-sm leading-relaxed">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer consequat lacus posuere metus blandit, ac
         dignissim neque mollis. Nulla tincidunt rutrum blandit. Donec auctor non ante nec feugiat. Pellentesque porta
@@ -49,7 +51,14 @@ const navRoute = routes.find((r) => r.path == route.path);
       color="blue-light"
       redirect="/certifications"
     />
-    <div class="card col-span-3 row-span-4 row-start-5"></div>
-    <div class="card col-span-2 col-start-4 row-span-4 row-start-5"></div>
+    <div class="card col-span-3 row-span-4 row-start-5">
+      <Title title="Logs" :icon="TerminalIcon" />
+      <div class="bg-base-350 h-full rounded-md p-3">
+        <Log v-for="log in logs" v-bind="log" />
+      </div>
+    </div>
+    <div class="card col-span-2 col-start-4 row-span-4 row-start-5">
+      <Title title="Languages" :icon="LanguagesIcon" />
+    </div>
   </div>
 </template>

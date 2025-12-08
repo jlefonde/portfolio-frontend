@@ -42,3 +42,14 @@ export type Timeline = {
   highlights?: string[];
   tags?: Tag[];
 };
+
+export type LogLevel = {
+  name: "DEBUG" | "INFO" | "WARNING" | "ERROR";
+  color: string;
+};
+
+export type Log = {
+  timestamp: string;
+  logLevel?: LogLevel;
+  message: string;
+};
