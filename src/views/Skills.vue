@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Stat from "../components/Stat.vue";
+import Gauge from "../components/Gauge.vue";
 import Title from "../components/Title.vue";
 import VerticalBarChart from "../components/VerticalBarChart.vue";
 import { routes } from "../router/routes";
@@ -96,7 +96,7 @@ ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip);
         </div>
       </div>
     </div>
-    <Stat class="col-start-3 row-span-2 min-h-56" name="Visitors Count" value="50" color="orange-light" />
+    <Gauge :value="0.8" />
     <div class="card col-span-full row-span-4 row-start-5">
       <VerticalBarChart :bars="skillBarChart" />
     </div>
