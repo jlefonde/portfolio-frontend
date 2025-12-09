@@ -20,7 +20,7 @@ const navRoute = routes.find((r) => r.path == route.path);
   <div class="grid grid-cols-5 grid-rows-8 gap-5">
     <div class="card col-span-3 row-span-4">
       <Title :title="navRoute?.name?.toString() ?? ''" :icon="navRoute?.icon" :icon-color="navRoute?.primaryColor" />
-      <p class="text-base-50 text-justify text-sm leading-relaxed">
+      <p class="text-base-50 text-justify text-sm leading-relaxed grow">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer consequat lacus posuere metus blandit, ac
         dignissim neque mollis. Nulla tincidunt rutrum blandit. Donec auctor non ante nec feugiat. Pellentesque porta
         auctor tellus, sit amet fermentum nisi ornare a. Fusce elementum ac mauris a consequat. Mauris aliquet dolor
@@ -44,11 +44,11 @@ const navRoute = routes.find((r) => r.path == route.path);
         </a>
       </div>
     </div>
-    <Stat class="col-start-4 row-span-2 min-h-56" name="Visitors Count" value="50" color="orange-light" />
-    <Stat class="col-start-5 row-span-2 min-h-56" name="Month Cost-to-Date" value="$0.95" color="red-light" />
-    <Stat class="col-start-4 row-span-2 row-start-3 min-h-56" name="Response Time" value="<24h" color="green-light" />
+    <Stat class="col-start-4 row-span-2 min-h-56 min-w-56" name="Visitors Count" value="50" color="orange-light" />
+    <Stat class="col-start-5 row-span-2 min-h-56 min-w-56" name="Month Cost-to-Date" value="$0.95" color="red-light" />
+    <Stat class="col-start-4 row-span-2 row-start-3 min-h-56 min-w-56" name="Response Time" value="<24h" color="green-light" />
     <Stat
-      class="col-start-5 row-span-2 row-start-3 min-h-56"
+      class="col-start-5 row-span-2 row-start-3 min-h-56 min-w-56"
       name="Certifications Earned"
       :value="certifications.length.toString()"
       color="blue-light"

@@ -5,10 +5,10 @@ import VerticalBarChart from "../components/VerticalBarChart.vue";
 import { routes } from "../router/routes";
 import { skills } from "../data/skills";
 import { useRoute } from "vue-router";
-import type { Bar } from "../types";
 import { getColorHex } from "../composables/color";
 import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip } from "chart.js";
 import { Radar } from "vue-chartjs";
+import type { Bar } from "../types";
 
 const route = useRoute();
 const navRoute = routes.find((r) => r.path == route.path);
@@ -96,7 +96,12 @@ ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip);
         </div>
       </div>
     </div>
-    <Gauge :value="0.8" />
+    <Gauge class="col-start-3 row-span-2 min-h-56 min-w-72" :value="0.8" />
+    <Gauge class="col-start-4 row-span-2 min-h-56 min-w-72" :value="0.8" />
+    <Gauge class="col-start-5 row-span-2 min-h-56 min-w-72" :value="0.8" />
+    <Gauge class="col-start-3 row-span-2 row-start-3 min-h-56 min-w-72" :value="0.8" />
+    <Gauge class="col-start-4 row-span-2 row-start-3 min-h-56 min-w-72" :value="0.8" />
+    <Gauge class="col-start-5 row-span-2 row-start-3 min-h-56 min-w-72" :value="0.8" />
     <div class="card col-span-full row-span-4 row-start-5">
       <VerticalBarChart :bars="skillBarChart" />
     </div>
