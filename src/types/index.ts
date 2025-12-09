@@ -60,3 +60,13 @@ export type Bar = {
   mediumThreshold?: number;
   highThreshold?: number;
 };
+
+export type Category = {
+  name: "CI/CD" | "Cloud" | "Containerization" | "Monitoring" | "Infrastructure as Code" | "Programming";
+};
+
+export type Skill = {
+  name: string;
+  percentage: number;
+  categories: Category[];
+};

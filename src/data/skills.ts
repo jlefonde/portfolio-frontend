@@ -1,52 +1,64 @@
-import type { Bar } from "../types";
+import type { Skill } from "../types";
 
-export const skills: Bar[] = [
+export const skills: Skill[] = [
   {
-    label: "Docker",
+    name: "Docker",
     percentage: 70,
+    categories: [{ name: "Containerization" }],
   },
   {
-    label: "Kubernetes",
+    name: "Kubernetes",
     percentage: 32,
+    categories: [{ name: "Containerization" }],
   },
   {
-    label: "AWS",
+    name: "AWS",
     percentage: 70,
+    categories: [{ name: "Cloud" }],
   },
   {
-    label: "Terraform",
+    name: "Terraform",
     percentage: 90,
+    categories: [{ name: "Infrastructure as Code" }, { name: "Cloud" }],
   },
   {
-    label: "Ansible",
+    name: "Ansible",
     percentage: 70,
+    categories: [{ name: "Infrastructure as Code" }, { name: "Cloud" }],
   },
   {
-    label: "Github Actions",
+    name: "Github Actions",
     percentage: 85,
+    categories: [{ name: "CI/CD" }],
   },
   {
-    label: "ArgoCD",
+    name: "ArgoCD",
     percentage: 55,
+    categories: [{ name: "CI/CD" }],
   },
   {
-    label: "Prometheus",
+    name: "Prometheus",
     percentage: 35,
+    categories: [{ name: "Monitoring" }],
   },
   {
-    label: "Grafana",
+    name: "Grafana",
     percentage: 40,
+    categories: [{ name: "Monitoring" }],
   },
   {
-    label: "Bash",
+    name: "Bash",
     percentage: 70,
+    categories: [{ name: "Programming" }],
   },
   {
-    label: "Go",
+    name: "Go",
     percentage: 75,
+    categories: [{ name: "Programming" }],
   },
   {
-    label: "Python",
+    name: "Python",
     percentage: 75,
+    categories: [{ name: "Programming" }],
   },
 ];
