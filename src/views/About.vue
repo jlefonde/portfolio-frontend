@@ -3,9 +3,11 @@ import Stat from "../components/Stat.vue";
 import Title from "../components/Title.vue";
 import ContactLink from "../components/ContactLink.vue";
 import Log from "../components/Log.vue";
-import HorizontalBar from "../components/HorizontalBar.vue";
+import HorizontalBarChart from "../components/HorizontalBarChart.vue";
 import { routes } from "../router/routes";
 import { logs } from "../data/logs";
+import { certifications } from "../data/certifications";
+import { languages } from "../data/languages";
 import { CONTACTS } from "../data/contacts";
 import { useRoute } from "vue-router";
 import { DownloadIcon, TerminalIcon, LanguagesIcon } from "lucide-vue-next";
@@ -48,7 +50,7 @@ const navRoute = routes.find((r) => r.path == route.path);
     <Stat
       class="col-start-5 row-span-2 row-start-3 min-h-56"
       name="Certifications Earned"
-      value="1"
+      :value="certifications.length.toString()"
       color="blue-light"
       redirect="/certifications"
     />
@@ -60,11 +62,7 @@ const navRoute = routes.find((r) => r.path == route.path);
     </div>
     <div class="card col-span-2 col-start-4 row-span-4 row-start-5">
       <Title title="Languages" :icon="LanguagesIcon" />
-      <div class="flex h-full flex-col justify-around">
-        <HorizontalBar label="French" :percentage="100" />
-        <HorizontalBar label="English" :percentage="80" />
-        <HorizontalBar label="German" :percentage="25" />
-      </div>
+      <HorizontalBarChart :bars="languages" />
     </div>
   </div>
 </template>

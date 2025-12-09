@@ -1,15 +1,31 @@
 {
-  "hash": "2dd15414",
+  "hash": "6bb75cbb",
   "configHash": "a9c0a81f",
-  "lockfileHash": "cd016f18",
-  "browserHash": "d3b358d8",
+  "lockfileHash": "e22d0db4",
+  "browserHash": "9a4511ca",
   "optimized": {
     "vue": {
       "src": "../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "4b40a001",
+      "fileHash": "7563f52f",
+      "needsInterop": false
+    },
+    "vue-router": {
+      "src": "../../node_modules/vue-router/dist/vue-router.mjs",
+      "file": "vue-router.js",
+      "fileHash": "fa44c56a",
+      "needsInterop": false
+    },
+    "lucide-vue-next": {
+      "src": "../../node_modules/lucide-vue-next/dist/esm/lucide-vue-next.js",
+      "file": "lucide-vue-next.js",
+      "fileHash": "b6ae1595",
       "needsInterop": false
     }
   },
-  "chunks": {}
+  "chunks": {
+    "chunk-7QQ7KHPV": {
+      "file": "chunk-7QQ7KHPV.js"
+    }
+  }
 }

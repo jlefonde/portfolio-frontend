@@ -18,6 +18,6 @@ const barColor = getBarColor();
         :style="`width: ${percentage}%`"
       ></div>
     </div>
-    <div class="w-12 text-right" :class="`text-${barColor}-light`">{{ percentage }}%</div>
+    <div class="font-sm w-12 text-right" :class="`text-${barColor}-light`">{{ percentage }}%</div>
   </div>
 </template>

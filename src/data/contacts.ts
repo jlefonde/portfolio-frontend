@@ -31,5 +31,5 @@ export const availability: Availability = {
   currently: "Student at 42 Luxembourg",
   lookingFor: "Junior Devops Position",
   openTo: "Hybrid",
-  available: "Immediatly",
+  available: "Immediately",
 };
