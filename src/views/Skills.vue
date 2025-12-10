@@ -96,12 +96,7 @@ ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip);
         </div>
       </div>
     </div>
-    <Gauge class="col-start-3 row-span-2 min-h-56 min-w-72" :value="0.8" />
-    <Gauge class="col-start-4 row-span-2 min-h-56 min-w-72" :value="0.8" />
-    <Gauge class="col-start-5 row-span-2 min-h-56 min-w-72" :value="0.8" />
-    <Gauge class="col-start-3 row-span-2 row-start-3 min-h-56 min-w-72" :value="0.8" />
-    <Gauge class="col-start-4 row-span-2 row-start-3 min-h-56 min-w-72" :value="0.8" />
-    <Gauge class="col-start-5 row-span-2 row-start-3 min-h-56 min-w-72" :value="0.8" />
+    <Gauge class="row-span-2 min-h-56 min-w-72" v-for="category in categories" :name="category[0]" :value="Math.round(category[1].sum / category[1].count)" />
     <div class="card col-span-full row-span-4 row-start-5">
       <VerticalBarChart :bars="skillBarChart" />
     </div>
