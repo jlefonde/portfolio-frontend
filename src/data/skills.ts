@@ -47,6 +47,11 @@ export const skills: Skill[] = [
     categories: [{ name: "Monitoring" }],
   },
   {
+    name: "ELK",
+    percentage: 33,
+    categories: [{ name: "Monitoring" }],
+  },
+  {
     name: "Bash",
     percentage: 70,
     categories: [{ name: "Programming" }],
