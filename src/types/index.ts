@@ -1,21 +1,21 @@
 import type { LucideIcon } from "lucide-vue-next";
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
-export type Contact = {
+export interface Contact {
   title: string;
   icon: LucideIcon | IconDefinition;
   color: string;
   href: string;
   linkText: string;
-};
+}
 
-export type Tag = {
+export interface Tag {
   name: string;
   textColor?: string;
   bgColor?: string;
-};
+}
 
-export type Certification = {
+export interface Certification {
   name: string;
   issuer: string;
   logoSrc: string;
@@ -23,17 +23,17 @@ export type Certification = {
   expires: string;
   verifyLink?: string;
   tags?: Tag[];
-};
+}
 
-export type Availability = {
+export interface Availability {
   location: string;
   currently: string;
   lookingFor: string;
   openTo: string;
   available: string;
-};
+}
 
-export type Timeline = {
+export interface Timeline {
   name: string;
   location: string;
   from: string;
@@ -41,32 +41,39 @@ export type Timeline = {
   description?: string;
   highlights?: string[];
   tags?: Tag[];
-};
+}
 
-export type LogLevel = {
+export interface LogLevel {
   name: "DEBUG" | "INFO" | "WARNING" | "ERROR";
   color: string;
-};
+}
 
-export type Log = {
+export interface Log {
   timestamp: string;
   logLevel?: LogLevel;
   message: string;
-};
+}
 
-export type Bar = {
+export interface Bar {
   label: string;
   percentage: number;
   mediumThreshold?: number;
   highThreshold?: number;
-};
+}
 
-export type Category = {
+export interface Category {
   name: "CI/CD" | "Cloud" | "Containerization" | "Monitoring" | "Infrastructure as Code" | "Programming";
-};
+}
 
-export type Skill = {
+export interface Skill {
   name: string;
   percentage: number;
   categories: Category[];
-};
+}
+
+export interface Project {
+  name: string;
+  highlight: string;
+  teamSize: number;
+  tags: Tag[];
+}

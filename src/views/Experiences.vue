@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { routes } from "../router/routes";
+import { routes } from "../router";
 import { experiences } from "../data/experiences";
 import { useRoute } from "vue-router";
 import Title from "../components/Title.vue";

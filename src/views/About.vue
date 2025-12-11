@@ -3,14 +3,13 @@ import Stat from "../components/Stat.vue";
 import Title from "../components/Title.vue";
 import ContactLink from "../components/ContactLink.vue";
 import Log from "../components/Log.vue";
-import HorizontalBarChart from "../components/HorizontalBarChart.vue";
-import { routes } from "../router/routes";
+import { routes } from "../router";
 import { logs } from "../data/logs";
+import { projects } from "../data/projects";
 import { certifications } from "../data/certifications";
-import { languages } from "../data/languages";
 import { CONTACTS } from "../data/contacts";
 import { useRoute } from "vue-router";
-import { DownloadIcon, TerminalIcon, LanguagesIcon } from "lucide-vue-next";
+import { DownloadIcon, TerminalIcon, StarIcon } from "lucide-vue-next";
 
 const route = useRoute();
 const navRoute = routes.find((r) => r.path == route.path);
@@ -46,7 +45,13 @@ const navRoute = routes.find((r) => r.path == route.path);
     </div>
     <Stat class="col-start-4 row-span-2 min-h-56 min-w-56" name="Visitors Count" value="50" color="orange-light" />
     <Stat class="col-start-5 row-span-2 min-h-56 min-w-56" name="Month Cost-to-Date" value="$0.95" color="red-light" />
-    <Stat class="col-start-4 row-span-2 row-start-3 min-h-56 min-w-56" name="Response Time" value="<24h" color="green-light" />
+    <Stat
+      class="col-start-4 row-span-2 row-start-3 min-h-56 min-w-56"
+      name="Projects Completed"
+      :value="`${projects.length.toString()}+`"
+      color="green-light"
+      redirect="/projects"
+    />
     <Stat
       class="col-start-5 row-span-2 row-start-3 min-h-56 min-w-56"
       name="Certifications Earned"
@@ -61,8 +66,7 @@ const navRoute = routes.find((r) => r.path == route.path);
       </div>
     </div>
     <div class="card col-span-2 col-start-4 row-span-4 row-start-5">
-      <Title title="Languages" :icon="LanguagesIcon" />
-      <HorizontalBarChart :bars="languages" />
+      <Title title="Featured Projects" :icon="StarIcon" />
     </div>
   </div>
 </template>

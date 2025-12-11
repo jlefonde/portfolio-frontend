@@ -4,7 +4,7 @@ import ContactLink from "../components/ContactLink.vue";
 import Title from "../components/Title.vue";
 import InfoItem from "../components/InfoItem.vue";
 import { CONTACTS, availability } from "../data/contacts";
-import { routes } from "../router/routes";
+import { routes } from "../router";
 import {
   DownloadIcon,
   CalendarSearchIcon,

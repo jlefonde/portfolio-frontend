@@ -2,7 +2,7 @@
 import Gauge from "../components/Gauge.vue";
 import Title from "../components/Title.vue";
 import VerticalBarChart from "../components/VerticalBarChart.vue";
-import { routes } from "../router/routes";
+import { routes } from "../router";
 import { skills } from "../data/skills";
 import { useRoute } from "vue-router";
 import { getColorHex } from "../composables/color";

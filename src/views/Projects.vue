@@ -2,7 +2,8 @@
 import Title from "../components/Title.vue";
 import InfoItem from "../components/InfoItem.vue";
 import Tag from "../components/Tag.vue";
-import { routes } from "../router/routes";
+import { projects } from "../data/projects";
+import { routes } from "../router";
 import { useRoute } from "vue-router";
 import { ref } from "vue"
 import {
@@ -30,12 +31,16 @@ function toggleRow(rowIndex: number) {
   } else {
     expandedRows.value.push(rowIndex);
   }
-};
+}
 
 function toggleAllRows() {
-  // TODO: use projects length from props
-  for (let i = 0; i < 1; i++) {
-    toggleRow(i)
+  if (expandedRows.value.length > 0) {
+    expandedRows.value.splice(0,  expandedRows.value.length);
+  } else {
+    expandedRows.value.splice(0,  expandedRows.value.length);
+    for (let i = 0; i < projects.length; i++) {
+      expandedRows.value.push(i);
+    }
   }
 }
 </script>
@@ -53,38 +58,30 @@ function toggleAllRows() {
                 <ListChevronsUpDownIcon v-else class="stroke-base-50 hover:stroke-base-100"/>
               </th>
               <th class="px-4 py-3">Project</th>
-              <th class="px-4 py-3">Highlights</th>
+              <th class="px-4 py-3">Highlight</th>
               <th class="px-4 py-3 min-w-30">Team Size</th>
               <th class="px-4 py-3">Stack</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-base-150 bg-base-350 text-base-50">
-            <template v-if="true">
-              <tr class="hover:bg-base-300/50" @click="toggleRow(0)">
+            <template v-for="(project, index) in projects" :key="project.name">
+              <tr class="hover:bg-base-300/50" @click="toggleRow(index)">
                 <td class="px-4 py-3">
-                  <ChevronUpIcon v-if="expandedRows.includes(0)" class="stroke-base-50"/>
+                  <ChevronUpIcon v-if="expandedRows.includes(index)" class="stroke-base-50"/>
                   <ChevronDownIcon v-else class="stroke-base-50"/>
                 </td>
-                <td class="px-4 py-3 font-bold">ft_transcendence</td>
-                <td class="px-4 py-3">Multiplayer Pong webapp with Docker, ELK log management, and Prometheus/Grafana monitoring</td>
-                <td class="px-4 py-3"><InfoItem value="4" :icon="UsersIcon" /></td>
+                <td class="px-4 py-3 font-bold">{{ project.name }}</td>
+                <td class="px-4 py-3">{{ project.highlight }}</td>
+                <td class="px-4 py-3">
+                  <InfoItem :value="project.teamSize.toString()" :icon="project.teamSize > 1 ? UsersIcon : UserIcon" />
+                </td>
                 <td class="px-4 py-3">
                   <div class="flex flex-wrap gap-1">
-                    <Tag name="ELK"/>
-                    <Tag name="Grafana"/>
-                    <Tag name="Prometheus"/>
-                    <Tag name="Django"/>
-                    <Tag name="Python"/>
-                    <Tag name="Nginx"/>
-                    <Tag name="Postgres"/>
-                    <Tag name="Docker"/>
-                    <Tag name="HTML"/>
-                    <Tag name="CSS"/>
-                    <Tag name="JS"/>
+                    <Tag v-for="tag in project.tags" :key="tag.name" v-bind="tag" />
                   </div>
                 </td>
               </tr>
-              <tr v-if="expandedRows.includes(0)">
+              <tr v-if="expandedRows.includes(index)">
                 <td class="px-4 py-3" colspan="5">test</td>
               </tr>
             </template>

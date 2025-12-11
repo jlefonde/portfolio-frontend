@@ -1,0 +1,77 @@
+import type { Project } from "../types";
+
+export const projects: Project[] = [
+  {
+    name: "ft_transcendence",
+    highlight: "Multiplayer Pong webapp with Docker, ELK log management, and Prometheus/Grafana monitoring",
+    teamSize: 4,
+    tags: [
+      { name: "ELK" },
+      { name: "Grafana" },
+      { name: "Prometheus" },
+      { name: "Django" },
+      { name: "Ansible" },
+      { name: "Python" },
+      { name: "Nginx" },
+      { name: "Postgres" },
+      { name: "Docker" },
+      { name: "HTML" },
+      { name: "CSS" },
+      { name: "JS" },
+    ],
+  },
+  {
+    name: "webserv",
+    highlight: "Web server in C++, handling HTTP requests, static content, uploads, and CGI",
+    teamSize: 2,
+    tags: [
+      { name: "C++" },
+      { name: "Nginx" },
+      { name: "HTTP" },
+      { name: "CGI" },
+    ],
+  },
+  {
+    name: "taskmaster",
+    highlight:
+      "Process supervision system in Go, managing multiple processes with automatic restart policies and logger",
+    teamSize: 1,
+    tags: [
+      { name: "Go" },
+      { name: "Syslog" },
+      { name: "Supervisor" },
+      { name: "YAML" }],
+  },
+  {
+    name: "cloud-1",
+    highlight: "Automated WordPress deployment on cloud infrastructure using Ansible and Docker containers",
+    teamSize: 1,
+    tags: [
+      { name: "Ansible" },
+      { name: "Docker" },
+      { name: "AWS" },
+      { name: "Azure" }
+    ],
+  },
+  {
+    name: "inception-of-things",
+    highlight: "Kubernetes cluster setup with K3s/K3d, Vagrant VMs, and ArgoCD",
+    teamSize: 1,
+    tags: [
+      { name: "Kubernetes" },
+      { name: "K3d" },
+      { name: "K3s" },
+      { name: "Vagrant" },
+      { name: "ArgoCD" },
+      { name: "Ansible" },
+    ],
+  },
+  {
+    name: "matt-daemon",
+    highlight: "Unix daemon in C++ with socket communication, signal handling, file locking and logging",
+    teamSize: 1,
+    tags: [
+      { name: "C++" },
+      { name: "Daemon" }],
+  },
+];
