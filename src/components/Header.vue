@@ -14,6 +14,8 @@ import { DownloadIcon } from "lucide-vue-next";
       <div class="text-green-light mr-2">AVAILABLE FOR HIRE</div>
     </div>
     <div class="bg-base-150 h-8 w-px"></div>
-    <DownloadIcon class="stroke-base-100 hover:stroke-base-50 cursor-pointer" />
+    <div class="flex item-center size-8 text-base-100 hover:rounded-sm hover:bg-base-150 cursor-pointer" >
+      <DownloadIcon class="m-auto"/>
+    </div>
   </header>
 </template>

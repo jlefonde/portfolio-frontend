@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { routes } from "../router";
 import { useRoute } from "vue-router";
-import { PanelLeftIcon } from "lucide-vue-next";
+import { DownloadIcon, PanelLeftIcon } from "lucide-vue-next";
 
 const route = useRoute();
 </script>
 
 <template>
   <aside class="bg-base-300 border-base-150 flex h-screen w-80 flex-col border-r">
-    <header class="border-base-150 flex h-14 items-center justify-between border-b p-5">
+    <header class="border-base-150 flex h-14 items-center justify-between border-b p-3">
       <div class="flex items-center gap-3">
         <div class="bg-base-150 size-9"></div>
         <div class="flex flex-col">
@@ -16,7 +16,9 @@ const route = useRoute();
           <div class="text-base-100 text-sm">Devops Engineer</div>
         </div>
       </div>
-      <PanelLeftIcon class="hover:stroke-base-50 stroke-base-100 cursor-pointer" />
+      <div class="flex item-center size-8 text-base-100 hover:rounded-sm hover:bg-base-150 cursor-pointer" >
+        <PanelLeftIcon class="m-auto"/>
+      </div>
     </header>
     <nav class="flex flex-1 flex-col gap-3 p-5">
       <RouterLink
@@ -34,8 +36,8 @@ const route = useRoute();
           :is="navRoute.icon"
           :class="
             route.path === navRoute.path
-              ? `stroke-${navRoute.primaryColor}`
-              : 'stroke-base-100 group-hover:stroke-base-50'
+              ? `text-${navRoute.primaryColor}`
+              : 'text-base-100 group-hover:text-base-50'
           "
         />
         {{ navRoute.name }}

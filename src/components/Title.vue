@@ -60,7 +60,7 @@ const fontAwesomeSize = computed((): FontAwesomeSize => {
 <template>
   <component :is="headerSize" class="flex items-center gap-2">
     <FontAwesomeIcon v-if="icon && isFontAwesome" :icon="icon" :size="fontAwesomeSize" :class="`text-${iconColor}`" />
-    <component v-else-if="icon" :is="icon" :class="`stroke-${iconColor} size-${iconSize}`" />
+    <component v-else-if="icon" :is="icon" :class="`text-${iconColor} size-${iconSize}`" />
     <div class="font-bold" :class="`text-${titleSize} text-${titleColor}`">{{ title }}</div>
   </component>
 </template>

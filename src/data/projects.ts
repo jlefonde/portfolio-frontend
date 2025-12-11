@@ -18,7 +18,11 @@ export const projects: Project[] = [
       { name: "HTML" },
       { name: "CSS" },
       { name: "JS" },
+      { name: "JWT" },
+      { name: "2FA" },
+      { name: "OAuth" },
     ],
+    featured: true,
   },
   {
     name: "webserv",
@@ -30,6 +34,7 @@ export const projects: Project[] = [
       { name: "HTTP" },
       { name: "CGI" },
     ],
+    featured: true,
   },
   {
     name: "taskmaster",
@@ -40,7 +45,9 @@ export const projects: Project[] = [
       { name: "Go" },
       { name: "Syslog" },
       { name: "Supervisor" },
-      { name: "YAML" }],
+      { name: "YAML" }
+    ],
+    featured: false,
   },
   {
     name: "cloud-1",
@@ -52,6 +59,7 @@ export const projects: Project[] = [
       { name: "AWS" },
       { name: "Azure" }
     ],
+    featured: false,
   },
   {
     name: "inception-of-things",
@@ -65,6 +73,7 @@ export const projects: Project[] = [
       { name: "ArgoCD" },
       { name: "Ansible" },
     ],
+    featured: false,
   },
   {
     name: "matt-daemon",
@@ -72,6 +81,8 @@ export const projects: Project[] = [
     teamSize: 1,
     tags: [
       { name: "C++" },
-      { name: "Daemon" }],
+      { name: "Daemon" }
+    ],
+    featured: false,
   },
 ];

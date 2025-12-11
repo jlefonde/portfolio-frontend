@@ -76,4 +76,5 @@ export interface Project {
   highlight: string;
   teamSize: number;
   tags: Tag[];
+  featured: boolean;
 }

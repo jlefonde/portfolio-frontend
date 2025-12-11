@@ -37,7 +37,7 @@ const navRoute = routes.find((r) => r.path == route.path);
         download
         class="bg-green-dark hover:bg-green-dark/80 flex h-full items-center justify-center gap-2 rounded-md p-3 transition-colors hover:opacity-80"
       >
-        <DownloadIcon class="stroke-green-light size-5" />
+        <DownloadIcon class="text-green-light size-5" />
         <span class="text-green-light text-sm font-bold">Download Resume</span>
       </a>
     </div>
@@ -55,7 +55,7 @@ const navRoute = routes.find((r) => r.path == route.path);
       <Title title="Contact Form" :icon="InboxIcon" />
       <div class="relative h-14 w-full rounded-md">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <UserIcon class="stroke-base-100 size-5" />
+          <UserIcon class="text-base-100 size-5" />
         </div>
         <input
           placeholder="Name"
@@ -65,7 +65,7 @@ const navRoute = routes.find((r) => r.path == route.path);
       </div>
       <div class="relative h-14 w-full rounded-md">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <AtSignIcon class="stroke-base-100 size-5" />
+          <AtSignIcon class="text-base-100 size-5" />
         </div>
         <input
           placeholder="Email"
@@ -78,7 +78,7 @@ const navRoute = routes.find((r) => r.path == route.path);
         type="submit"
         class="bg-green-dark hover:bg-green-dark/80 flex h-14 items-center justify-center gap-2 rounded-md p-3 transition-colors hover:opacity-80"
       >
-        <SendIcon class="stroke-green-light size-5" />
+        <SendIcon class="text-green-light size-5" />
         <span class="text-green-light text-sm font-bold">Send Message</span>
       </button>
     </form>

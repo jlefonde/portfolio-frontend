@@ -14,7 +14,7 @@ defineProps<{
     <div class="relative flex w-full items-center justify-center">
       <div class="text-base-50 font-bold">{{ name }}</div>
       <RouterLink v-if="redirect" :to="redirect" class="absolute right-0">
-        <ArrowRight class="hover:stroke-base-50 stroke-base-100" />
+        <ArrowRight class="text-base-100 hover:rounded-sm hover:bg-base-150" />
       </RouterLink>
     </div>
     <div class="m-auto text-6xl font-bold" :class="`text-${color}`">{{ value }}</div>

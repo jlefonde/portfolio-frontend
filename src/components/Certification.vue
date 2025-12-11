@@ -29,8 +29,8 @@ defineProps<Certification>();
       :href="verifyLink"
       target="_blank"
     >
-      <SquareArrowOutUpRight class="stroke-green-light size-5" />
-      <span class="text-green-light text-sm font-bold"> Verify Credential</span>
+      <SquareArrowOutUpRight class="text-green-light size-5" />
+      <span class="text-green-light text-sm font-bold">Verify Credential</span>
     </a>
   </div>
 </template>

@@ -54,8 +54,8 @@ function toggleAllRows() {
           <thead class="bg-base-200 text-base-50 uppercase font-bold">
             <tr>
               <th class="px-4 py-3 cursor-pointer" @click="toggleAllRows">
-                <ListChevronsDownUpIcon v-if="expandedRows.length > 0" class="stroke-base-50 hover:stroke-base-100"/>
-                <ListChevronsUpDownIcon v-else class="stroke-base-50 hover:stroke-base-100"/>
+                <ListChevronsDownUpIcon v-if="expandedRows.length > 0" class="text-base-50 hover:text-base-100"/>
+                <ListChevronsUpDownIcon v-else class="text-base-50 hover:text-base-100"/>
               </th>
               <th class="px-4 py-3">Project</th>
               <th class="px-4 py-3">Highlight</th>
@@ -67,8 +67,8 @@ function toggleAllRows() {
             <template v-for="(project, index) in projects" :key="project.name">
               <tr class="hover:bg-base-300/50" @click="toggleRow(index)">
                 <td class="px-4 py-3">
-                  <ChevronUpIcon v-if="expandedRows.includes(index)" class="stroke-base-50"/>
-                  <ChevronDownIcon v-else class="stroke-base-50"/>
+                  <ChevronUpIcon v-if="expandedRows.includes(index)" class="text-base-50"/>
+                  <ChevronDownIcon v-else class="text-base-50"/>
                 </td>
                 <td class="px-4 py-3 font-bold">{{ project.name }}</td>
                 <td class="px-4 py-3">{{ project.highlight }}</td>
@@ -82,7 +82,9 @@ function toggleAllRows() {
                 </td>
               </tr>
               <tr v-if="expandedRows.includes(index)">
-                <td class="px-4 py-3" colspan="5">test</td>
+                <td class="px-4 py-3" colspan="5">
+
+                </td>
               </tr>
             </template>
           </tbody>

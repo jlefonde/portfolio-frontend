@@ -18,7 +18,7 @@ withDefaults(
 
 <template>
   <div class="flex gap-2 text-sm" :class="`text-${textColor}`">
-    <component :is="icon" class="size-5" :class="`stroke-${iconColor}`" />
+    <component :is="icon" class="size-5" :class="`text-${iconColor}`" />
     <b v-if="label">{{ label }}:</b>
     {{ value }}
   </div>

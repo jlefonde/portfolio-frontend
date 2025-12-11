@@ -2,15 +2,13 @@ import { type RouteRecordRaw } from "vue-router";
 import AboutView from "../views/About.vue";
 import SkillsView from "../views/Skills.vue";
 import ExperiencesView from "../views/Experiences.vue";
-import EducationView from "../views/Education.vue";
 import ProjectsView from "../views/Projects.vue";
 import CertificationsView from "../views/Certifications.vue";
 import ContactView from "../views/Contact.vue";
 import {
   UserIcon,
   CodeIcon,
-  BriefcaseIcon,
-  GraduationCapIcon,
+  ClipboardClockIcon,
   FolderCodeIcon,
   TrophyIcon,
   MailIcon,
@@ -53,18 +51,9 @@ export const routes: Route[] = [
     name: "Experiences",
     path: "/experiences",
     component: ExperiencesView,
-    icon: BriefcaseIcon,
+    icon: ClipboardClockIcon,
     primaryColor: "yellow-light",
     secondaryColor: "yellow-dark",
-    addToNav: true,
-  },
-  {
-    name: "Education",
-    path: "/education",
-    component: EducationView,
-    icon: GraduationCapIcon,
-    primaryColor: "green-light",
-    secondaryColor: "green-dark",
     addToNav: true,
   },
   {
@@ -72,8 +61,8 @@ export const routes: Route[] = [
     path: "/projects",
     component: ProjectsView,
     icon: FolderCodeIcon,
-    primaryColor: "cyan-light",
-    secondaryColor: "cyan-dark",
+    primaryColor: "green-light",
+    secondaryColor: "green-dark",
     addToNav: true,
   },
   {

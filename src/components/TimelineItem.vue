@@ -22,7 +22,7 @@ const secondaryColor = computed(() => {
 </script>
 
 <template>
-  <div class="flex w-1/2 gap-3">
+  <div class="flex gap-3">
     <div class="flex flex-col items-center">
       <div class="size-6 rounded-full ring-3" :class="`bg-${primaryColor} ring-${secondaryColor}`"></div>
       <div class="w-1 grow" :class="`bg-${primaryColor}`"></div>
