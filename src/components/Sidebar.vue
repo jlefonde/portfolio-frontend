@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { routes } from "../router";
 import { useRoute } from "vue-router";
-import { DownloadIcon, PanelLeftIcon } from "lucide-vue-next";
+import { PanelLeftIcon } from "lucide-vue-next";
 
 const route = useRoute();
 </script>
@@ -16,7 +16,7 @@ const route = useRoute();
           <div class="text-base-100 text-sm">Devops Engineer</div>
         </div>
       </div>
-      <div class="flex item-center size-8 text-base-100 hover:rounded-sm hover:bg-base-150 cursor-pointer" >
+      <div class="flex item-center size-8 text-base-100 hover:rounded-sm hover:text-base-50 hover:bg-base-150 cursor-pointer" >
         <PanelLeftIcon class="m-auto"/>
       </div>
     </header>

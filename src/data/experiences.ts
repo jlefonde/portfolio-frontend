@@ -16,7 +16,7 @@ export const experiences: Record<string, Timeline[]> = {
       tags: [
         { name: "C#" },
         { name: ".NET" },
-        { name: "SQL" },
+        { name: "MySQL" },
         { name: "HTML" },
         { name: "CSS" },
         { name: "JS" },

@@ -11,7 +11,6 @@ const props = withDefaults(defineProps<{
   highThreshold: 66,
 });
 
-
 const cssProps = computed(() => {
   let gaugeColor = "var(--color-red-light)";
   if (props.value > props.highThreshold) gaugeColor = "var(--color-green-light)";

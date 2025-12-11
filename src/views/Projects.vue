@@ -14,6 +14,8 @@ import {
   ChevronDownIcon,
   ListChevronsUpDownIcon,
   ListChevronsDownUpIcon,
+  StarIcon,
+  InfoIcon,
 } from "lucide-vue-next"
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -49,23 +51,38 @@ function toggleAllRows() {
   <div class="grid grid-cols-5 grid-rows-8 gap-5">
     <div class="card col-span-full row-span-4">
       <Title :title="navRoute?.name?.toString() ?? ''" :icon="navRoute?.icon" :icon-color="navRoute?.primaryColor" />
-      <div class="overflow-hidden rounded-lg border border-base-150">
+      <div class="rounded-lg border border-base-150">
         <table class="w-full text-left text-sm text-base-50">
-          <thead class="bg-base-200 text-base-50 uppercase font-bold">
+          <thead class="text-base-50 uppercase font-bold">
             <tr>
-              <th class="px-4 py-3 cursor-pointer" @click="toggleAllRows">
+              <th class="px-4 py-3 cursor-pointer bg-base-200 rounded-tl-lg" @click="toggleAllRows">
                 <ListChevronsDownUpIcon v-if="expandedRows.length > 0" class="text-base-50 hover:text-base-100"/>
                 <ListChevronsUpDownIcon v-else class="text-base-50 hover:text-base-100"/>
               </th>
-              <th class="px-4 py-3">Project</th>
-              <th class="px-4 py-3">Highlight</th>
-              <th class="px-4 py-3 min-w-30">Team Size</th>
-              <th class="px-4 py-3">Stack</th>
+              <th class="px-4 py-3 bg-base-200">Project</th>
+              <th class="px-4 py-3 bg-base-200">Highlight</th>
+              <th class="px-4 py-3 min-w-30 bg-base-200">Team Size</th>
+              <th class="px-4 py-3 bg-base-200">Stack</th>
+              <th class="px-4 py-3 bg-base-200 rounded-tr-lg">
+                <div class="relative group flex items-center justify-center">
+                  <InfoIcon class="cursor-help text-base-50 transition-colors hover:text-base-100"/>
+                  <div class="absolute right-full top-1/2 z-50 mr-3 flex w-max origin-right -translate-y-1/2   flex-col gap-3 rounded-lg border border-base-150 bg-base-350/95 p-3 text-xs shadow-xl backdrop-blur-sm transition-all duration-200 ease-out scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100">
+                    <div class="flex items-center gap-2 text-base-50">
+                      <StarIcon class="size-4" :class="`text-${navRoute?.primaryColor}`"/>
+                      <span>Featured Project</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-base-50">
+                      <StarIcon class="size-4 text-base-100"/>
+                      <span>Standard Project</span>
+                    </div>
+                  </div>
+                </div>
+              </th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-base-150 bg-base-350 text-base-50">
+          <tbody class="divide-y divide-base-150 text-base-50 [&>tr:last-child>td:first-child]:rounded-bl-lg [&>tr:last-child>td:last-child]:rounded-br-lg">
             <template v-for="(project, index) in projects" :key="project.name">
-              <tr class="hover:bg-base-300/50" @click="toggleRow(index)">
+              <tr class="bg-base-350 hover:bg-base-300/50" @click="toggleRow(index)">
                 <td class="px-4 py-3">
                   <ChevronUpIcon v-if="expandedRows.includes(index)" class="text-base-50"/>
                   <ChevronDownIcon v-else class="text-base-50"/>
@@ -80,10 +97,12 @@ function toggleAllRows() {
                     <Tag v-for="tag in project.tags" :key="tag.name" v-bind="tag" />
                   </div>
                 </td>
+                <td class="px-4 py-3">
+                  <StarIcon :class="project.featured ? `text-${navRoute?.primaryColor}`: `text-base-100`"/>
+                </td>
               </tr>
-              <tr v-if="expandedRows.includes(index)">
-                <td class="px-4 py-3" colspan="5">
-
+              <tr v-if="expandedRows.includes(index)" class="bg-base-350">
+                <td class="px-4 py-3" colspan="6">
                 </td>
               </tr>
             </template>
