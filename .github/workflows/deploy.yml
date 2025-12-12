@@ -19,7 +19,7 @@ jobs:
     name: Deploy to S3 bucket
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v5
 
       - name: Configure AWS credentials
@@ -28,14 +28,18 @@ jobs:
           role-to-assume: ${{ vars.AWS_TF_ROLE_ARN }}
           aws-region: ${{ vars.AWS_REGION }}
 
-      - name: Restore file timestamps
-        run: |
-          git ls-files | while read file; do
-            timestamp=$(git log -1 --date=iso --format=%ad -- "$file")
-            touch -d "$timestamp" $file
-          done
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
 
-      - name: Retrieve S3 bucket ARN
+      - name: Install NPM Packages
+        run: npm install
+
+      - name: Build App
+        run: npm run build
+
+      - name: Retrieve S3 Bucket ARN
         id: get-bucket
         run: |
           BUCKET_NAME=$(aws ssm get-parameter \
@@ -44,10 +48,10 @@ jobs:
             --output text)
           echo "name=$BUCKET_NAME" >> "$GITHUB_OUTPUT"
 
-      - name: Synchronize S3 bucket
-        run: aws s3 sync ./resume "s3://${{ steps.get-bucket.outputs.name }}" --delete --no-progress | tee s3_sync.stdout
+      - name: Synchronize S3 Bucket
+        run: aws s3 sync ./dist "s3://${{ steps.get-bucket.outputs.name }}" --delete --no-progress | tee s3_sync.stdout
 
-      - name: Retrieve CloudFront distribution ID
+      - name: Retrieve CloudFront Distribution ID
         id: get-distribution
         run: |
           DISTRIBUTION_ID=$(aws ssm get-parameter \
@@ -56,7 +60,7 @@ jobs:
             --output text)
           echo "id=$DISTRIBUTION_ID" >> "$GITHUB_OUTPUT"
 
-      - name: Invalidate CloudFront cache
+      - name: Invalidate CloudFront Cache
         if: ${{ inputs.invalidate-cache }}
         run: |
           if grep -qE "upload|delete" s3_sync.stdout; then
