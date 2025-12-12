@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Stat from "../components/Stat.vue";
 import Title from "../components/Title.vue";
+import Tag from "../components/Tag.vue";
 import ContactLink from "../components/ContactLink.vue";
 import Log from "../components/Log.vue";
 import { routes } from "../router";
@@ -69,8 +70,22 @@ const navRoute = routes.find((r) => r.path == route.path);
         <Log v-for="log in logs" v-bind="log" />
       </div>
     </div>
-    <div class="card col-span-2 col-start-4 row-span-4 row-start-5">
+    <div class="card col-span-2 col-start-4 row-span-4 row-start-5 text-base-50">
       <Title title="Featured Projects" :icon="StarIcon" />
+      <div class="grow flex flex-col gap-3">
+        <RouterLink
+          v-for="project in projects.filter((p) => p.featured)"
+          :key="project.name"
+          class="flex flex-col bg-base-350 rounded-sm p-3 w-full gap-2 cursor-pointer hover:scale-102 hover:bg-base-350/65 transition-all"
+          :to="{ path: '/projects', query: { id: projects.indexOf(project) }}"
+        >
+          <Title :title="project.name" header-size="h2" title-size="sm" />
+          <div class="text-sm">{{ project.highlight }}</div>
+          <div class="flex flex-wrap gap-1">
+            <Tag v-for="tag in project.tags" :key="tag.name" v-bind="tag" />
+          </div>
+        </RouterLink>
+      </div>
     </div>
   </div>
 </template>

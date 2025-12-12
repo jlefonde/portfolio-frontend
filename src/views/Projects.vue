@@ -20,7 +20,7 @@ import InfoTooltip from "../components/InfoTooltip.vue";
 const route = useRoute();
 const navRoute = routes.find((r) => r.path == route.path);
 
-const expandedRows = ref<number[]>([0])
+const expandedRows = ref<number[]>([parseInt(route.query.id as string) ?? 0])
 
 function toggleRow(rowIndex: number) {
   const index = expandedRows.value.indexOf(rowIndex);

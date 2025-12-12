@@ -2,7 +2,7 @@ import type { Project } from "../types";
 
 export const projects: Project[] = [
   {
-    name: "ft_transcendence",
+    name: "transcendence",
     highlight: "Multiplayer Pong web application with Docker, ELK log management, and Prometheus/Grafana monitoring",
     teamSize: 4,
     tags: [

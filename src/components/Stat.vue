@@ -24,7 +24,7 @@ const slots = useSlots()
       <div class="text-base-50 font-bold">{{ name }}</div>
       <div class="flex-1 text-right">
         <RouterLink v-if="redirect" :to="redirect">
-          <ArrowRight class="text-base-100 hover:rounded-sm hover:text-base-50 hover:bg-base-150" />
+          <ArrowRight class="text-base-100 hover:rounded-sm hover:text-base-50 hover:bg-base-150 inline-block" />
         </RouterLink>
       </div>
     </div>
