@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Log, LogLevel } from "../types";
+import type { Log } from "../types";
 import { logLevels } from "../data/logs";
 
 const props = defineProps<Log>();

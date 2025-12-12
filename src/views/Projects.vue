@@ -9,7 +9,6 @@ import { ref } from "vue"
 import {
   UserIcon,
   UsersIcon,
-  ExternalLinkIcon,
   ChevronUpIcon,
   ChevronDownIcon,
   ListChevronsUpDownIcon,
@@ -17,8 +16,6 @@ import {
   StarIcon,
   InfoIcon,
 } from "lucide-vue-next"
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 const route = useRoute();
 const navRoute = routes.find((r) => r.path == route.path);
