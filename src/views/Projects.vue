@@ -45,10 +45,10 @@ function toggleAllRows() {
 </script>
 
 <template>
-  <div class="grid grid-cols-5 grid-rows-8 gap-5">
-    <div class="card col-span-full row-span-4">
+  <div class="grid grid-cols-5 gap-5">
+    <div class="card col-span-full">
       <Title :title="navRoute?.name?.toString() ?? ''" :icon="navRoute?.icon" :icon-color="navRoute?.primaryColor" />
-      <div class="rounded-lg border border-base-150">
+      <div class="rounded-lg border border-base-150 overflow-x-auto">
         <table class="w-full text-left text-sm text-base-50">
           <thead class="text-base-50 uppercase font-bold">
             <tr>
