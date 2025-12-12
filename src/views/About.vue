@@ -44,7 +44,11 @@ const navRoute = routes.find((r) => r.path == route.path);
       </div>
     </div>
     <Stat class="col-start-4 row-span-2 min-h-56 min-w-56" name="Visitors Count" value="50" color="orange-light" />
-    <Stat class="col-start-5 row-span-2 min-h-56 min-w-56" name="Month Cost-to-Date" value="$0.95" color="red-light" />
+    <Stat class="col-start-5 row-span-2 min-h-56 min-w-56" name="Month Cost-to-Date" value="$0.95" color="red-light">
+      <div class="flex items-center gap-2 text-base-50">
+        something
+      </div>
+    </Stat>
     <Stat
       class="col-start-4 row-span-2 row-start-3 min-h-56 min-w-56"
       name="Projects Completed"

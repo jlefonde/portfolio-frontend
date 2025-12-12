@@ -14,8 +14,8 @@ import {
   ListChevronsUpDownIcon,
   ListChevronsDownUpIcon,
   StarIcon,
-  InfoIcon,
 } from "lucide-vue-next"
+import InfoTooltip from "../components/InfoTooltip.vue";
 
 const route = useRoute();
 const navRoute = routes.find((r) => r.path == route.path);
@@ -61,19 +61,16 @@ function toggleAllRows() {
               <th class="px-4 py-3 min-w-30 bg-base-200">Team Size</th>
               <th class="px-4 py-3 bg-base-200">Stack</th>
               <th class="px-4 py-3 bg-base-200 rounded-tr-lg">
-                <div class="relative group flex items-center justify-center">
-                  <InfoIcon class="cursor-help text-base-50 transition-colors hover:text-base-100"/>
-                  <div class="absolute right-full top-1/2 z-50 mr-3 flex w-max origin-right -translate-y-1/2   flex-col gap-3 rounded-lg border border-base-150 bg-base-350/95 p-3 text-xs shadow-xl backdrop-blur-sm transition-all duration-200 ease-out scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100">
-                    <div class="flex items-center gap-2 text-base-50">
-                      <StarIcon class="size-4" :class="`text-${navRoute?.primaryColor}`"/>
-                      <span>Featured Project</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-base-50">
-                      <StarIcon class="size-4 text-base-100"/>
-                      <span>Standard Project</span>
-                    </div>
+                <InfoTooltip position="left" class="normal-case font-normal">
+                  <div class="flex items-center gap-2 text-base-50">
+                    <StarIcon class="size-4" :class="`text-${navRoute?.primaryColor}`"/>
+                    <span>Featured Project</span>
                   </div>
-                </div>
+                  <div class="flex items-center gap-2 text-base-50">
+                    <StarIcon class="size-4 text-base-100"/>
+                    <span>Other Project</span>
+                  </div>
+                </InfoTooltip>
               </th>
             </tr>
           </thead>
