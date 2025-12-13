@@ -5,18 +5,9 @@ import ExperiencesView from "../views/Experiences.vue";
 import ProjectsView from "../views/Projects.vue";
 import CertificationsView from "../views/Certifications.vue";
 import ContactView from "../views/Contact.vue";
-import {
-  UserIcon,
-  CodeIcon,
-  ClipboardClockIcon,
-  FolderCodeIcon,
-  TrophyIcon,
-  MailIcon,
-} from "lucide-vue-next";
-import type { LucideIcon } from "lucide-vue-next";
 
 interface RouteMetadata {
-  icon?: LucideIcon;
+  icon?: string;
   primaryColor?: string;
   secondaryColor?: string;
   addToNav?: boolean;
@@ -33,7 +24,7 @@ export const routes: Route[] = [
     name: "About",
     path: "/about",
     component: AboutView,
-    icon: UserIcon,
+    icon: "lucide:user",
     primaryColor: "red-light",
     secondaryColor: "red-dark",
     addToNav: true,
@@ -42,7 +33,7 @@ export const routes: Route[] = [
     name: "Skills",
     path: "/skills",
     component: SkillsView,
-    icon: CodeIcon,
+    icon: "lucide:code",
     primaryColor: "orange-light",
     secondaryColor: "orange-dark",
     addToNav: true,
@@ -51,7 +42,7 @@ export const routes: Route[] = [
     name: "Experiences",
     path: "/experiences",
     component: ExperiencesView,
-    icon: ClipboardClockIcon,
+    icon: "lucide:clipboard-clock",
     primaryColor: "yellow-light",
     secondaryColor: "yellow-dark",
     addToNav: true,
@@ -60,7 +51,7 @@ export const routes: Route[] = [
     name: "Projects",
     path: "/projects",
     component: ProjectsView,
-    icon: FolderCodeIcon,
+    icon: "lucide:folder-code",
     primaryColor: "green-light",
     secondaryColor: "green-dark",
     addToNav: true,
@@ -69,7 +60,7 @@ export const routes: Route[] = [
     name: "Certifications",
     path: "/certifications",
     component: CertificationsView,
-    icon: TrophyIcon,
+    icon: "lucide:trophy",
     primaryColor: "blue-light",
     secondaryColor: "blue-dark",
     addToNav: true,
@@ -78,7 +69,7 @@ export const routes: Route[] = [
     name: "Contact",
     path: "/contact",
     component: ContactView,
-    icon: MailIcon,
+    icon: "lucide:mail",
     primaryColor: "purple-light",
     secondaryColor: "purple-dark",
     addToNav: true,

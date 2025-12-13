@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import type { LucideIcon } from "lucide-vue-next";
+
+import { Icon } from "@iconify/vue";
 
 withDefaults(
   defineProps<{
     label?: string;
     value: string;
-    icon: LucideIcon;
+    icon: string;
     iconColor?: string;
     textColor?: string;
   }>(),
@@ -18,7 +19,7 @@ withDefaults(
 
 <template>
   <div class="flex gap-2 text-sm" :class="`text-${textColor}`">
-    <component :is="icon" class="size-5" :class="`text-${iconColor}`" />
+    <Icon v-if="icon" :icon="icon" class="size-5" :class="`text-${iconColor}`" />
     <b v-if="label">{{ label }}:</b>
     {{ value }}
   </div>

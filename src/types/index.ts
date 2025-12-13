@@ -1,9 +1,6 @@
-import type { LucideIcon } from "lucide-vue-next";
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-
 export interface Contact {
   title: string;
-  icon: LucideIcon | IconDefinition;
+  icon: string;
   color: string;
   href: string;
   linkText: string;

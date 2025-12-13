@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { routes } from "../router";
 import { useRoute } from "vue-router";
-import { PanelLeftIcon } from "lucide-vue-next";
+import { Icon } from "@iconify/vue";
 import { ref, watch } from "vue";
 
 const route = useRoute();
@@ -23,7 +23,7 @@ watch(sidebarCollapsed, (val) => {
           </div>
         </div>
       <div class="flex items-center size-8 text-base-100 hover:rounded-sm hover:text-base-50 hover:bg-base-150 cursor-pointer"  @click="sidebarCollapsed = !sidebarCollapsed" :class="sidebarCollapsed ? 'm-auto' : ''" >
-        <PanelLeftIcon class="m-auto"/>
+        <Icon icon="lucide:panel-left" class="m-auto size-6"/>
       </div>
     </header>
     <nav class="flex flex-1 flex-col gap-3 p-5">
@@ -38,8 +38,9 @@ watch(sidebarCollapsed, (val) => {
         "
         :to="navRoute.path"
       >
-        <component
-          :is="navRoute.icon"
+        <Icon
+          :icon="navRoute.icon ?? ''"
+          class="size-6"
           :class="
             route.path === navRoute.path
               ? `text-${navRoute.primaryColor}`

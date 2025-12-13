@@ -6,15 +6,7 @@ import { projects } from "../data/projects";
 import { routes } from "../router";
 import { useRoute } from "vue-router";
 import { ref } from "vue"
-import {
-  UserIcon,
-  UsersIcon,
-  ChevronUpIcon,
-  ChevronDownIcon,
-  ListChevronsUpDownIcon,
-  ListChevronsDownUpIcon,
-  StarIcon,
-} from "lucide-vue-next"
+import { Icon } from "@iconify/vue"
 import InfoTooltip from "../components/InfoTooltip.vue";
 
 const route = useRoute();
@@ -53,8 +45,8 @@ function toggleAllRows() {
           <thead class="text-base-50 uppercase font-bold">
             <tr>
               <th class="px-4 py-3 cursor-pointer bg-base-200 rounded-tl-lg" @click="toggleAllRows">
-                <ListChevronsDownUpIcon v-if="expandedRows.length > 0" class="text-base-50 hover:text-base-100"/>
-                <ListChevronsUpDownIcon v-else class="text-base-50 hover:text-base-100"/>
+                <Icon icon="lucide:chevron-down-up" v-if="expandedRows.length > 0" class="text-base-50 hover:text-base-100 size-6"/>
+                <Icon icon="lucide:chevron-up-down" v-else class="text-base-50 hover:text-base-100 size-6"/>
               </th>
               <th class="px-4 py-3 bg-base-200">Project</th>
               <th class="px-4 py-3 bg-base-200">Highlight</th>
@@ -71,13 +63,13 @@ function toggleAllRows() {
             <template v-for="(project, index) in projects" :key="project.name">
               <tr class="bg-base-350 hover:bg-base-300/50 cursor-pointer" @click="toggleRow(index)">
                 <td class="px-4 py-3">
-                  <ChevronUpIcon v-if="expandedRows.includes(index)" class="text-base-50"/>
-                  <ChevronDownIcon v-else class="text-base-50"/>
+                  <Icon icon="lucide:chevron-up" v-if="expandedRows.includes(index)" class="text-base-50 size-6"/>
+                  <Icon icon="lucide:chevron-down" v-else class="text-base-50 size-6"/>
                 </td>
                 <td class="px-4 py-3 font-bold">{{ project.name }}</td>
                 <td class="px-4 py-3">{{ project.highlight }}</td>
                 <td class="px-4 py-3">
-                  <InfoItem :value="project.teamSize.toString()" :icon="project.teamSize > 1 ? UsersIcon : UserIcon" />
+                  <InfoItem :value="project.teamSize.toString()" :icon="project.teamSize > 1 ? 'lucide:users' :  'lucide:user'" />
                 </td>
                 <td class="px-4 py-3">
                   <div class="flex flex-wrap gap-1">
@@ -85,7 +77,7 @@ function toggleAllRows() {
                   </div>
                 </td>
                 <td class="px-4 py-3">
-                  <StarIcon :class="project.featured ? `text-${navRoute?.primaryColor}`: `text-base-100`"/>
+                  <Icon icon="lucide:star" :class="project.featured ? `text-${navRoute?.primaryColor}`: `text-base-100`"/>
                 </td>
               </tr>
               <tr v-if="expandedRows.includes(index)" class="bg-base-350">

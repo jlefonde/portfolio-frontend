@@ -5,20 +5,8 @@ import Title from "../components/Title.vue";
 import InfoItem from "../components/InfoItem.vue";
 import { CONTACTS, availability } from "../data/contacts";
 import { routes } from "../router";
-import {
-  DownloadIcon,
-  CalendarSearchIcon,
-  UserIcon,
-  AtSignIcon,
-  SendIcon,
-  InboxIcon,
-  MapPinIcon,
-  ActivityIcon,
-  TargetIcon,
-  MapPinHouseIcon,
-  CalendarCheck2Icon,
-} from "lucide-vue-next";
 import { useRoute } from "vue-router";
+import { Icon } from "@iconify/vue"
 
 const route = useRoute();
 const navRoute = routes.find((r) => r.path == route.path);
@@ -37,25 +25,25 @@ const navRoute = routes.find((r) => r.path == route.path);
         download
         class="bg-green-dark hover:bg-green-dark/80 flex h-full items-center justify-center gap-2 rounded-md p-3 transition-colors hover:opacity-80"
       >
-        <DownloadIcon class="text-green-light size-5" />
+        <Icon icon="lucide:download" class="text-green-light size-5" />
         <span class="text-green-light text-sm font-bold">Download Resume</span>
       </a>
     </div>
     <div class="card col-span-2 gap-5">
-      <Title title="Availability" :icon="CalendarSearchIcon" />
+      <Title title="Availability" icon="lucide:calendar-search" />
       <div class="flex flex-1 flex-col justify-around">
-        <InfoItem label="Location" :value="availability.location" :icon="MapPinIcon" />
-        <InfoItem label="Currently" :value="availability.currently" :icon="ActivityIcon" />
-        <InfoItem label="Looking For" :value="availability.lookingFor" :icon="TargetIcon" />
-        <InfoItem label="Open To" :value="availability.openTo" :icon="MapPinHouseIcon" />
-        <InfoItem label="Available" :value="availability.available" :icon="CalendarCheck2Icon" />
+        <InfoItem label="Location" :value="availability.location" icon="lucide:map-pin" />
+        <InfoItem label="Currently" :value="availability.currently" icon="lucide:activity" />
+        <InfoItem label="Looking For" :value="availability.lookingFor" icon="lucide:target" />
+        <InfoItem label="Open To" :value="availability.openTo" icon="lucide:map-pin-house" />
+        <InfoItem label="Available" :value="availability.available" icon="lucide:calendar-check-2" />
       </div>
     </div>
     <form class="card col-span-3 row-start-2 flex flex-col" @submit.prevent="">
-      <Title title="Contact Form" :icon="InboxIcon" />
+      <Title title="Contact Form" icon="lucide:inbox" />
       <div class="relative h-14 w-full rounded-md">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <UserIcon class="text-base-100 size-5" />
+          <Icon icon="lucide:user" class="text-base-100 size-5" />
         </div>
         <input
           placeholder="Name"
@@ -65,7 +53,7 @@ const navRoute = routes.find((r) => r.path == route.path);
       </div>
       <div class="relative h-14 w-full rounded-md">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <AtSignIcon class="text-base-100 size-5" />
+          <Icon icon="lucide:at-sign" class="text-base-100 size-5" />
         </div>
         <input
           placeholder="Email"
@@ -78,7 +66,7 @@ const navRoute = routes.find((r) => r.path == route.path);
         type="submit"
         class="bg-green-dark hover:bg-green-dark/80 flex h-14 items-center justify-center gap-2 rounded-md p-3 transition-colors hover:opacity-80"
       >
-        <SendIcon class="text-green-light size-5" />
+        <Icon icon="lucide:send" class="text-green-light size-5" />
         <span class="text-green-light text-sm font-bold">Send Message</span>
       </button>
     </form>

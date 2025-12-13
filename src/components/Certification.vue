@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { CalendarCheck2Icon, CalendarX2Icon, SquareArrowOutUpRight } from "lucide-vue-next";
 import Tag from "./Tag.vue";
 import InfoItem from "./InfoItem.vue";
 import type { Certification } from "../types";
+import { Icon } from "@iconify/vue"
 
 defineProps<Certification>();
 </script>
@@ -17,8 +17,8 @@ defineProps<Certification>();
       </div>
     </div>
     <div class="flex flex-col gap-3">
-      <InfoItem label="Issued" :value="issued" :icon="CalendarCheck2Icon" text-color="base-100" icon-color="base-100" />
-      <InfoItem label="Expires" :value="expires" :icon="CalendarX2Icon" text-color="base-100" icon-color="base-100" />
+      <InfoItem label="Issued" :value="issued" icon="lucide:calendar-check-2" text-color="base-100" icon-color="base-100" />
+      <InfoItem label="Expires" :value="expires" icon="lucide:calendar-x-2" text-color="base-100" icon-color="base-100" />
     </div>
     <div v-if="tags" class="flex flex-wrap gap-2">
       <Tag v-for="tag in tags" :key="tag.name" v-bind="tag" />
@@ -29,7 +29,7 @@ defineProps<Certification>();
       :href="verifyLink"
       target="_blank"
     >
-      <SquareArrowOutUpRight class="text-green-light size-5" />
+      <Icon icon="lucide:square-arrow-out-up-right" class="text-green-light size-5" />
       <span class="text-green-light text-sm font-bold">Verify Credential</span>
     </a>
   </div>

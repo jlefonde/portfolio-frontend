@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import Tag from "./Tag.vue";
 import InfoItem from "./InfoItem.vue";
-import { MapPinIcon, CalendarIcon } from "lucide-vue-next";
 import { computed } from "vue";
 import type { Timeline } from "../types";
 
@@ -38,11 +37,11 @@ const secondaryColor = computed(() => {
       <div class="flex gap-24">
         <InfoItem
           :value="`${timeline.from} — ${timeline.to}`"
-          :icon="CalendarIcon"
+          icon="lucide:calendar"
           text-color="base-100"
           icon-color="base-100"
         />
-        <InfoItem :value="timeline.location" :icon="MapPinIcon" text-color="base-100" icon-color="base-100" />
+        <InfoItem :value="timeline.location" icon="lucide:map-pin" text-color="base-100" icon-color="base-100" />
       </div>
       <p v-if="timeline.description" class="text-base-50 text-sm leading-relaxed" v-html="timeline.description"></p>
       <ul v-if="timeline.highlights" class="text-base-50 list-inside list-disc text-sm">

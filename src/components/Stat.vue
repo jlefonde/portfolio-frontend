@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowRight } from "lucide-vue-next";
+import { Icon } from "@iconify/vue";
 import InfoTooltip from "./InfoTooltip.vue";
 import { useSlots } from 'vue'
 
@@ -24,7 +24,7 @@ const slots = useSlots()
       <div class="text-base-50 font-bold">{{ name }}</div>
       <div class="flex-1 text-right">
         <RouterLink v-if="redirect" :to="redirect">
-          <ArrowRight class="text-base-100 hover:rounded-sm hover:text-base-50 hover:bg-base-150 inline-block" />
+          <Icon icon="lucide:arrow-right" class="text-base-100 hover:rounded-sm hover:text-base-50 hover:bg-base-150 inline-block size-6" />
         </RouterLink>
       </div>
     </div>
