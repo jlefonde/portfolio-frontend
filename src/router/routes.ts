@@ -1,22 +1,12 @@
-import { type RouteRecordRaw } from "vue-router";
+import type { RouteRecordRaw } from "vue-router";
 import AboutView from "../views/About.vue";
 import SkillsView from "../views/Skills.vue";
 import ExperiencesView from "../views/Experiences.vue";
 import ProjectsView from "../views/Projects.vue";
 import CertificationsView from "../views/Certifications.vue";
-import ContactView from "../views/Contact.vue";
-import {
-  UserIcon,
-  CodeIcon,
-  ClipboardClockIcon,
-  FolderCodeIcon,
-  TrophyIcon,
-  MailIcon,
-} from "lucide-vue-next";
-import type { LucideIcon } from "lucide-vue-next";
 
 interface RouteMetadata {
-  icon?: LucideIcon;
+  icon?: string;
   primaryColor?: string;
   secondaryColor?: string;
   addToNav?: boolean;
@@ -33,16 +23,16 @@ export const routes: Route[] = [
     name: "About",
     path: "/about",
     component: AboutView,
-    icon: UserIcon,
-    primaryColor: "red-light",
-    secondaryColor: "red-dark",
+    icon: "lucide:user",
+    primaryColor: "purple-light",
+    secondaryColor: "purple-dark",
     addToNav: true,
   },
   {
     name: "Skills",
     path: "/skills",
     component: SkillsView,
-    icon: CodeIcon,
+    icon: "lucide:code",
     primaryColor: "orange-light",
     secondaryColor: "orange-dark",
     addToNav: true,
@@ -51,16 +41,16 @@ export const routes: Route[] = [
     name: "Experiences",
     path: "/experiences",
     component: ExperiencesView,
-    icon: ClipboardClockIcon,
-    primaryColor: "yellow-light",
-    secondaryColor: "yellow-dark",
+    icon: "lucide:clipboard-clock",
+    primaryColor: "red-light",
+    secondaryColor: "red-dark",
     addToNav: true,
   },
   {
     name: "Projects",
     path: "/projects",
     component: ProjectsView,
-    icon: FolderCodeIcon,
+    icon: "lucide:folder-code",
     primaryColor: "green-light",
     secondaryColor: "green-dark",
     addToNav: true,
@@ -69,18 +59,9 @@ export const routes: Route[] = [
     name: "Certifications",
     path: "/certifications",
     component: CertificationsView,
-    icon: TrophyIcon,
+    icon: "lucide:trophy",
     primaryColor: "blue-light",
     secondaryColor: "blue-dark",
-    addToNav: true,
-  },
-  {
-    name: "Contact",
-    path: "/contact",
-    component: ContactView,
-    icon: MailIcon,
-    primaryColor: "purple-light",
-    secondaryColor: "purple-dark",
     addToNav: true,
   },
 ];

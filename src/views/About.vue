@@ -8,7 +8,6 @@ import { logs } from "../data/logs";
 import { projects } from "../data/projects";
 import { certifications } from "../data/certifications";
 import { useRoute } from "vue-router";
-import { TerminalIcon, StarIcon } from "lucide-vue-next";
 
 const route = useRoute();
 const navRoute = routes.find((r) => r.path == route.path);
@@ -40,13 +39,13 @@ const navRoute = routes.find((r) => r.path == route.path);
       redirect="/certifications"
     />
     <div class="card col-span-3 row-span-4 row-start-5">
-      <Title title="Activity Logs" :icon="TerminalIcon" />
+      <Title title="Activity Logs" icon="lucide:terminal" />
       <div class="bg-base-350 h-full rounded-md p-3">
         <Log v-for="log in logs" v-bind="log" />
       </div>
     </div>
     <div class="card col-span-2 col-start-4 row-span-4 row-start-5 text-base-50">
-      <Title title="Featured Projects" :icon="StarIcon" />
+      <Title title="Featured Projects" icon="lucide:star" />
       <div class="grow flex flex-col gap-3 overflow-y-auto overflow-x-hidden">
         <RouterLink
           v-for="project in projects.filter((p) => p.featured)"
@@ -55,7 +54,7 @@ const navRoute = routes.find((r) => r.path == route.path);
           :to="{ path: '/projects', query: { id: projects.indexOf(project) }}"
         >
           <Title :title="project.name" header-size="h2" title-size="sm" />
-          <div class="text-sm">{{ project.highlight }}</div>
+          <div class="text-sm text-base-100">{{ project.highlight }}</div>
           <div class="flex flex-wrap gap-1">
             <Tag v-for="tag in project.tags" :key="tag.name" v-bind="tag" />
           </div>

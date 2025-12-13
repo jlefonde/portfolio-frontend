@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DownloadIcon } from "lucide-vue-next";
+import { Icon } from "@iconify/vue";
 </script>
 
 <template>
@@ -15,7 +15,7 @@ import { DownloadIcon } from "lucide-vue-next";
     </div>
     <div class="bg-base-150 h-8 w-px"></div>
     <div class="flex item-center size-8 text-base-100 hover:rounded-sm hover:text-base-50 hover:bg-base-150 cursor-pointer" >
-      <DownloadIcon class="m-auto"/>
+      <Icon icon="lucide:file-down" class="m-auto size-6"/>
     </div>
   </header>
 </template>
