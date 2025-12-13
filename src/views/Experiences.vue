@@ -16,7 +16,7 @@ const navRoute = routes.find((r) => r.path == route.path);
 
 <template>
   <div class="grid grid-cols-8 gap-5">
-    <div class="card bg-base-300 col-span-4">
+    <div class="card bg-base-300 col-span-4 h-fit">
       <div class="flex flex-col gap-5">
         <Title title="Work Experience" :icon="BriefcaseIcon" :icon-color="navRoute?.primaryColor" />
         <TimelineItem

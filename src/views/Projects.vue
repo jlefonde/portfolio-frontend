@@ -62,21 +62,14 @@ function toggleAllRows() {
               <th class="px-4 py-3 bg-base-200">Stack</th>
               <th class="px-4 py-3 bg-base-200 rounded-tr-lg">
                 <InfoTooltip position="left" class="normal-case font-normal">
-                  <div class="flex items-center gap-2 text-base-50">
-                    <StarIcon class="size-4" :class="`text-${navRoute?.primaryColor}`"/>
-                    <span>Featured Project</span>
-                  </div>
-                  <div class="flex items-center gap-2 text-base-50">
-                    <StarIcon class="size-4 text-base-100"/>
-                    <span>Other Project</span>
-                  </div>
+                  <span>Indicates whether this project is featured or not</span>
                 </InfoTooltip>
               </th>
             </tr>
           </thead>
           <tbody class="divide-y divide-base-150 text-base-50 [&>tr:last-child>td:first-child]:rounded-bl-lg [&>tr:last-child>td:last-child]:rounded-br-lg">
             <template v-for="(project, index) in projects" :key="project.name">
-              <tr class="bg-base-350 hover:bg-base-300/50" @click="toggleRow(index)">
+              <tr class="bg-base-350 hover:bg-base-300/50 cursor-pointer" @click="toggleRow(index)">
                 <td class="px-4 py-3">
                   <ChevronUpIcon v-if="expandedRows.includes(index)" class="text-base-50"/>
                   <ChevronDownIcon v-else class="text-base-50"/>

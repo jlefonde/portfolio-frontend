@@ -3,14 +3,16 @@ import type { Timeline } from "../types";
 export const experiences: Record<string, Timeline[]> = {
   work: [
     {
-      name: ".NET Developer Intern, AKABI",
+      name: ".NET Developer Intern",
+      organization: "AKABI",
       location: "Itzig, Luxembourg",
       from: "Jan 2023",
       to: "Jun 2023",
+      logoSrc: "/experiences/akabi-logo.png",
       highlights: [
         "Developed <b>ERP billing module</b> with automated bill generation",
         "Implemented <b>temporal data versioning</b> for historical accuracy (IBAN, BIC...)",
-        "Extended code coverage from <b>82% to 95%</b> through comprehensive unit testing",
+        "Extended code coverage from <b>82% to 95%</b> through extensive unit testing",
         "Enhanced <b>database initialization scripts</b> for schema changes and data migrations",
       ],
       tags: [
@@ -26,18 +28,22 @@ export const experiences: Record<string, Timeline[]> = {
   ],
   education: [
     {
-      name: "42 School, 42 Luxembourg",
+      name: "42 School",
+      organization: "42 Luxembourg",
       location: "Esch-sur-Alzette, Luxembourg",
       from: "Feb 2024",
       to: "Present",
-      description: "Self-directed learning through peer to peer collaboration and hands-on projects",
+      logoSrc: "/experiences/42-logo.png",
+      description: "Self-directed <b>peer-to-peer learning</b> program focused on <b>problem-solving</b> and real-world <b>software development</b> through <b>hands-on projects</b>. I learned to work <b>autonomously</b> as well as in <b>teams</b>, organize my own learning, maintain <b>rigorous coding practices</b>, and quickly adapt to new <b>technologies</b> and <b>project constraints</b>.",
     },
     {
-      name: "Bachelor in Applied Information Technology, University of Luxembourg",
+      name: "Bachelor in Applied Information Technology",
+      organization: "University of Luxembourg",
       location: "Esch-sur-Alzette, Luxembourg",
       from: "Sep 2019",
       to: "Jun 2023",
-      description: "Foundation in computer science, software development, and IT systems",
+      logoSrc: "/experiences/university-of-luxembourg-logo.png",
+      description: "Foundation in <b>computer science</b>, <b>software development</b>, and <b>IT systems</b>. I learned core <b>programming</b> and <b>software engineering</b>, <b>algorithms</b> and <b>databases</b>, as well as basic <b>networking</b>, <b>operating systems</b> and <b>data science</b> concepts.",
     },
   ],
 };

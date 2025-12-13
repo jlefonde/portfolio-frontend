@@ -35,11 +35,13 @@ export interface Availability {
 
 export interface Timeline {
   name: string;
+  organization: string;
   location: string;
   from: string;
   to: string;
   description?: string;
   highlights?: string[];
+  logoSrc?: string;
   tags?: Tag[];
 }
 

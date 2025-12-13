@@ -27,8 +27,14 @@ const secondaryColor = computed(() => {
       <div class="size-6 rounded-full ring-3" :class="`bg-${primaryColor} ring-${secondaryColor}`"></div>
       <div class="w-1 grow" :class="`bg-${primaryColor}`"></div>
     </div>
-    <div class="flex w-full flex-col gap-2">
-      <div :class="`text-${primaryColor} font-bold`">{{ timeline.name }}</div>
+    <div class="flex w-full flex-col gap-3">
+      <div class="flex gap-2">
+        <img class="size-12 bg-base-50 p-2 rounded-sm shrink-0 object-contain" :src="timeline.logoSrc" alt="cert-logo" />
+        <div class="flex flex-col gap-1">
+          <div class="font-bold" :class="`text-${primaryColor}`">{{ timeline.name }}</div>
+          <div class="text-base-50 font-bold">{{ timeline.organization }}</div>
+        </div>
+      </div>
       <div class="flex gap-24">
         <InfoItem
           :value="`${timeline.from} — ${timeline.to}`"
