@@ -5,7 +5,7 @@ export const stacks: Record<string, Stack> = {
   ansible: {
     name: "Ansible",
     icon: "devicon:ansible",
-    iconList: "skill-icons:ansible",
+    iconList: "devicon:ansible",
     categories: [categories.iac!, categories.cloud!],
   },
   argocd: {

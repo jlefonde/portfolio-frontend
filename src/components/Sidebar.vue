@@ -22,7 +22,7 @@ watch(sidebarCollapsed, (val) => {
             <div class="text-base-100 text-sm">Devops Engineer</div>
           </div>
         </div>
-      <div class="flex items-center size-8 text-base-100 hover:rounded-sm hover:text-base-50 hover:bg-base-150 cursor-pointer"  @click="sidebarCollapsed = !sidebarCollapsed" :class="sidebarCollapsed ? 'm-auto' : ''" >
+      <div class="flex items-center size-8 text-base-100 hover:rounded-sm hover:text-base-50 hover:bg-base-150 cursor-pointer" @click="sidebarCollapsed = !sidebarCollapsed" :class="sidebarCollapsed ? 'm-auto' : ''" title="Toggle sidebar">
         <Icon icon="lucide:panel-left" class="m-auto size-6"/>
       </div>
     </header>

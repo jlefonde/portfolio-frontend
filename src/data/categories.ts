@@ -3,7 +3,7 @@ import type { Category } from "../types";
 export const categories: Record<string, Category> = {
   cicd: {
     name: "CI/CD",
-    icon: "lucide:infinite",
+    icon: "lucide:infinity",
   },
   cloud: {
     name: "Cloud",

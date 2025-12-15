@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import Gauge from "../components/Gauge.vue";
 import Title from "../components/Title.vue";
-import Tag from "../components/Tag.vue";
 import VerticalBarChart from "../components/VerticalBarChart.vue";
+import SkillItem from "../components/SkillItem.vue";
 import { routes } from "../router";
 import { skills } from "../data/skills";
 import { useRoute } from "vue-router";
@@ -11,7 +11,7 @@ import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler,
 import { Radar } from "vue-chartjs";
 import type { Bar } from "../types";
 import { Icon } from "@iconify/vue";
-import HorizontalBar from "../components/HorizontalBar.vue";
+import { ref } from "vue";
 
 const route = useRoute();
 const navRoute = routes.find((r) => r.path == route.path);
@@ -85,23 +85,37 @@ const radarChart = {
     },
   },
 };
-
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip);
 
-const overviewSelected = false;
+const overviewSelected = ref(true);
+const showProficiency = ref(false);
 </script>
 
 <template>
   <div class="mb-5 flex flex-col items-center">
-    <div class="bg-base-300 flex gap-2 rounded-xl p-2">
+    <div class="flex gap-2 rounded-xl p-2">
       <button
-        class="text-orange-light bg-orange-dark flex cursor-pointer items-center gap-2 rounded-sm px-5 py-3 hover:opacity-80"
+        class="flex cursor-pointer bg-base-300 items-center gap-2 rounded-sm px-5 py-3 hover:opacity-75"
+        :class="
+          overviewSelected
+            ? `text-${navRoute?.primaryColor}`
+            : `text-base-50`
+        "
+        @click="overviewSelected = true"
+        title="Show overview charts"
       >
         <Icon icon="lucide:chart-column" class="size-5" />
         Overview
       </button>
       <button
-        class="text-base-50 bg-base-150 flex cursor-pointer items-center gap-2 rounded-sm px-5 py-3 hover:opacity-80"
+        class="flex cursor-pointer items-center bg-base-300 gap-2 rounded-sm px-5 py-3 hover:opacity-75"
+        :class="
+          !overviewSelected
+            ? `text-${navRoute?.primaryColor}`
+            : `text-base-50`
+        "
+        @click="overviewSelected = false"
+        title="Show detailed skills list"
       >
         <Icon icon="lucide:list" class="size-5" />
         List Skills
@@ -128,35 +142,29 @@ const overviewSelected = false;
     </div>
   </div>
   <div v-else class="mb-5 flex flex-col items-center gap-5">
-    <div class="relative h-14 w-1/2 rounded-xl">
-      <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-        <Icon icon="lucide:search" class="text-base-100 size-5" />
+    <div class="flex w-1/2 gap-2">
+      <div class="relative h-14 rounded-xl flex-1">
+        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+          <Icon icon="lucide:search" class="text-base-50 size-5" />
+        </div>
+        <input
+          placeholder="Search"
+          class="text-base-50 bg-base-300 block h-full w-full rounded-xl p-3 pl-10 text-sm"
+          type="text"
+          maxlength="64"
+        />
       </div>
-      <input
-        placeholder="Search"
-        class="text-base-50 bg-base-300 block h-full w-full rounded-xl p-3 pl-10 text-sm"
-        type="text"
-        maxlength="64"
-      />
+      <button
+        class="flex items-center gap-2 bg-base-300 rounded-xl p-3 hover:opacity-75 cursor-pointer size-14"
+        :class="showProficiency ? `text-${navRoute?.primaryColor}` : 'text-base-50'"
+        @click="showProficiency = !showProficiency"
+        title="Toggle proficiency display"
+      >
+        <Icon icon="lucide:gauge" class="size-5 m-auto" />
+      </button>
     </div>
-    <div class="grid w-full grid-cols-4">
-      <div class="bg-base-300 col-span-1 flex flex-col gap-3 rounded-xl p-3">
-        <div class="flex gap-3">
-          <Icon icon="skill-icons:docker" class="size-16" />
-          <div class="flex flex-col justify-around">
-            <div class="text-base-50 font-bold">Docker</div>
-            <div class="flex flex-wrap gap-x-1 gap-y-2">
-              <Tag name="test" />
-              <Tag name="test" />
-              <Tag name="test" />
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col gap-1">
-          <div class="text-base-100 text-sm">Proficiency</div>
-          <HorizontalBar :percentage="80"/>
-        </div>
-      </div>
+    <div class="grid w-full grid-cols-4 gap-3">
+      <SkillItem v-for="skill in skills" v-bind="skill" :show-proficiency="showProficiency" />
     </div>
   </div>
 </template>

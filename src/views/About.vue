@@ -59,13 +59,14 @@ const navRoute = routes.find((r) => r.path == route.path);
             {{ about.description }}
           </div>
           <div class="flex gap-3">
-            <a download href="resume.pdf" class="bg-base-350 hover:bg-base-200 flex size-12 rounded-md">
+            <a download href="resume.pdf" class="bg-base-350 hover:bg-base-200 flex size-12 rounded-md" title="Download resume">
               <Icon icon="lucide:file-down" class="text-base-50 m-auto size-6" />
             </a>
             <a
               v-for="contact in CONTACTS"
               :href="contact.href"
               class="bg-base-350 hover:bg-base-200 flex size-12 rounded-sm"
+              :title="contact.name"
             >
               <Icon :icon="contact.icon" class="text-base-50 m-auto size-6" />
             </a>

@@ -43,7 +43,7 @@ function toggleAllRows() {
         <table class="w-full text-left text-sm text-base-50">
           <thead class="text-base-50 uppercase font-bold">
             <tr>
-              <th class="px-4 py-3 cursor-pointer bg-base-200 rounded-tl-lg" @click="toggleAllRows">
+              <th class="px-4 py-3 cursor-pointer bg-base-200 rounded-tl-lg" @click="toggleAllRows" title="Toggle all rows">
                 <Icon icon="lucide:list-chevrons-down-up" v-if="expandedRows.length > 0" class="text-base-50 hover:text-base-100 size-6"/>
                 <Icon icon="lucide:list-chevrons-up-down" v-else class="text-base-50 hover:text-base-100 size-6"/>
               </th>
@@ -59,7 +59,7 @@ function toggleAllRows() {
           </thead>
           <tbody class="divide-y divide-base-150 text-base-50 [&>tr:last-child>td:first-child]:rounded-bl-lg [&>tr:last-child>td:last-child]:rounded-br-lg">
             <template v-for="(project, index) in projects" :key="project.name">
-              <tr class="bg-base-350 hover:bg-base-300/50 cursor-pointer" @click="toggleRow(index)">
+              <tr class="bg-base-350 hover:bg-base-300/50 cursor-pointer" @click="toggleRow(index)" title="Toggle project details">
                 <td class="px-4 py-3">
                   <Icon icon="lucide:chevron-up" v-if="expandedRows.includes(index)" class="text-base-50 size-6"/>
                   <Icon icon="lucide:chevron-down" v-else class="text-base-50 size-6"/>

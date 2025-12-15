@@ -25,7 +25,7 @@ defineProps<Certification>();
     </div>
     <a
       v-if="verifyLink"
-      class="bg-green-dark hover:bg-green-dark/80 flex cursor-pointer items-center justify-center gap-2 rounded-md p-3 transition-colors hover:opacity-80"
+      class="bg-green-dark flex cursor-pointer items-center justify-center gap-2 rounded-md p-3 transition-colors hover:opacity-75"
       :href="verifyLink"
       target="_blank"
     >
