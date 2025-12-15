@@ -58,16 +58,17 @@ export interface Bar {
   highThreshold?: number;
 }
 
-export interface Category {
-  name: "CI/CD" | "Cloud" | "Containerization" | "Monitoring" | "Infrastructure as Code" | "Programming";
+export interface Category extends Tag {}
+
+export interface Stack extends Tag {
+  iconList?: string;
+  icon?: string;
+  categories: Category[];
 }
 
 export interface Skill {
-  name: string;
+  stack: Stack;
   percentage: number;
-  categories: Category[];
-  iconList: string;
-  iconTag: string;
   featured: boolean;
 }
 

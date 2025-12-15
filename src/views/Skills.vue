@@ -17,9 +17,9 @@ let skillBarChart: Bar[] = [];
 const categories = new Map<string, { sum: number; count: number }>();
 
 skills.forEach((skill) => {
-  skill.categories
+  skill.stack.categories
     .filter((item, pos) => {
-      return skill.categories.indexOf(item) == pos;
+      return skill.stack.categories.indexOf(item) == pos;
     })
     .forEach((category) => {
       const mapCategory = categories.get(category.name);
@@ -31,7 +31,7 @@ skills.forEach((skill) => {
       }
     });
 
-  skillBarChart.push({ label: skill.name, percentage: skill.percentage });
+  skillBarChart.push({ label: skill.stack.name, percentage: skill.percentage });
 });
 
 let categoriesMean: number[] = [];

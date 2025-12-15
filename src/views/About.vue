@@ -83,8 +83,8 @@ const navRoute = routes.find((r) => r.path == route.path);
             <div class="flex flex-wrap gap-x-1 gap-y-2">
               <Tag
                 v-for="skill in skills.filter((s) => s.featured == true)"
-                v-bind:icon="skill.iconTag"
-                v-bind:name="skill.name"
+                v-bind:icon="skill.stack.icon"
+                v-bind:name="skill.stack.name"
               />
             </div>
           </div>

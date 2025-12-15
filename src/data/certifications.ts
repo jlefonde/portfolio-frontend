@@ -1,4 +1,5 @@
 import type { Certification } from "../types";
+import { categories } from "./categories";
 
 export const certifications: Certification[] = [
   {
@@ -9,8 +10,8 @@ export const certifications: Certification[] = [
     expires: "Oct 2027",
     verifyLink: "https://www.credly.com/badges/7e953b86-4e48-426d-a313-249c1e6ef4bb/public_url",
     tags: [
-      { name: "Infrastructure as Code" },
-      { name: "Cloud" },
+      categories.iac!,
+      categories.cloud!,
       { name: "Terraform", icon: "devicon:terraform" },
     ],
   },

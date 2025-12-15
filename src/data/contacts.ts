@@ -7,7 +7,7 @@ export const CONTACTS = {
   },
   linkedin: {
     icon: "devicon-plain:linkedin",
-    href: "https://linkedin.com/in/jorislefondeur-aa784237b",
+    href: "https://linkedin.com/in/jorislefondeur",
   },
   github: {
     icon: "octicon:mark-github-24",
