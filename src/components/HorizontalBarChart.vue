@@ -9,6 +9,6 @@ defineProps<{
 
 <template>
   <div class="flex h-full flex-col justify-around">
-    <HorizontalBar v-for="bar in bars" v-bind="bar" />
+    <HorizontalBar class="h-16" v-for="bar in bars" v-bind="bar" />
   </div>
 </template>

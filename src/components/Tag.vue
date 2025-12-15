@@ -11,6 +11,6 @@ withDefaults(defineProps<Tag>(), {
 <template>
   <div class="flex rounded-full px-3 py-1 text-xs font-bold hover:scale-105 cursor-pointer" :class="`bg-${bgColor} text-${textColor}`">
     <Icon v-if="icon" :icon="icon" class="size-4 mr-2"/>
-    {{ name }}
+    <span class="m-auto text-center">{{ name }}</span>
   </div>
 </template>

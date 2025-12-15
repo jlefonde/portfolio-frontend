@@ -52,7 +52,7 @@ export interface Log {
 }
 
 export interface Bar {
-  label: string;
+  label?: string;
   percentage: number;
   mediumThreshold?: number;
   highThreshold?: number;

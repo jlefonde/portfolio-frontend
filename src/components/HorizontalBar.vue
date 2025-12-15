@@ -9,8 +9,8 @@ const barColor = getBarColor();
 </script>
 
 <template>
-  <div class="flex h-16 items-center gap-5">
-    <div class="font-sm text-base-50 w-16">{{ label }}</div>
+  <div class="flex min-h-8 items-center gap-5">
+    <div v-if="label" class="font-sm text-base-50 w-16">{{ label }}</div>
     <div class="bg-base-150 flex h-full flex-1 items-center gap-5 rounded-sm">
       <div
         class="h-full rounded-sm border-r-3"
