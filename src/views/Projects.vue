@@ -67,7 +67,7 @@ function toggleAllRows() {
                 <td class="px-4 py-3 font-bold">{{ project.name }}</td>
                 <td class="px-4 py-3 text-base-100">{{ project.highlight }}</td>
                 <td class="px-4 py-3">
-                  <div class="flex flex-wrap gap-1">
+                  <div class="flex flex-wrap gap-x-1 gap-y-2">
                     <Tag v-for="tag in project.tags" :key="tag.name" v-bind="tag" />
                   </div>
                 </td>

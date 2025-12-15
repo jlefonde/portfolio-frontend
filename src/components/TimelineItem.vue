@@ -52,7 +52,7 @@ const secondaryColor = computed(() => {
           v-html="highlight"
         ></li>
       </ul>
-      <div v-if="timeline.tags" class="flex flex-wrap gap-2">
+      <div v-if="timeline.tags" class="flex flex-wrap gap-x-1 gap-y-2">
         <Tag v-for="tag in timeline.tags" :key="tag.name" v-bind="tag" />
       </div>
     </div>

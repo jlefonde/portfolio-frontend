@@ -6,7 +6,7 @@ withDefaults(
   defineProps<{
     label?: string;
     value: string;
-    icon: string;
+    icon?: string;
     iconColor?: string;
     textColor?: string;
   }>(),

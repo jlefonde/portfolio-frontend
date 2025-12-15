@@ -13,7 +13,7 @@ watch(sidebarCollapsed, (val) => {
 </script>
 
 <template>
-  <aside class="bg-base-300 border-base-150 flex h-screen flex-col border-r" :class="sidebarCollapsed ? 'w-24' : 'w-80'">
+  <aside class="bg-base-300 border-base-150 flex flex-col border-r" :class="sidebarCollapsed ? 'w-24' : 'w-80'">
     <header class="border-base-150 flex h-14 items-center justify-between border-b p-3">
         <div class="flex items-center gap-3" v-if="!sidebarCollapsed">
           <div class="bg-base-150 size-9"></div>
@@ -52,6 +52,3 @@ watch(sidebarCollapsed, (val) => {
     </nav>
   </aside>
 </template>
-
-<style scoped>
-</style>

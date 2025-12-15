@@ -1,9 +1,6 @@
 export interface Contact {
-  title: string;
   icon: string;
-  color: string;
   href: string;
-  linkText: string;
 }
 
 export interface Tag {
@@ -23,12 +20,12 @@ export interface Certification {
   tags?: Tag[];
 }
 
-export interface Availability {
+export interface About {
   location: string;
-  currently: string;
+  status: string;
   lookingFor: string;
-  openTo: string;
-  available: string;
+  currently: string;
+  description: string;
 }
 
 export interface Timeline {
@@ -69,6 +66,9 @@ export interface Skill {
   name: string;
   percentage: number;
   categories: Category[];
+  iconList: string;
+  iconTag: string;
+  featured: boolean;
 }
 
 export interface Project {
