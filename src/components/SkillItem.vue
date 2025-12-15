@@ -4,15 +4,20 @@ import HorizontalBar from "../components/HorizontalBar.vue";
 import type { Skill } from "../types";
 import { Icon } from "@iconify/vue";
 
-withDefaults(defineProps<Skill & {
-    showProficiency?: boolean
-}>(), {
-    showProficiency: false
-});
+withDefaults(
+  defineProps<
+    Skill & {
+      showProficiency?: boolean;
+    }
+  >(),
+  {
+    showProficiency: false,
+  },
+);
 </script>
 
 <template>
-  <div class="bg-base-300 col-span-1 flex flex-col gap-3 rounded-xl p-3">
+  <div class="bg-base-300 hover:bg-base-400 col-span-1 flex flex-col gap-3 rounded-xl p-3 hover:scale-102">
     <div class="flex gap-3">
       <Icon :icon="stack.iconList ?? ''" class="size-16" />
       <div class="flex flex-col justify-around">

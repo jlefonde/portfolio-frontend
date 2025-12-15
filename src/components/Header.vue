@@ -15,14 +15,24 @@ import { CONTACTS } from "../data/contacts";
       <div class="text-green-light mr-2">AVAILABLE FOR HIRE</div>
     </div>
     <div class="bg-base-150 h-8 w-px"></div>
-    <a download href="resume.pdf" class="flex item-center size-8 text-base-100 hover:rounded-sm hover:text-base-50 hover:bg-base-150 cursor-pointer" title="Download resume">
-      <Icon icon="lucide:file-down" class="m-auto size-6"/>
+    <a
+      download
+      href="resume.pdf"
+      class="item-center text-base-100 hover:text-base-50 hover:bg-base-150 flex size-8 cursor-pointer hover:rounded-sm"
+      title="Download resume"
+    >
+      <Icon icon="lucide:file-down" class="m-auto size-6" />
     </a>
     <template v-for="contact in CONTACTS">
-    <div class="bg-base-150 h-8 w-px"></div>
-    <a :href="contact.href" target="_blank" class="flex item-center size-8 text-base-100 hover:rounded-sm hover:text-base-50 hover:bg-base-150 cursor-pointer" :title="contact.name">
-      <Icon :icon="contact.icon" class="m-auto size-6"/>
-    </a>
+      <div class="bg-base-150 h-8 w-px"></div>
+      <a
+        :href="contact.href"
+        target="_blank"
+        class="item-center text-base-100 hover:text-base-50 hover:bg-base-150 flex size-8 cursor-pointer hover:rounded-sm"
+        :title="contact.name"
+      >
+        <Icon :icon="contact.icon" class="m-auto size-6" />
+      </a>
     </template>
   </header>
 </template>

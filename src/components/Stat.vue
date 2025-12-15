@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 import InfoTooltip from "./InfoTooltip.vue";
-import { useSlots } from 'vue'
+import { useSlots } from "vue";
 
 defineProps<{
   name: string;
@@ -10,7 +10,7 @@ defineProps<{
   redirect?: string;
 }>();
 
-const slots = useSlots()
+const slots = useSlots();
 </script>
 
 <template>
@@ -24,7 +24,10 @@ const slots = useSlots()
       <div class="text-base-50 font-bold">{{ name }}</div>
       <div class="flex-1 text-right">
         <RouterLink v-if="redirect" :to="redirect">
-          <Icon icon="lucide:arrow-right" class="text-base-100 hover:rounded-sm hover:text-base-50 hover:bg-base-150 inline-block size-6" />
+          <Icon
+            icon="lucide:arrow-right"
+            class="text-base-100 hover:text-base-50 hover:bg-base-150 inline-block size-6 hover:rounded-sm"
+          />
         </RouterLink>
       </div>
     </div>

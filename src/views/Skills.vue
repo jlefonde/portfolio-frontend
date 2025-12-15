@@ -142,7 +142,7 @@ const showProficiency = ref(false);
     </div>
   </div>
   <div v-else class="mb-5 flex flex-col items-center gap-5">
-    <div class="flex w-1/2 gap-2">
+    <div class="flex w-1/2 gap-3">
       <div class="relative h-14 rounded-xl flex-1">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
           <Icon icon="lucide:search" class="text-base-50 size-5" />

@@ -59,7 +59,12 @@ const navRoute = routes.find((r) => r.path == route.path);
             {{ about.description }}
           </div>
           <div class="flex gap-3">
-            <a download href="resume.pdf" class="bg-base-350 hover:bg-base-200 flex size-12 rounded-md" title="Download resume">
+            <a
+              download
+              href="resume.pdf"
+              class="bg-base-350 hover:bg-base-200 flex size-12 rounded-md"
+              title="Download resume"
+            >
               <Icon icon="lucide:file-down" class="text-base-50 m-auto size-6" />
             </a>
             <a
@@ -97,7 +102,8 @@ const navRoute = routes.find((r) => r.path == route.path);
     <Stat class="col-start-4 row-span-2 min-h-56 min-w-56" name="Visitors Count" value="50" color="orange-light" />
     <Stat class="col-start-5 row-span-2 min-h-56 min-w-56" name="Month Cost-to-Date" value="$0.95" color="red-light">
       <div class="text-base-50 flex items-center gap-2">
-        <span>AWS costs for hosting since month start. This portfolio runs serverless with Lambda, S3, and CloudFront with
+        <span
+          >AWS costs for hosting since month start. This portfolio runs serverless with Lambda, S3, and CloudFront with
           pay-per-use pricing
         </span>
       </div>
@@ -128,7 +134,7 @@ const navRoute = routes.find((r) => r.path == route.path);
         <RouterLink
           v-for="project in projects.filter((p) => p.featured)"
           :key="project.name"
-          class="bg-base-350 hover:bg-base-350/80 flex w-full cursor-pointer flex-col gap-2 rounded-sm p-3 transition-transform duration-200 hover:scale-101"
+          class="bg-base-350 hover:bg-base-400 flex w-full cursor-pointer flex-col gap-2 rounded-sm p-3 transition-transform duration-200 hover:scale-101"
           :to="{ path: '/projects', query: { id: projects.indexOf(project) } }"
         >
           <Title :title="project.name" header-size="h2" title-size="sm" />

@@ -34,7 +34,8 @@ export const experiences: Record<string, Timeline[]> = {
       from: "Feb 2024",
       to: "Present",
       logoSrc: "/experiences/42-logo.png",
-      description: "Self-directed <b>peer-to-peer learning</b> program focused on <b>problem-solving</b> and real-world <b>software development</b> through <b>hands-on projects</b>. I learned to work <b>autonomously</b> as well as in <b>teams</b>, organize my own learning, maintain <b>rigorous coding practices</b>, and quickly adapt to new <b>technologies</b> and <b>project constraints</b>.",
+      description:
+        "Self-directed <b>peer-to-peer learning</b> program focused on <b>problem-solving</b> and real-world <b>software development</b> through <b>hands-on projects</b>. I learned to work <b>autonomously</b> as well as in <b>teams</b>, organize my own learning, maintain <b>rigorous coding practices</b>, and quickly adapt to new <b>technologies</b> and <b>project constraints</b>.",
     },
     {
       name: "Bachelor in Applied Information Technology",
@@ -43,7 +44,8 @@ export const experiences: Record<string, Timeline[]> = {
       from: "Sep 2019",
       to: "Jun 2023",
       logoSrc: "/experiences/university-of-luxembourg-logo.png",
-      description: "Foundation in <b>computer science</b>, <b>software development</b>, and <b>IT systems</b>. I learned core <b>programming</b> and <b>software engineering</b>, <b>algorithms</b> and <b>databases</b>, as well as basic <b>networking</b>, <b>operating systems</b> and <b>data science</b> concepts.",
+      description:
+        "Foundation in <b>computer science</b>, <b>software development</b>, and <b>IT systems</b>. I learned core <b>programming</b> and <b>software engineering</b>, <b>algorithms</b> and <b>databases</b>, as well as basic <b>networking</b>, <b>operating systems</b> and <b>data science</b> concepts.",
     },
   ],
 };

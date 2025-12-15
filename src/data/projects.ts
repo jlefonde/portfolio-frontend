@@ -7,7 +7,7 @@ export const projects: Project[] = [
     tags: [
       { name: "ELK", icon: "devicon:elasticsearch" },
       { name: "Grafana", icon: "devicon:grafana" },
-      { name: "Prometheus", icon: "devicon:prometheus"},
+      { name: "Prometheus", icon: "devicon:prometheus" },
       { name: "Docker", icon: "devicon:docker" },
       { name: "Ansible", icon: "devicon:ansible" },
       { name: "Django", icon: "devicon-plain:django" },
@@ -47,9 +47,7 @@ export const projects: Project[] = [
     name: "taskmaster",
     highlight:
       "Process supervisor in Go, with automatic restart policies, privilege de-escalation, and interactive CLI",
-    tags: [
-      { name: "Go", icon: "devicon:go" },
-    ],
+    tags: [{ name: "Go", icon: "devicon:go" }],
     featured: true,
   },
   {
@@ -82,9 +80,7 @@ export const projects: Project[] = [
   {
     name: "matt-daemon",
     highlight: "Unix daemon in C++ with socket communication, signal handling, file locking and logging",
-    tags: [
-      { name: "C++", icon: "devicon:cplusplus" },
-    ],
+    tags: [{ name: "C++", icon: "devicon:cplusplus" }],
     featured: false,
   },
   {

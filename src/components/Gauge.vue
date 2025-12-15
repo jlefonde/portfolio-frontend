@@ -1,15 +1,18 @@
 <script setup lang="ts">
-import { computed } from "vue"
+import { computed } from "vue";
 
-const props = withDefaults(defineProps<{
-  name: string;
-  value: number;
-  mediumThreshold?: number;
-  highThreshold?: number;
-}>(), {
-  mediumThreshold: 33,
-  highThreshold: 66,
-});
+const props = withDefaults(
+  defineProps<{
+    name: string;
+    value: number;
+    mediumThreshold?: number;
+    highThreshold?: number;
+  }>(),
+  {
+    mediumThreshold: 33,
+    highThreshold: 66,
+  },
+);
 
 const cssProps = computed(() => {
   let gaugeColor = "var(--color-red-light)";
@@ -21,17 +24,17 @@ const cssProps = computed(() => {
     "--high-threshold": props.highThreshold / 100,
     "--value": props.value / 100,
     "--gauge-color": gaugeColor,
-  }
+  };
 });
 </script>
 
 <template>
   <div class="bg-base-300 flex w-full flex-col items-center rounded-xl p-3">
     <div id="gauge-outside" class="size-64 rounded-full" :style="cssProps">
-      <div id="gauge" class="size-60 m-2 flex items-end justify-center rounded-full" :style="cssProps">
+      <div id="gauge" class="m-2 flex size-60 items-end justify-center rounded-full" :style="cssProps">
         <div class="flex flex-col items-center">
-          <div id="gauge-value" class="font-bold text-6xl" :style="cssProps">{{ value }}%</div>
-          <div class="font-bold text-base-50 bottom-0 pb-0 mb-0">{{ name }}</div>
+          <div id="gauge-value" class="text-6xl font-bold" :style="cssProps">{{ value }}%</div>
+          <div class="text-base-50 bottom-0 mb-0 pb-0 font-bold">{{ name }}</div>
         </div>
       </div>
     </div>
@@ -63,6 +66,6 @@ const cssProps = computed(() => {
 }
 
 #gauge-value {
-  color: var(--gauge-color)
+  color: var(--gauge-color);
 }
 </style>
