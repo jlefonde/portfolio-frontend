@@ -2,18 +2,21 @@
 import type { Tag } from "../types";
 import { Icon } from "@iconify/vue";
 
-withDefaults(defineProps<Tag>(), {
+withDefaults(defineProps<Tag & {
+  as?: "div" | "button"
+}>(), {
+  as: "div",
   textColor: "base-50",
   bgColor: "base-200",
 });
 </script>
 
 <template>
-  <div
+  <component :is="as"
     class="flex cursor-pointer rounded-full px-3 py-1 text-xs font-bold hover:scale-105"
     :class="`bg-${bgColor} text-${textColor}`"
   >
     <Icon v-if="icon" :icon="icon" class="mr-2 size-4" />
     <span class="m-auto text-center">{{ name }}</span>
-  </div>
+  </component>
 </template>
