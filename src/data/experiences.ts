@@ -8,7 +8,10 @@ export const experiences: Record<string, Timeline[]> = {
       location: "Itzig, Luxembourg",
       from: "Jan 2023",
       to: "Jun 2023",
-      logoSrc: "/experiences/akabi-logo.png",
+      logo: {
+        path: "/experiences/akabi-logo.png",
+        alt: "AKABI company logo",
+      },
       highlights: [
         "Developed <b>ERP billing module</b> with automated bill generation",
         "Implemented <b>temporal data versioning</b> for historical accuracy (IBAN, BIC...)",
@@ -33,7 +36,10 @@ export const experiences: Record<string, Timeline[]> = {
       location: "Esch-sur-Alzette, Luxembourg",
       from: "Feb 2024",
       to: "Present",
-      logoSrc: "/experiences/42-logo.png",
+      logo: {
+        path: "/experiences/42-logo.png",
+        alt: "42 Luxembourg logo",
+      },
       description:
         "Self-directed <b>peer-to-peer learning</b> program focused on <b>problem-solving</b> and real-world <b>software development</b> through <b>hands-on projects</b>. I learned to work <b>autonomously</b> as well as in <b>teams</b>, organize my own learning, maintain <b>rigorous coding practices</b>, and quickly adapt to new <b>technologies</b> and <b>project constraints</b>.",
     },
@@ -43,7 +49,10 @@ export const experiences: Record<string, Timeline[]> = {
       location: "Esch-sur-Alzette, Luxembourg",
       from: "Sep 2019",
       to: "Jun 2023",
-      logoSrc: "/experiences/university-of-luxembourg-logo.png",
+      logo: {
+        path: "/experiences/university-of-luxembourg-logo.png",
+        alt: "University of Luxembourg logo",
+      },
       description:
         "Foundation in <b>computer science</b>, <b>software development</b>, and <b>IT systems</b>. I learned core <b>programming</b> and <b>software engineering</b>, <b>algorithms</b> and <b>databases</b>, as well as basic <b>networking</b>, <b>operating systems</b> and <b>data science</b> concepts.",
     },

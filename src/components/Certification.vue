@@ -10,7 +10,7 @@ defineProps<Certification>();
 <template>
   <div class="bg-base-300 flex w-full flex-col gap-4 rounded-xl p-3">
     <div class="flex gap-1">
-      <img class="size-24 shrink-0 object-contain" :src="logoSrc" alt="cert-logo" />
+      <img class="size-24 shrink-0 object-contain" :src="logo.path" :alt="logo.alt" />
       <div class="flex flex-col gap-1">
         <div class="text-base-50 font-bold">{{ name }}</div>
         <div class="text-blue-light text-sm font-bold">{{ issuer }}</div>

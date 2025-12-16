@@ -11,10 +11,15 @@ export interface Tag {
   bgColor?: string;
 }
 
+export interface Image {
+  path: string;
+  alt: string;
+}
+
 export interface Certification {
   name: string;
   issuer: string;
-  logoSrc: string;
+  logo: Image;
   issued: string;
   expires: string;
   verifyLink?: string;
@@ -37,7 +42,7 @@ export interface Timeline {
   to: string;
   description?: string;
   highlights?: string[];
-  logoSrc?: string;
+  logo?: Image;
   tags?: Tag[];
 }
 
@@ -73,9 +78,20 @@ export interface Skill {
   featured: boolean;
 }
 
+export interface Feature {
+  name: string;
+  icon: string;
+  iconColor?: string;
+  description: string;
+}
+
 export interface Project {
   name: string;
   highlight: string;
   tags: Tag[];
   featured: boolean;
+  features?: Feature[];
+  screenshots?: Image[];
+  githubLink?: string;
+  liveLink?: string;
 }

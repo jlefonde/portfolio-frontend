@@ -19,6 +19,45 @@ export const projects: Project[] = [
       { name: "JavaScript", icon: "devicon:javascript" },
     ],
     featured: true,
+    features: [
+      {
+        name: "Real Time Multiplayer",
+        icon: "lucide:users",
+        description: "WebSocket-based multiplayer with low latency",
+      },
+      {
+        name: "Comprehensive Monitoring",
+        icon: "lucide:monitor-cloud",
+        description: "Prometheus metrics with Grafana dashboards",
+      },
+      {
+        name: "Centralized Logging",
+        icon: "lucide:file-clock",
+        description: "ELK stack for log aggregation and analysis",
+      },
+      {
+        name: "User Authentication",
+        icon: "lucide:shield-user",
+        description: "JWT-based authentication with OAuth2 and 2FA integrations",
+      },
+      {
+        name: "Containerized",
+        icon: "lucide:container",
+        description: "Fully dockerized with docker-compose orchestration",
+      },
+      {
+        name: "Automated Deployment",
+        icon: "lucide:server-cog",
+        description: "Ansible playbooks for infrastructure configuration",
+      },
+    ],
+    screenshots: [
+      { path: "/projects/transcendence/image.png", alt: "" },
+      { path: "/projects/transcendence/image2.png", alt: "" },
+      { path: "/projects/transcendence/image3.png", alt: "" },
+    ],
+    githubLink: "https://github.com/pluieciel/transcendence",
+    liveLink: "42pong.com"
   },
   {
     name: "portfolio",

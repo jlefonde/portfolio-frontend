@@ -30,8 +30,8 @@ const secondaryColor = computed(() => {
       <div class="flex gap-2">
         <img
           class="bg-base-50 size-12 shrink-0 rounded-sm object-contain p-2"
-          :src="timeline.logoSrc"
-          alt="cert-logo"
+          :src="timeline.logo?.path"
+          :alt="timeline.logo?.alt"
         />
         <div class="flex flex-col gap-1">
           <div class="font-bold" :class="`text-${primaryColor}`">{{ timeline.name }}</div>
