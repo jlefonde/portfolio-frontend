@@ -141,7 +141,7 @@ const navRoute = routes.find((r) => r.path == route.path)
           <Title :title="project.name" header-size="h2" title-size="sm" />
           <div class="text-base-100 text-sm">{{ project.highlight }}</div>
           <div class="flex flex-wrap gap-x-1 gap-y-2">
-            <Tag v-for="tag in project.tags" :key="tag.name" v-bind="tag" />
+            <Tag v-for="stack in project.stacks" :key="stack.name" v-bind="stack" />
           </div>
         </RouterLink>
       </div>

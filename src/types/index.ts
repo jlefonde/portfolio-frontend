@@ -88,7 +88,7 @@ export interface Feature {
 export interface Project {
   name: string
   highlight: string
-  tags: Tag[]
+  stacks: Stack[]
   featured: boolean
   features?: Feature[]
   screenshots?: Image[]
