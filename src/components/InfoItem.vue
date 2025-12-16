@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
+import { Icon } from '@iconify/vue'
 
 withDefaults(
   defineProps<{
-    label?: string;
-    value: string;
-    icon?: string;
-    iconColor?: string;
-    textColor?: string;
+    label?: string
+    value: string
+    icon?: string
+    iconColor?: string
+    textColor?: string
   }>(),
   {
-    iconColor: "base-50",
-    textColor: "base-50",
-  },
-);
+    iconColor: 'base-50',
+    textColor: 'base-50',
+  }
+)
 </script>
 
 <template>

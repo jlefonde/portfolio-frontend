@@ -1,19 +1,20 @@
 <script setup lang="ts">
-import Tag from "../components/Tag.vue";
-import HorizontalBar from "../components/HorizontalBar.vue";
-import type { Skill } from "../types";
-import { Icon } from "@iconify/vue";
+import { Icon } from '@iconify/vue'
+
+import type { Skill } from '../types'
+import HorizontalBar from '../components/HorizontalBar.vue'
+import Tag from '../components/Tag.vue'
 
 withDefaults(
   defineProps<
     Skill & {
-      showProficiency?: boolean;
+      showProficiency?: boolean
     }
   >(),
   {
     showProficiency: false,
-  },
-);
+  }
+)
 </script>
 
 <template>

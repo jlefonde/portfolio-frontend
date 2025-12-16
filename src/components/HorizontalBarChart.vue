@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { Bar } from "../types";
-import HorizontalBar from "./HorizontalBar.vue";
+import type { Bar } from '../types'
+import HorizontalBar from './HorizontalBar.vue'
 
 defineProps<{
-  bars: Bar[];
-}>();
+  bars: Bar[]
+}>()
 </script>
 
 <template>

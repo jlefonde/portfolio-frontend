@@ -1,25 +1,26 @@
 <script setup lang="ts">
-import Stat from "../components/Stat.vue";
-import Title from "../components/Title.vue";
-import Tag from "../components/Tag.vue";
-import Log from "../components/Log.vue";
-import { routes } from "../router";
-import { about } from "../data/about";
-import { logs } from "../data/logs";
-import { projects } from "../data/projects";
-import { skills } from "../data/skills";
-import { certifications } from "../data/certifications";
-import { useRoute } from "vue-router";
-import InfoItem from "../components/InfoItem.vue";
-import { Icon } from "@iconify/vue";
-import { CONTACTS } from "../data/contacts";
+import { useRoute } from 'vue-router'
+import { Icon } from '@iconify/vue'
 
-const route = useRoute();
-const navRoute = routes.find((r) => r.path == route.path);
+import { routes } from '../router'
+import { about } from '../data/about'
+import { certifications } from '../data/certifications'
+import { CONTACTS } from '../data/contacts'
+import { logs } from '../data/logs'
+import { projects } from '../data/projects'
+import { skills } from '../data/skills'
+import InfoItem from '../components/InfoItem.vue'
+import Log from '../components/Log.vue'
+import Stat from '../components/Stat.vue'
+import Tag from '../components/Tag.vue'
+import Title from '../components/Title.vue'
+
+const route = useRoute()
+const navRoute = routes.find((r) => r.path == route.path)
 </script>
 
 <template>
-  <div class="grid grid-cols-5 grid-rows-8 gap-5">
+  <div class="grid grid-cols-5 gap-5">
     <div class="card col-span-3 row-span-4">
       <div class="flex h-full w-full gap-5">
         <div class="flex flex-1 flex-col gap-5">

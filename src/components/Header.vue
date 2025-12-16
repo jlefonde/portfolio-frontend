@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
-import { CONTACTS } from "../data/contacts";
+import { Icon } from '@iconify/vue'
+
+import { CONTACTS } from '../data/contacts'
 </script>
 
 <template>

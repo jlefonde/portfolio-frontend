@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { Bar } from "../types";
-import { useBarChart } from "../composables/useBarChart";
+import type { Bar } from '../types'
+import { useBarChart } from '../composables/useBarChart'
 
 const props = withDefaults(defineProps<Bar & { topLabel?: boolean }>(), {
   topLabel: false,
-});
+})
 
-const { getBarColor } = useBarChart(props);
-const barColor = getBarColor();
+const { getBarColor } = useBarChart(props)
+const barColor = getBarColor()
 </script>
 
 <template>

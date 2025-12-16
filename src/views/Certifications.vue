@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Stat from "../components/Stat.vue";
-import Certification from "../components/Certification.vue";
-import { certifications } from "../data/certifications";
+import { certifications } from '../data/certifications'
+import Certification from '../components/Certification.vue'
+import Stat from '../components/Stat.vue'
 </script>
 
 <template>

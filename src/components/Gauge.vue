@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    name: string;
-    value: number;
-    mediumThreshold?: number;
-    highThreshold?: number;
+    name: string
+    value: number
+    mediumThreshold?: number
+    highThreshold?: number
   }>(),
   {
     mediumThreshold: 33,
     highThreshold: 66,
-  },
-);
+  }
+)
 
 const cssProps = computed(() => {
-  let gaugeColor = "var(--color-red-light)";
-  if (props.value > props.highThreshold) gaugeColor = "var(--color-green-light)";
-  else if (props.value > props.mediumThreshold) gaugeColor = "var(--color-orange-light)";
+  let gaugeColor = 'var(--color-red-light)'
+  if (props.value > props.highThreshold) gaugeColor = 'var(--color-green-light)'
+  else if (props.value > props.mediumThreshold) gaugeColor = 'var(--color-orange-light)'
 
   return {
-    "--medium-threshold": props.mediumThreshold / 100,
-    "--high-threshold": props.highThreshold / 100,
-    "--value": props.value / 100,
-    "--gauge-color": gaugeColor,
-  };
-});
+    '--medium-threshold': props.mediumThreshold / 100,
+    '--high-threshold': props.highThreshold / 100,
+    '--value': props.value / 100,
+    '--gauge-color': gaugeColor,
+  }
+})
 </script>
 
 <template>

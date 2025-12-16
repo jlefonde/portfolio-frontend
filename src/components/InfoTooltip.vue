@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
+import { Icon } from '@iconify/vue'
 
 const props = withDefaults(
   defineProps<{
-    position?: "top" | "bottom" | "left" | "right";
+    position?: 'top' | 'bottom' | 'left' | 'right'
   }>(),
   {
-    position: "top",
-  },
-);
+    position: 'top',
+  }
+)
 
 const positionClass = new Map<string, string>([
-  ["top", "bottom-full"],
-  ["bottom", "top-full"],
-  ["left", "right-full"],
-  ["right", "left-full"],
-]);
+  ['top', 'bottom-full'],
+  ['bottom', 'top-full'],
+  ['left', 'right-full'],
+  ['right', 'left-full'],
+])
 </script>
 
 <template>

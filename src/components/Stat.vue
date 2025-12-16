@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
-import InfoTooltip from "./InfoTooltip.vue";
-import { useSlots } from "vue";
+import { useSlots } from 'vue'
+import { Icon } from '@iconify/vue'
+
+import InfoTooltip from './InfoTooltip.vue'
 
 defineProps<{
-  name: string;
-  value: string;
-  color: string;
-  redirect?: string;
-}>();
+  name: string
+  value: string
+  color: string
+  redirect?: string
+}>()
 
-const slots = useSlots();
+const slots = useSlots()
 </script>
 
 <template>

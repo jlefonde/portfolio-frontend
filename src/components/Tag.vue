@@ -1,18 +1,25 @@
 <script setup lang="ts">
-import type { Tag } from "../types";
-import { Icon } from "@iconify/vue";
+import { Icon } from '@iconify/vue'
 
-withDefaults(defineProps<Tag & {
-  as?: "div" | "button"
-}>(), {
-  as: "div",
-  textColor: "base-50",
-  bgColor: "base-200",
-});
+import type { Tag } from '../types'
+
+withDefaults(
+  defineProps<
+    Tag & {
+      as?: 'div' | 'button'
+    }
+  >(),
+  {
+    as: 'div',
+    textColor: 'base-50',
+    bgColor: 'base-200',
+  }
+)
 </script>
 
 <template>
-  <component :is="as"
+  <component
+    :is="as"
     class="flex cursor-pointer rounded-full px-3 py-1 text-xs font-bold hover:scale-105"
     :class="`bg-${bgColor} text-${textColor}`"
   >

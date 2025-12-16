@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
-import type { Feature } from "../types";
+import { Icon } from '@iconify/vue'
+
+import type { Feature } from '../types'
 
 withDefaults(defineProps<Feature>(), {
-  iconColor: "base-50",
-});
+  iconColor: 'base-50',
+})
 </script>
 
 <template>

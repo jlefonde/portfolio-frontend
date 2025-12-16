@@ -1,59 +1,60 @@
 <script setup lang="ts">
-import Gauge from "../components/Gauge.vue";
-import Title from "../components/Title.vue";
-import VerticalBarChart from "../components/VerticalBarChart.vue";
-import SkillItem from "../components/SkillItem.vue";
-import Tag from "../components/Tag.vue";
-import { routes } from "../router";
-import { skills } from "../data/skills";
-import { useRoute } from "vue-router";
-import { getColorHex } from "../composables/color";
-import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip } from "chart.js";
-import { Radar } from "vue-chartjs";
-import { Icon } from "@iconify/vue";
-import { computed, ref } from "vue";
-import type { Bar } from "../types";
+import { computed, ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { Chart as ChartJS, Filler, LineElement, PointElement, RadialLinearScale, Tooltip } from 'chart.js'
+import { Icon } from '@iconify/vue'
+import { Radar } from 'vue-chartjs'
 
-const route = useRoute();
-const navRoute = routes.find((r) => r.path == route.path);
+import type { Bar } from '../types'
+import { getColorHex } from '../composables/color'
+import { routes } from '../router'
+import { skills } from '../data/skills'
+import Gauge from '../components/Gauge.vue'
+import SkillItem from '../components/SkillItem.vue'
+import Tag from '../components/Tag.vue'
+import Title from '../components/Title.vue'
+import VerticalBarChart from '../components/VerticalBarChart.vue'
 
-let skillBarChart: Bar[] = [];
-const categories = new Map<string, { sum: number; count: number }>();
+const route = useRoute()
+const navRoute = routes.find((r) => r.path == route.path)
+
+let skillBarChart: Bar[] = []
+const categories = new Map<string, { sum: number; count: number }>()
 
 const skillCategories = Array.from(
-  new Set(skills.flatMap((skill) => skill.stack.categories.map((cat) => cat.name))),
+  new Set(skills.flatMap((skill) => skill.stack.categories.map((cat) => cat.name)))
 ).map((name) => {
-  return skills.flatMap((skill) => skill.stack.categories).find((cat) => cat.name === name)!;
-});
+  return skills.flatMap((skill) => skill.stack.categories).find((cat) => cat.name === name)!
+})
 
 skills
   .filter((s) => s.featured)
   .forEach((skill) => {
     skill.stack.categories.forEach((category) => {
-      const mapCategory = categories.get(category.name);
+      const mapCategory = categories.get(category.name)
       if (mapCategory == null) {
-        categories.set(category.name, { sum: skill.percentage, count: 1 });
+        categories.set(category.name, { sum: skill.percentage, count: 1 })
       } else {
-        mapCategory.sum += skill.percentage;
-        mapCategory.count += 1;
+        mapCategory.sum += skill.percentage
+        mapCategory.count += 1
       }
-    });
+    })
 
-    skillBarChart.push({ label: skill.stack.name, percentage: skill.percentage });
-  });
+    skillBarChart.push({ label: skill.stack.name, percentage: skill.percentage })
+  })
 
-let categoriesMean: number[] = [];
+let categoriesMean: number[] = []
 categories.forEach((value, _) => {
-  categoriesMean.push(Math.round(value.sum / value.count));
-});
+  categoriesMean.push(Math.round(value.sum / value.count))
+})
 
-const radarColor = getColorHex(navRoute?.primaryColor ?? "");
+const radarColor = getColorHex(navRoute?.primaryColor ?? '')
 const radarChart = {
   data: {
     labels: Array.from(categories.keys()),
     datasets: [
       {
-        backgroundColor: radarColor + "64",
+        backgroundColor: radarColor + '64',
         borderColor: radarColor,
         pointBackgroundColor: radarColor,
         pointBorderColor: radarColor,
@@ -71,53 +72,53 @@ const radarChart = {
       r: {
         max: 100,
         grid: {
-          color: getColorHex("base-100"),
+          color: getColorHex('base-100'),
         },
         angleLines: {
-          color: getColorHex("base-100"),
+          color: getColorHex('base-100'),
         },
         ticks: {
-          color: getColorHex("base-100"),
+          color: getColorHex('base-100'),
           showLabelBackdrop: false,
           callback: (value: any) => {
-            return value % 20 === 0 ? `${value}        ` : "";
+            return value % 20 === 0 ? `${value}        ` : ''
           },
         },
         pointLabels: {
-          color: getColorHex("base-100"),
+          color: getColorHex('base-100'),
         },
       },
     },
   },
-};
-
-ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip);
-
-function setActiveCategoryFilter(index: number) {
-  activeCategoryFilter.value = index;
 }
 
-const overviewSelected = ref(false);
-const showProficiency = ref(false);
-const activeCategoryFilter = ref(-1);
-const skillSearch = ref("");
+ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip)
+
+function setActiveCategoryFilter(index: number) {
+  activeCategoryFilter.value = index
+}
+
+const overviewSelected = ref(false)
+const showProficiency = ref(false)
+const activeCategoryFilter = ref(-1)
+const skillSearch = ref('')
 
 const filteredSkills = computed(() => {
-  const selectedCategory = skillCategories[activeCategoryFilter.value];
+  const selectedCategory = skillCategories[activeCategoryFilter.value]
   const filteredSkills = skills.filter((s) => s.stack.name.toLowerCase().startsWith(skillSearch.value.toLowerCase()))
 
   return filteredSkills.filter((skill) => {
     if (activeCategoryFilter.value == -1) {
-      return true;
+      return true
     }
 
     if (!selectedCategory) {
-      return false;
+      return false
     }
 
-    return skill.stack.categories.some((cat) => cat.name === selectedCategory.name);
-  });
-});
+    return skill.stack.categories.some((cat) => cat.name === selectedCategory.name)
+  })
+})
 </script>
 
 <template>

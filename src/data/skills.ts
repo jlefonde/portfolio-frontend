@@ -1,5 +1,5 @@
-import type { Skill } from "../types";
-import { stacks } from "./stacks";
+import type { Skill } from '../types'
+import { stacks } from './stacks'
 
 export const skills: Skill[] = [
   {
@@ -67,4 +67,4 @@ export const skills: Skill[] = [
     percentage: 75,
     featured: true,
   },
-];
+]

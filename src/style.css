@@ -1,8 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@source inline("{text,border,bg,ring}-base-{50,{50..350..50},350}");
-@source inline("{text,border,bg,ring}-{red,orange,green,blue,cyan,purple,yellow}-{light,dark}");
-@source inline("{border-r,border-t}-{green,orange,red}-light");
+@source inline('{text,border,bg,ring}-base-{50,{50..350..50},350}');
+@source inline('{text,border,bg,ring}-{red,orange,green,blue,cyan,purple,yellow}-{light,dark}');
+@source inline('{border-r,border-t}-{green,orange,red}-light');
 
 @theme {
   --color-base-50: #cccddc;

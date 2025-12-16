@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { Bar } from "../types";
-import { useBarChart } from "../composables/useBarChart";
+import type { Bar } from '../types'
+import { useBarChart } from '../composables/useBarChart'
 
-const props = defineProps<Bar>();
+const props = defineProps<Bar>()
 
-const { getBarColor } = useBarChart(props);
-const barColor = getBarColor();
+const { getBarColor } = useBarChart(props)
+const barColor = getBarColor()
 </script>
 
 <template>

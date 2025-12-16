@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Log } from "../types";
-import { logLevels } from "../data/logs";
+import type { Log } from '../types'
+import { logLevels } from '../data/logs'
 
-const props = defineProps<Log>();
-const level = props.logLevel || logLevels.INFO;
+const props = defineProps<Log>()
+const level = props.logLevel || logLevels.INFO
 </script>
 
 <template>

@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { routes } from "../router";
-import { useRoute } from "vue-router";
-import { Icon } from "@iconify/vue";
-import { ref, watch } from "vue";
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { Icon } from '@iconify/vue'
 
-const route = useRoute();
+import { routes } from '../router'
 
-const sidebarCollapsed = ref(false);
+const route = useRoute()
+
+const sidebarCollapsed = ref(false)
 watch(sidebarCollapsed, (val) => {
-  console.log("Sidebar collapsed:", val);
-});
+  console.log('Sidebar collapsed:', val)
+})
 </script>
 
 <template>

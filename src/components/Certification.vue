@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import Tag from "./Tag.vue";
-import InfoItem from "./InfoItem.vue";
-import type { Certification } from "../types";
-import { Icon } from "@iconify/vue";
+import { Icon } from '@iconify/vue'
 
-defineProps<Certification>();
+import type { Certification } from '../types'
+import InfoItem from './InfoItem.vue'
+import Tag from './Tag.vue'
+
+defineProps<Certification>()
 </script>
 
 <template>

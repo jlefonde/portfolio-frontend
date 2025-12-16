@@ -1,23 +1,24 @@
 <script setup lang="ts">
-import Tag from "./Tag.vue";
-import InfoItem from "./InfoItem.vue";
-import { computed } from "vue";
-import type { Timeline } from "../types";
+import { computed } from 'vue'
+
+import type { Timeline } from '../types'
+import InfoItem from './InfoItem.vue'
+import Tag from './Tag.vue'
 
 const props = defineProps<{
-  timeline: Timeline;
-  highlightColor: string;
-  highlightRingColor: string;
-  isLatest: boolean;
-}>();
+  timeline: Timeline
+  highlightColor: string
+  highlightRingColor: string
+  isLatest: boolean
+}>()
 
 const primaryColor = computed(() => {
-  return props.isLatest ? props.highlightColor : "base-100";
-});
+  return props.isLatest ? props.highlightColor : 'base-100'
+})
 
 const secondaryColor = computed(() => {
-  return props.isLatest ? props.highlightRingColor : "base-150";
-});
+  return props.isLatest ? props.highlightRingColor : 'base-150'
+})
 </script>
 
 <template>
