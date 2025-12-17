@@ -91,6 +91,7 @@ export interface Project {
   stacks: Stack[]
   featured: boolean
   features?: Feature[]
+  cover: Image
   screenshots?: Image[]
   githubLink?: string
   liveLink?: string

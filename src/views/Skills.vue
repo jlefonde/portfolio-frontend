@@ -156,6 +156,7 @@ const filteredSkills = computed(() => {
     <Gauge
       class="row-span-2 min-h-56 min-w-72"
       v-for="category in categories"
+      :key="category[0]"
       :name="category[0]"
       :value="Math.round(category[1].sum / category[1].count)"
     />
@@ -195,6 +196,7 @@ const filteredSkills = computed(() => {
       />
       <Tag
         v-for="(category, index) in skillCategories"
+        :key="category.name"
         v-bind="category"
         as="button"
         :text-color="activeCategoryFilter == index ? `${navRoute?.primaryColor}` : `base-50`"
@@ -202,7 +204,7 @@ const filteredSkills = computed(() => {
       />
     </div>
     <div class="grid w-full grid-cols-4 gap-3">
-      <SkillItem v-for="skill in filteredSkills" v-bind="skill" :show-proficiency="showProficiency" />
+      <SkillItem v-for="skill in filteredSkills" :key="skill.stack.name" v-bind="skill" :show-proficiency="showProficiency" />
     </div>
   </div>
 </template>
