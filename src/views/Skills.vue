@@ -2,9 +2,7 @@
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { Chart as ChartJS, Filler, LineElement, PointElement, RadialLinearScale, Tooltip } from 'chart.js'
-import { Icon } from '@iconify/vue'
 import { Radar } from 'vue-chartjs'
-
 import type { Bar } from '../types'
 import { getColorHex } from '../composables/color'
 import { routes } from '../router'
@@ -14,6 +12,10 @@ import SkillItem from '../components/SkillItem.vue'
 import Tag from '../components/Tag.vue'
 import Title from '../components/Title.vue'
 import VerticalBarChart from '../components/VerticalBarChart.vue'
+import ILucideChartColumn from '~icons/lucide/chart-column'
+import ILucideList from '~icons/lucide/list'
+import ILucideSearch from '~icons/lucide/search'
+import ILucideGauge from '~icons/lucide/gauge'
 
 const route = useRoute()
 const navRoute = routes.find((r) => r.path == route.path)
@@ -130,7 +132,7 @@ const filteredSkills = computed(() => {
         @click="overviewSelected = true"
         title="Show overview charts"
       >
-        <Icon icon="lucide:chart-column" class="size-5" />
+        <component :is="ILucideChartColumn" class="size-5" />
         Overview
       </button>
       <button
@@ -139,7 +141,7 @@ const filteredSkills = computed(() => {
         @click="overviewSelected = false"
         title="Show detailed skills list"
       >
-        <Icon icon="lucide:list" class="size-5" />
+        <component :is="ILucideList" class="size-5" />
         List Skills
       </button>
     </div>
@@ -168,7 +170,7 @@ const filteredSkills = computed(() => {
     <div class="flex w-1/2 gap-3">
       <div class="relative h-14 flex-1 rounded-xl">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <Icon icon="lucide:search" class="text-base-50 size-5" />
+          <component :is="ILucideSearch" class="text-base-50 size-5" />
         </div>
         <input
           placeholder="Search"
@@ -184,7 +186,7 @@ const filteredSkills = computed(() => {
         @click="showProficiency = !showProficiency"
         title="Toggle proficiency display"
       >
-        <Icon icon="lucide:gauge" class="m-auto size-5" />
+        <component :is="ILucideGauge" class="m-auto size-5" />
       </button>
     </div>
     <div class="flex w-1/2 flex-wrap gap-x-2 gap-y-3">

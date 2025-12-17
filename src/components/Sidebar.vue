@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { Icon } from '@iconify/vue'
-
 import { routes } from '../router'
+import ILucidePanelLeft from '~icons/lucide/panel-left'
 
 const route = useRoute()
 
@@ -29,7 +28,7 @@ watch(sidebarCollapsed, (val) => {
         :class="sidebarCollapsed ? 'm-auto' : ''"
         title="Toggle sidebar"
       >
-        <Icon icon="lucide:panel-left" class="m-auto size-6" />
+        <component :is="ILucidePanelLeft" class="m-auto size-6" />
       </div>
     </header>
     <nav class="flex flex-1 flex-col gap-3 p-5">
@@ -44,8 +43,8 @@ watch(sidebarCollapsed, (val) => {
         "
         :to="navRoute.path"
       >
-        <Icon
-          :icon="navRoute.icon ?? ''"
+        <component
+          :is="navRoute.icon"
           class="size-6"
           :class="
             route.path === navRoute.path ? `text-${navRoute.primaryColor}` : 'text-base-100 group-hover:text-base-50'

@@ -1,12 +1,14 @@
+import type { Component } from 'vue'
+
 export interface Contact {
   name: string
-  icon: string
+  icon: Component
   href: string
 }
 
 export interface Tag {
   name: string
-  icon?: string
+  icon?: Component
   textColor?: string
   bgColor?: string
 }
@@ -67,8 +69,7 @@ export interface Bar {
 export interface Category extends Tag {}
 
 export interface Stack extends Tag {
-  iconList?: string
-  icon?: string
+  iconList?: Component
   categories: Category[]
 }
 
@@ -80,7 +81,7 @@ export interface Skill {
 
 export interface Feature {
   name: string
-  icon: string
+  icon: Component
   iconColor?: string
   description: string
 }

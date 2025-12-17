@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
+import type { Component } from 'vue'
 
 withDefaults(
   defineProps<{
     label?: string
     value: string
-    icon?: string
+    icon?: Component
     iconColor?: string
     textColor?: string
   }>(),
@@ -18,7 +18,7 @@ withDefaults(
 
 <template>
   <div class="flex gap-2 text-sm" :class="`text-${textColor}`">
-    <Icon v-if="icon" :icon="icon" class="size-5" :class="`text-${iconColor}`" />
+    <component v-if="icon" :is="icon" class="size-5" :class="`text-${iconColor}`" />
     <b v-if="label">{{ label }}:</b>
     {{ value }}
   </div>

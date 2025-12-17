@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import { Icon } from '@iconify/vue'
-
 import { routes } from '../router'
 import { about } from '../data/about'
 import { certifications } from '../data/certifications'
@@ -14,6 +12,14 @@ import Log from '../components/Log.vue'
 import Stat from '../components/Stat.vue'
 import Tag from '../components/Tag.vue'
 import Title from '../components/Title.vue'
+import ILucideMapPin from '~icons/lucide/map-pin'
+import ILucideActivity from '~icons/lucide/activity'
+import ILucideSearchCode from '~icons/lucide/search-code'
+import ILucideContact from '~icons/lucide/contact'
+import ILucideFileDown from '~icons/lucide/file-down'
+import ILucideArrowRight from '~icons/lucide/arrow-right'
+import ILucideTerminal from '~icons/lucide/terminal'
+import ILucideStar from '~icons/lucide/star'
 
 const route = useRoute()
 const navRoute = routes.find((r) => r.path == route.path)
@@ -33,25 +39,25 @@ const navRoute = routes.find((r) => r.path == route.path)
               <InfoItem
                 label="Location"
                 :value="about.location"
-                icon="lucide:map-pin"
+                :icon="ILucideMapPin"
                 :icon-color="navRoute?.primaryColor"
               />
               <InfoItem
                 label="Status"
                 :value="about.status"
-                icon="lucide:activity"
+                :icon="ILucideActivity"
                 :icon-color="navRoute?.primaryColor"
               />
               <InfoItem
                 label="Looking For"
                 :value="about.lookingFor"
-                icon="lucide:search-code"
+                :icon="ILucideSearchCode"
                 :icon-color="navRoute?.primaryColor"
               />
               <InfoItem
                 label="Currently"
                 :value="about.currently"
-                icon="lucide:contact"
+                :icon="ILucideContact"
                 :icon-color="navRoute?.primaryColor"
               />
             </div>
@@ -66,7 +72,7 @@ const navRoute = routes.find((r) => r.path == route.path)
               class="bg-base-350 hover:bg-base-200 flex size-12 rounded-md"
               title="Download resume"
             >
-              <Icon icon="lucide:file-down" class="text-base-50 m-auto size-6" />
+              <component :is="ILucideFileDown" class="text-base-50 m-auto size-6" />
             </a>
             <a
               v-for="contact in CONTACTS"
@@ -74,7 +80,7 @@ const navRoute = routes.find((r) => r.path == route.path)
               class="bg-base-350 hover:bg-base-200 flex size-12 rounded-sm"
               :title="contact.name"
             >
-              <Icon :icon="contact.icon" class="text-base-50 m-auto size-6" />
+              <component :is="contact.icon" class="text-base-50 m-auto size-6" />
             </a>
           </div>
         </div>
@@ -83,8 +89,8 @@ const navRoute = routes.find((r) => r.path == route.path)
             <Title title="Key Skills" header-size="h2" />
             <div class="flex-1 text-right">
               <RouterLink to="/skills">
-                <Icon
-                  icon="lucide:arrow-right"
+                <component
+                  :is="ILucideArrowRight"
                   class="text-base-100 hover:text-base-50 hover:bg-base-150 inline-block size-6 hover:rounded-sm"
                 />
               </RouterLink>
@@ -124,13 +130,13 @@ const navRoute = routes.find((r) => r.path == route.path)
       redirect="/certifications"
     />
     <div class="card col-span-3 row-span-4 row-start-5">
-      <Title title="Activity Logs" icon="lucide:terminal" />
+      <Title title="Activity Logs" :icon="ILucideTerminal" />
       <div class="bg-base-350 h-full rounded-md p-3">
         <Log v-for="log in logs" v-bind="log" />
       </div>
     </div>
     <div class="card text-base-50 col-span-2 col-start-4 row-span-4 row-start-5">
-      <Title title="Featured Projects" icon="lucide:star" />
+      <Title title="Featured Projects" :icon="ILucideStar" />
       <div class="flex grow flex-col gap-3 overflow-x-hidden overflow-y-auto">
         <RouterLink
           v-for="project in projects.filter((p) => p.featured)"

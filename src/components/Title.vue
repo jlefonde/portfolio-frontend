@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
+import type { Component } from 'vue'
 
 withDefaults(
   defineProps<{
     title: string
     titleSize?: string
     titleColor?: string
-    icon?: string
+    icon?: Component
     iconColor?: string
     iconSize?: string
     headerSize?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
@@ -22,7 +22,7 @@ withDefaults(
 
 <template>
   <component :is="headerSize" class="flex items-center gap-2">
-    <Icon v-if="icon" :icon="icon" :class="`text-${iconColor} size-${iconSize}`" />
+    <component v-if="icon" :is="icon" :class="`text-${iconColor} size-${iconSize}`" />
     <div class="font-bold" :class="`text-${titleSize} text-${titleColor}`">{{ title }}</div>
   </component>
 </template>

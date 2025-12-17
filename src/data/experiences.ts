@@ -1,4 +1,5 @@
 import type { Timeline } from '../types'
+import { stacks } from './stacks'
 
 export const experiences: Record<string, Timeline[]> = {
   work: [
@@ -19,13 +20,13 @@ export const experiences: Record<string, Timeline[]> = {
         'Enhanced <b>database initialization scripts</b> for schema changes and data migrations',
       ],
       tags: [
-        { name: 'C#', icon: 'devicon:csharp' },
-        { name: '.NET', icon: 'logos:dotnet' },
-        { name: 'MySQL', icon: 'devicon:mysql' },
-        { name: 'HTML', icon: 'devicon:html5' },
-        { name: 'CSS', icon: 'devicon:css3' },
-        { name: 'JavaScript', icon: 'devicon:javascript' },
-        { name: 'Azure Devops', icon: 'devicon:azuredevops' },
+        stacks.csharp!,
+        stacks.dotnet!,
+        stacks.mysql!,
+        stacks.html!,
+        stacks.css!,
+        stacks.javascript!,
+        stacks.azuredevops!,
       ],
     },
   ],

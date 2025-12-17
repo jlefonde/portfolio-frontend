@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
-
 import type { Skill } from '../types'
 import HorizontalBar from '../components/HorizontalBar.vue'
 import Tag from '../components/Tag.vue'
@@ -20,7 +18,7 @@ withDefaults(
 <template>
   <div class="bg-base-300 hover:bg-base-400 col-span-1 flex flex-col gap-3 rounded-xl p-3 hover:scale-102">
     <div class="flex gap-3">
-      <Icon :icon="stack.iconList ?? ''" class="size-16" />
+      <component :is="stack.iconList" class="size-16" />
       <div class="flex flex-col justify-around">
         <div class="text-base-50 font-bold">{{ stack.name }}</div>
         <div class="flex flex-wrap gap-x-1 gap-y-2">

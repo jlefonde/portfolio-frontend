@@ -1,19 +1,22 @@
 import type { Contact } from '../types'
+import ILucideMail from '~icons/lucide/mail'
+import IDeviconPlainLinkedin from '~icons/devicon-plain/linkedin'
+import IOcticonMarkGithub24 from '~icons/octicon/mark-github-24'
 
 export const CONTACTS = {
   email: {
     name: 'Email',
-    icon: 'lucide:mail',
+    icon: ILucideMail,
     href: 'mailto:contact@jorislefondeur.com',
   },
   linkedin: {
     name: 'LinkedIn',
-    icon: 'devicon-plain:linkedin',
+    icon: IDeviconPlainLinkedin,
     href: 'https://linkedin.com/in/jorislefondeur',
   },
   github: {
     name: 'GitHub',
-    icon: 'octicon:mark-github-24',
+    icon: IOcticonMarkGithub24,
     href: 'https://github.com/jlefonde',
   },
 } as const satisfies Record<string, Contact>

@@ -1,12 +1,18 @@
 import type { RouteRecordRaw } from 'vue-router'
+import type { Component } from 'vue'
 import AboutView from '../views/About.vue'
 import SkillsView from '../views/Skills.vue'
 import ExperiencesView from '../views/Experiences.vue'
 import ProjectsView from '../views/Projects.vue'
 import CertificationsView from '../views/Certifications.vue'
+import ILucideUser from '~icons/lucide/user'
+import ILucideCode from '~icons/lucide/code'
+import ILucideClipboardClock from '~icons/lucide/clipboard-clock'
+import ILucideFolderCode from '~icons/lucide/folder-code'
+import ILucideTrophy from '~icons/lucide/trophy'
 
 interface RouteMetadata {
-  icon?: string
+  icon?: Component
   primaryColor?: string
   secondaryColor?: string
   addToNav?: boolean
@@ -18,12 +24,12 @@ export const routes: Route[] = [
   {
     path: '/',
     redirect: '/about',
-  },
+  } as Route,
   {
     name: 'About',
     path: '/about',
     component: AboutView,
-    icon: 'lucide:user',
+    icon: ILucideUser,
     primaryColor: 'purple-light',
     secondaryColor: 'purple-dark',
     addToNav: true,
@@ -32,7 +38,7 @@ export const routes: Route[] = [
     name: 'Skills',
     path: '/skills',
     component: SkillsView,
-    icon: 'lucide:code',
+    icon: ILucideCode,
     primaryColor: 'orange-light',
     secondaryColor: 'orange-dark',
     addToNav: true,
@@ -41,7 +47,7 @@ export const routes: Route[] = [
     name: 'Experiences',
     path: '/experiences',
     component: ExperiencesView,
-    icon: 'lucide:clipboard-clock',
+    icon: ILucideClipboardClock,
     primaryColor: 'red-light',
     secondaryColor: 'red-dark',
     addToNav: true,
@@ -50,7 +56,7 @@ export const routes: Route[] = [
     name: 'Projects',
     path: '/projects',
     component: ProjectsView,
-    icon: 'lucide:folder-code',
+    icon: ILucideFolderCode,
     primaryColor: 'green-light',
     secondaryColor: 'green-dark',
     addToNav: true,
@@ -59,7 +65,7 @@ export const routes: Route[] = [
     name: 'Certifications',
     path: '/certifications',
     component: CertificationsView,
-    icon: 'lucide:trophy',
+    icon: ILucideTrophy,
     primaryColor: 'blue-light',
     secondaryColor: 'blue-dark',
     addToNav: true,

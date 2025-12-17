@@ -1,44 +1,54 @@
 import type { Category } from '../types'
+import ILucideGitBranch from '~icons/lucide/git-branch'
+import ILucideCloud from '~icons/lucide/cloud'
+import ILucideContainer from '~icons/lucide/container'
+import ILucideMonitorCloud from '~icons/lucide/monitor-cloud'
+import ILucideServerCog from '~icons/lucide/server-cog'
+import ILucideCodeXml from '~icons/lucide/code-xml'
+import ILucideLayoutTemplate from '~icons/lucide/layout-template'
+import ILucideServer from '~icons/lucide/server'
+import ILucideDatabase from '~icons/lucide/database'
+import ILucideCpu from '~icons/lucide/cpu'
 
 export const categories: Record<string, Category> = {
   cicd: {
     name: 'CI/CD',
-    icon: 'lucide:git-branch',
+    icon: ILucideGitBranch,
   },
   cloud: {
     name: 'Cloud',
-    icon: 'lucide:cloud',
+    icon: ILucideCloud,
   },
   containerization: {
     name: 'Containerization',
-    icon: 'lucide:container',
+    icon: ILucideContainer,
   },
   monitoring: {
     name: 'Monitoring',
-    icon: 'lucide:monitor-cloud',
+    icon: ILucideMonitorCloud,
   },
   iac: {
     name: 'IaC',
-    icon: 'lucide:server-cog',
+    icon: ILucideServerCog,
   },
   programming: {
     name: 'Programming',
-    icon: 'lucide:code-xml',
+    icon: ILucideCodeXml,
   },
   frontend: {
     name: 'Frontend',
-    icon: 'lucide:layout-template',
+    icon: ILucideLayoutTemplate,
   },
   backend: {
     name: 'Backend',
-    icon: 'lucide:server',
+    icon: ILucideServer,
   },
   database: {
     name: 'Database',
-    icon: 'lucide:database',
+    icon: ILucideDatabase,
   },
   virtualization: {
     name: 'Database',
-    icon: 'lucide:cpu',
+    icon: ILucideCpu,
   },
 }

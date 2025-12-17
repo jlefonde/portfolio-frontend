@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-
 import type { Timeline } from '../types'
 import InfoItem from './InfoItem.vue'
 import Tag from './Tag.vue'
+import ILucideCalendar from '~icons/lucide/calendar'
+import ILucideMapPin from '~icons/lucide/map-pin'
 
 const props = defineProps<{
   timeline: Timeline
@@ -42,11 +43,11 @@ const secondaryColor = computed(() => {
       <div class="flex gap-24">
         <InfoItem
           :value="`${timeline.from} — ${timeline.to}`"
-          icon="lucide:calendar"
+          :icon="ILucideCalendar"
           text-color="base-100"
           icon-color="base-100"
         />
-        <InfoItem :value="timeline.location" icon="lucide:map-pin" text-color="base-100" icon-color="base-100" />
+        <InfoItem :value="timeline.location" :icon="ILucideMapPin" text-color="base-100" icon-color="base-100" />
       </div>
       <p v-if="timeline.description" class="text-base-50 text-sm leading-relaxed" v-html="timeline.description"></p>
       <ul v-if="timeline.highlights" class="text-base-50 list-inside list-disc text-sm">

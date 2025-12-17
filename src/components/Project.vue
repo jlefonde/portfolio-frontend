@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-import 'vue3-carousel/carousel.css'
-
 import type { Project } from '../types'
 import Tag from '../components/Tag.vue'
+import ILucideStar from '~icons/lucide/star'
+import IOcticonMarkGithub24 from '~icons/octicon/mark-github-24'
+import ILucideGlobe from '~icons/lucide/globe'
+import ILucideArrowUpRight from '~icons/lucide/arrow-up-right'
+import ILucideChevronDown from '~icons/lucide/chevron-down'
 
 withDefaults(
   defineProps<
@@ -16,10 +17,6 @@ withDefaults(
     featuredColor: 'base-50',
   }
 )
-
-const carouselConfig = {
-  itemsToShow: 1,
-}
 </script>
 
 <template>
@@ -28,7 +25,7 @@ const carouselConfig = {
       <img :src="cover.path" :alt="cover.alt" class="h-72 w-full border-base-150 border rounded-md object-contain" />
       <div class="flex justify-between">
         <h1 class="text-base-50 font-bold">{{ name }}</h1>
-        <Icon icon="lucide:star" class="size-6" :class="featured ? `text-${featuredColor}` : `text-base-100`" />
+        <component :is="ILucideStar" class="size-6" :class="featured ? `text-${featuredColor}` : `text-base-100`" />
       </div>
       <div class="text-base-100 text-sm">{{ highlight }}</div>
       <div class="flex flex-col gap-3">
@@ -37,20 +34,20 @@ const carouselConfig = {
           class="text-base-100 group flex cursor-pointer items-center justify-between hover:opacity-75"
         >
           <a :href="githubLink" target="_blank" title="GitHub" class="flex gap-2 text-sm">
-            <Icon icon="octicon:mark-github-24" class="size-5" />
+            <component :is="IOcticonMarkGithub24" class="size-5" />
             <div class="m-auto">View source</div>
           </a>
-          <Icon icon="lucide:arrow-up-right" class="size-5 opacity-0 group-hover:opacity-75" />
+          <component :is="ILucideArrowUpRight" class="size-5 opacity-0 group-hover:opacity-75" />
         </div>
         <div
           v-if="liveLink"
           class="text-base-100 group flex cursor-pointer items-center justify-between hover:opacity-75"
         >
           <a :href="liveLink" target="_blank" title="Website" class="flex gap-2 text-sm">
-            <Icon icon="lucide:globe" class="size-5" />
+            <component :is="ILucideGlobe" class="size-5" />
             <div class="m-auto">Live Website</div>
           </a>
-          <Icon icon="lucide:arrow-up-right" class="size-5 opacity-0 group-hover:opacity-75" />
+          <component :is="ILucideArrowUpRight" class="size-5 opacity-0 group-hover:opacity-75" />
         </div>
       </div>
     </div>
@@ -62,7 +59,7 @@ const carouselConfig = {
         class="text-base-100 border-t-base-150 flex cursor-pointer flex-col items-center border-t pt-3 text-sm hover:opacity-75"
       >
         <div class="m-auto">Click for details</div>
-        <Icon icon="lucide:chevron-down" class="size-5" />
+        <component :is="ILucideChevronDown" class="size-5" />
       </button>
     </div>
   </div>

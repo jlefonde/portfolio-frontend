@@ -1,5 +1,11 @@
 import type { Project } from '../types'
 import { stacks } from './stacks'
+import ILucideUsers from '~icons/lucide/users'
+import ILucideMonitorCloud from '~icons/lucide/monitor-cloud'
+import ILucideFileClock from '~icons/lucide/file-clock'
+import ILucideShieldUser from '~icons/lucide/shield-user'
+import ILucideContainer from '~icons/lucide/container'
+import ILucideServerCog from '~icons/lucide/server-cog'
 
 export const projects: Project[] = [
   {
@@ -23,32 +29,32 @@ export const projects: Project[] = [
     features: [
       {
         name: 'Real Time Multiplayer',
-        icon: 'lucide:users',
+        icon: ILucideUsers,
         description: 'WebSocket-based multiplayer with low latency',
       },
       {
         name: 'Comprehensive Monitoring',
-        icon: 'lucide:monitor-cloud',
+        icon: ILucideMonitorCloud,
         description: 'Prometheus metrics with Grafana dashboards',
       },
       {
         name: 'Centralized Logging',
-        icon: 'lucide:file-clock',
+        icon: ILucideFileClock,
         description: 'ELK stack for log aggregation and analysis',
       },
       {
         name: 'User Authentication',
-        icon: 'lucide:shield-user',
+        icon: ILucideShieldUser,
         description: 'JWT-based authentication with OAuth2 and 2FA integrations',
       },
       {
         name: 'Containerized',
-        icon: 'lucide:container',
+        icon: ILucideContainer,
         description: 'Fully dockerized with docker-compose orchestration',
       },
       {
         name: 'Automated Deployment',
-        icon: 'lucide:server-cog',
+        icon: ILucideServerCog,
         description: 'Ansible playbooks for infrastructure configuration',
       },
     ],

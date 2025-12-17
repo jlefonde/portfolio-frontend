@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
-
 import { CONTACTS } from '../data/contacts'
+import ILucideFileDown from '~icons/lucide/file-down'
 </script>
 
 <template>
@@ -22,7 +21,7 @@ import { CONTACTS } from '../data/contacts'
       class="item-center text-base-100 hover:text-base-50 hover:bg-base-150 flex size-8 cursor-pointer hover:rounded-sm"
       title="Download resume"
     >
-      <Icon icon="lucide:file-down" class="m-auto size-6" />
+      <component :is="ILucideFileDown" class="m-auto size-6" />
     </a>
     <template v-for="contact in CONTACTS">
       <div class="bg-base-150 h-8 w-px"></div>
@@ -32,7 +31,7 @@ import { CONTACTS } from '../data/contacts'
         class="item-center text-base-100 hover:text-base-50 hover:bg-base-150 flex size-8 cursor-pointer hover:rounded-sm"
         :title="contact.name"
       >
-        <Icon :icon="contact.icon" class="m-auto size-6" />
+        <component :is="contact.icon" class="m-auto size-6" />
       </a>
     </template>
   </header>

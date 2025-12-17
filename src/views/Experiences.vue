@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-
 import { routes } from '../router'
 import { experiences } from '../data/experiences'
 import TimelineItem from '../components/TimelineItem.vue'
 import Title from '../components/Title.vue'
+import ILucideBriefcase from '~icons/lucide/briefcase'
+import ILucideGraduationCap from '~icons/lucide/graduation-cap'
 
 const route = useRoute()
 const navRoute = routes.find((r) => r.path == route.path)
@@ -14,7 +15,7 @@ const navRoute = routes.find((r) => r.path == route.path)
   <div class="grid grid-cols-2 gap-5">
     <div class="card bg-base-300 h-fit">
       <div class="flex flex-col gap-5">
-        <Title title="Work Experience" icon="lucide:briefcase" :icon-color="navRoute?.primaryColor" />
+        <Title title="Work Experience" :icon="ILucideBriefcase" :icon-color="navRoute?.primaryColor" />
         <TimelineItem
           v-for="(experience, index) in experiences.work"
           :timeline="experience"
@@ -26,7 +27,7 @@ const navRoute = routes.find((r) => r.path == route.path)
     </div>
     <div class="card bg-base-300">
       <div class="flex flex-col gap-5">
-        <Title title="Education" icon="lucide:graduation-cap" icon-color="cyan-light" />
+        <Title title="Education" :icon="ILucideGraduationCap" icon-color="cyan-light" />
         <TimelineItem
           v-for="(degree, index) in experiences.education"
           :timeline="degree"
