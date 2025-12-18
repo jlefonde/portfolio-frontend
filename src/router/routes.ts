@@ -5,6 +5,7 @@ import SkillsView from '../views/Skills.vue'
 import ExperiencesView from '../views/Experiences.vue'
 import ProjectsView from '../views/Projects.vue'
 import CertificationsView from '../views/Certifications.vue'
+import NotFoundView from '../views/NotFound.vue'
 import ILucideUser from '~icons/lucide/user'
 import ILucideCode from '~icons/lucide/code'
 import ILucideClipboardClock from '~icons/lucide/clipboard-clock'
@@ -24,7 +25,7 @@ export const routes: Route[] = [
   {
     path: '/',
     redirect: '/about',
-  } as Route,
+  },
   {
     name: 'About',
     path: '/about',
@@ -69,5 +70,10 @@ export const routes: Route[] = [
     primaryColor: 'blue-light',
     secondaryColor: 'blue-dark',
     addToNav: true,
+  },
+  {
+    name: 'NotFound',
+    path: '/:pathMatch(.*)*', 
+    component: NotFoundView,
   },
 ]
