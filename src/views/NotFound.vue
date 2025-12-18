@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import ILucideCircleAlert from '~icons/lucide/circle-alert'
+import ILucideSquareArrowRight from '~icons/lucide/arrow-right'
+
 </script>
 
 <template>
@@ -13,9 +15,10 @@ import ILucideCircleAlert from '~icons/lucide/circle-alert'
       </div>
       <RouterLink
         to="/about"
-        class="bg-blue-dark text-blue-light rounded-sm px-4 py-2 font-bold transition-colors hover:opacity-75"
+        class="bg-blue-dark text-blue-light rounded-sm px-4 py-2 font-bold hover:opacity-75 flex gap-2 items-center"
       >
-        Go to About
+      Go to About
+      <ILucideSquareArrowRight />
       </RouterLink>
     </div>
   </div>

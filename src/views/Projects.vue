@@ -37,7 +37,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="grid grid-cols-3 gap-5">
+  <div class="grid xl:grid-cols-2 2xl:grid-cols-3 gap-5">
     <Project
       v-for="project in projects"
       :key="project.name"

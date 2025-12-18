@@ -12,7 +12,7 @@ const navRoute = routes.find((r) => r.path == route.path)
 </script>
 
 <template>
-  <div class="grid grid-cols-2 gap-5">
+  <div class="grid 2xl:grid-cols-2 gap-5">
     <div class="card bg-base-300 h-fit">
       <div class="flex flex-col gap-5">
         <Title title="Work Experience" :icon="ILucideBriefcase" :icon-color="navRoute?.primaryColor" />
