@@ -14,4 +14,20 @@ export default defineConfig({
       autoInstall: true,
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('flowbite-vue')) {
+              return 'flowbite-vue'
+            }
+            if (id.includes('chart.js')) {
+              return 'chart-js'
+            }
+          }
+        },
+      },
+    },
+  },
 })
