@@ -2,6 +2,8 @@
 
 @import "flowbite-vue/index.css";
 @plugin "flowbite/plugin";
+@source "../node_modules/flowbite-vue/**/*.{js,jsx,ts,tsx,vue}";
+@source "../node_modules/flowbite/**/*.{js,jsx,ts,tsx}";
 
 @source inline('{text,border,bg,ring}-base-{50,{50..350..50},350}');
 @source inline('{text,border,bg,ring}-{red,orange,green,blue,cyan,purple,yellow}-{light,dark}');
