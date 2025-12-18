@@ -62,7 +62,6 @@ export const projects: Project[] = [
     screenshots: [
       { path: '/projects/transcendence/image.png', alt: '' },
       { path: '/projects/transcendence/image2.png', alt: '' },
-      { path: '/projects/transcendence/image3.png', alt: '' },
     ],
     githubLink: 'https://github.com/pluieciel/transcendence',
     liveLink: 'https://42pong.com',
@@ -79,7 +78,7 @@ export const projects: Project[] = [
       stacks.typescript!,
       stacks.tailwindcss!,
     ],
-    featured: false,
+    featured: true,
     cover: { path: '/projects/transcendence/image3.png', alt: '' },
   },
   {
@@ -87,14 +86,6 @@ export const projects: Project[] = [
     highlight: 'Web server in C++, handling HTTP requests, static content, uploads, and CGI',
     stacks: [stacks.cplusplus!, stacks.nginx!],
     featured: false,
-    cover: { path: '', alt: '' },
-  },
-  {
-    name: 'taskmaster',
-    highlight:
-      'Process supervisor in Go, with automatic restart policies, hot-reload, privilege de-escalation, and interactive CLI',
-    stacks: [stacks.go!],
-    featured: true,
     cover: { path: '', alt: '' },
   },
   {
@@ -112,6 +103,14 @@ export const projects: Project[] = [
     cover: { path: '', alt: '' },
   },
   {
+    name: 'taskmaster',
+    highlight:
+      'Process supervisor in Go, with automatic restart policies, hot-reload, privilege de-escalation, and interactive CLI',
+    stacks: [stacks.go!],
+    featured: true,
+    cover: { path: '', alt: '' },
+  },
+  {
     name: 'matt-daemon',
     highlight: 'Unix daemon in C++ with socket communication, signal handling, file locking and logging',
     stacks: [stacks.cplusplus!],
@@ -119,7 +118,7 @@ export const projects: Project[] = [
     cover: { path: '', alt: '' },
   },
   {
-    name: '42 Seconds',
+    name: '42-seconds',
     highlight: '1st Prize winner Puzzle game developed in one week at LGX 2024 Game Jam',
     stacks: [stacks.csharp!, stacks.unity!],
     featured: false,

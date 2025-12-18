@@ -1,11 +1,5 @@
 import type { Component } from 'vue'
 
-export interface Contact {
-  name: string
-  icon: Component
-  href: string
-}
-
 export interface Tag {
   name: string
   icon?: Component
@@ -96,4 +90,10 @@ export interface Project {
   screenshots?: Image[]
   githubLink?: string
   liveLink?: string
+}
+
+export interface Link {
+  icon?: Component
+  name: string
+  href: string,
 }

@@ -135,14 +135,14 @@ const navRoute = routes.find((r) => r.path == route.path)
         <Log v-for="log in logs" v-bind="log" />
       </div>
     </div>
-    <div class="card text-base-50 col-span-2 col-start-4 row-span-4 row-start-5">
+    <div class="card text-base-50 col-span-2 col-start-4 row-span-4 row-start-5 min-h-150">
       <Title title="Featured Projects" :icon="ILucideStar" />
-      <div class="flex grow flex-col gap-3 overflow-x-hidden overflow-y-auto">
+      <div class="flex grow flex-col gap-3 overflow-x-hidden overflow-y-auto h-0">
         <RouterLink
           v-for="project in projects.filter((p) => p.featured)"
           :key="project.name"
           class="bg-base-350 hover:bg-base-400 flex w-full cursor-pointer flex-col gap-2 rounded-sm p-3 transition-transform duration-200 hover:scale-101"
-          :to="{ path: '/projects', query: { id: projects.indexOf(project) } }"
+          :to="{ path: '/projects', query: { project: project.name } }"
         >
           <Title :title="project.name" header-size="h2" title-size="sm" />
           <div class="text-base-100 text-sm">{{ project.highlight }}</div>
