@@ -4,10 +4,10 @@ import Sidebar from './components/Sidebar.vue'
 </script>
 
 <template>
-  <Sidebar />
+  <Sidebar class="sticky top-0 h-screen" />
   <div class="flex flex-1 flex-col">
-    <Header />
-    <main class="bg-base-350 flex-1 overflow-auto p-10">
+    <Header class="sticky top-0 z-10" />
+    <main class="bg-base-350 flex-1 p-10">
       <RouterView />
     </main>
   </div>
