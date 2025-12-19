@@ -7,7 +7,7 @@ import Sidebar from './components/Sidebar.vue'
   <Sidebar />
   <div class="flex flex-1 flex-col">
     <Header class="sticky top-0 z-10" />
-    <main class="bg-base-350 flex-1 p-10">
+    <main class="bg-base-350 flex-1 h-full p-10">
       <RouterView />
     </main>
   </div>

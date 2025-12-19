@@ -40,7 +40,7 @@ const secondaryColor = computed(() => {
           <div class="text-base-50 font-bold">{{ timeline.organization }}</div>
         </div>
       </div>
-      <div class="flex gap-24">
+      <div class="flex flex-col gap-3 md:gap-24 md:flex-row">
         <InfoItem
           :value="`${timeline.from} — ${timeline.to}`"
           :icon="ILucideCalendar"

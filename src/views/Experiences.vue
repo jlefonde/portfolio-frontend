@@ -12,9 +12,9 @@ const navRoute = routes.find((r) => r.path == route.path)
 </script>
 
 <template>
-  <div class="grid xl:grid-cols-2 gap-5">
+  <div class="grid 2xl:grid-cols-2 gap-5">
     <div class="card bg-base-300 h-fit">
-      <div class="flex flex-col gap-5 w-2/3 xl:w-full">
+      <div class="flex flex-col gap-5 w-full lg:w-2/3 2xl:w-full">
         <Title title="Work Experience" :icon="ILucideBriefcase" :icon-color="navRoute?.primaryColor" />
         <TimelineItem
           v-for="(experience, index) in experiences.work"
@@ -26,7 +26,7 @@ const navRoute = routes.find((r) => r.path == route.path)
       </div>
     </div>
     <div class="card bg-base-300">
-      <div class="flex flex-col gap-5 w-2/3 xl:w-full">
+      <div class="flex flex-col gap-5 w-full lg:w-2/3 2xl:w-full">
         <Title title="Education" :icon="ILucideGraduationCap" icon-color="cyan-light" />
         <TimelineItem
           v-for="(degree, index) in experiences.education"
