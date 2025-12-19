@@ -4,7 +4,7 @@ import Sidebar from './components/Sidebar.vue'
 </script>
 
 <template>
-  <Sidebar class="sticky top-0 h-screen" />
+  <Sidebar />
   <div class="flex flex-1 flex-col">
     <Header class="sticky top-0 z-10" />
     <main class="bg-base-350 flex-1 p-10">
