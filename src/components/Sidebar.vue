@@ -33,7 +33,7 @@ onUnmounted(() => mediaQuery?.removeEventListener('change', handleResize))
 <template>
   <aside
     class="bg-base-300 border-base-150 flex flex-col border-r fixed lg:sticky top-0 z-20"
-    :class="sidebarCollapsed ? 'size-14 lg:h-screen' : 'w-80 h-screen'"
+    :class="sidebarCollapsed ? 'size-14 lg:h-screen' : 'w-80 h-full lg:h-screen'"
     v-click-outside="closeSidebar"
   >
     <header class="border-base-150 flex h-14 items-center justify-between border-b p-3">

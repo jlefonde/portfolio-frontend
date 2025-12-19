@@ -69,7 +69,8 @@ defineExpose({
       </button>
     </div>
   </div>
-  <FwbModal v-if="isShowModal" @close="closeModal" class="absolute" size="7xl">
+  <Teleport to="body">
+    <FwbModal v-if="isShowModal" @close="closeModal" size="7xl">
     <template #header>
       <div class="flex flex-col gap-2">
         <Title :title="name" :icon="ILucideStar" :icon-color="featured ? `${navRoute?.primaryColor}` : `base-100`" />
@@ -77,9 +78,9 @@ defineExpose({
       </div>
     </template>
     <template #body>
-      <div class="flex flex-col gap-5">
-        <div class="flex gap-5">
-          <Carousel v-bind="carouselConfig" class="w-2/3">
+      <div class="flex flex-col gap-5 max-h-[calc(100vh-150px)] overflow-y-auto">
+        <div class="flex flex-col gap-5 lg:flex-row">
+          <Carousel v-bind="carouselConfig" class="w-full touch-pan-y lg:w-2/3">
             <Slide v-for="image in screenshots" :key="image.path">
               <div class="flex h-full items-center justify-center">
                 <img :src="image.path" :alt="image.alt" class="w-full object-cover" />
@@ -90,7 +91,7 @@ defineExpose({
               <Pagination />
             </template>
           </Carousel>
-          <div class="flex w-1/3 flex-col justify-between gap-2">
+          <div class="flex w-full flex-col justify-between gap-5 lg:w-1/3">
             <div class="flex flex-col gap-3">
               <Title title="Stack" :icon="ILucideLayers" header-size="h2" />
               <div class="flex flex-wrap gap-x-1 gap-y-2">
@@ -106,13 +107,14 @@ defineExpose({
         </div>
         <div class="flex flex-col gap-3">
           <Title title="Key Features" :icon="ILucideZap" header-size="h2" />
-          <div class="grid grid-cols-3 gap-3">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             <Feature v-for="feature in features" v-bind="feature" :icon-color="navRoute?.primaryColor" />
           </div>
         </div>
       </div>
     </template>
-  </FwbModal>
+    </FwbModal>
+  </Teleport>
 </template>
 
 <style scoped>
