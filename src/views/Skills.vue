@@ -167,7 +167,7 @@ const filteredSkills = computed(() => {
     </div>
   </div>
   <div v-else class="mb-5 flex flex-col items-center gap-5">
-    <div class="flex w-1/2 gap-3">
+    <div class="flex w-full md:w-3/4 lg:2/3 xl:w-1/2 gap-3">
       <div class="relative h-14 flex-1 rounded-xl">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
           <component :is="ILucideSearch" class="text-base-50 size-5" />
@@ -189,7 +189,7 @@ const filteredSkills = computed(() => {
         <component :is="ILucideGauge" class="m-auto size-5" />
       </button>
     </div>
-    <div class="flex w-1/2 flex-wrap gap-x-2 gap-y-3">
+    <div class="flex w-full md:w-3/4 lg:2/3 xl:w-1/2 flex-wrap gap-x-2 gap-y-3">
       <Tag
         name="All"
         as="button"
@@ -205,7 +205,7 @@ const filteredSkills = computed(() => {
         @click="setActiveCategoryFilter(index)"
       />
     </div>
-    <div class="grid w-full grid-cols-4 gap-3">
+    <div class="grid w-full sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3">
       <SkillItem v-for="skill in filteredSkills" :key="skill.stack.name" v-bind="skill" :show-proficiency="showProficiency" />
     </div>
   </div>
