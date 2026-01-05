@@ -3,12 +3,9 @@ import Header from './components/Header.vue'
 import Sidebar from './components/Sidebar.vue'
 
 try {
-  const response = await fetch('/api/visitors/main', {
+  await fetch('/api/visitors/main', {
     method: 'POST',
   })
-
-  const data = await response.json()
-  console.log(data)
 } catch (e) {
   console.error((e as Error).message)
 }
