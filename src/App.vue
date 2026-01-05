@@ -3,7 +3,7 @@ import Header from './components/Header.vue'
 import Sidebar from './components/Sidebar.vue'
 
 try {
-  await fetch('/api/visitors/main', {
+  fetch('/api/visitors/main', {
     method: 'POST',
   })
 } catch (e) {
