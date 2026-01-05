@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { routes } from '../router'
 import { about } from '../data/about'
@@ -23,11 +24,28 @@ import ILucideStar from '~icons/lucide/star'
 
 const route = useRoute()
 const navRoute = routes.find((r) => r.path == route.path)
+
+const visitors = ref('N/A')
+
+onMounted(async () => {
+  if (import.meta.env.DEV) {
+    visitors.value = '50'
+  } else {
+    try {
+      const response = await fetch('/api/visitors/main')
+      const data = await response.json()
+      visitors.value = data.count
+    } catch (e) {
+      console.error((e as Error).message)
+    }
+  }
+})
+
 </script>
 
 <template>
-  <div class="grid md:grid-cols-2 4xl:grid-cols-5 gap-5">
-    <div class="card row-span-4 md:col-span-full 4xl:col-span-3">
+  <div class="4xl:grid-cols-5 grid gap-5 md:grid-cols-2">
+    <div class="card 4xl:col-span-3 row-span-4 md:col-span-full">
       <div class="flex h-full w-full gap-5">
         <div class="flex flex-1 flex-col gap-5">
           <div class="flex justify-between gap-5">
@@ -69,11 +87,11 @@ const navRoute = routes.find((r) => r.path == route.path)
             <a
               download
               href="resume.pdf"
-              class="bg-base-350 hover:bg-base-200 flex rounded-md h-12 items-center p-3"
+              class="bg-base-350 hover:bg-base-200 flex h-12 items-center rounded-md p-3"
               title="Download resume"
             >
               <component :is="ILucideFileDown" class="text-base-50 m-auto size-6" />
-              <div class="ml-1 text-base-50 text-sm font-bold">Resume</div>
+              <div class="text-base-50 ml-1 text-sm font-bold">Resume</div>
             </a>
             <a
               v-for="contact in CONTACTS"
@@ -107,8 +125,8 @@ const navRoute = routes.find((r) => r.path == route.path)
         </div>
       </div>
     </div>
-    <Stat class="row-span-2 4xl:col-start-4 min-h-56" name="Visitors Count" value="50" color="orange-light" />
-    <Stat class="row-span-2 4xl:col-start-5 min-h-56" name="Month Cost-to-Date" value="$0.95" color="red-light">
+    <Stat class="4xl:col-start-4 row-span-2 min-h-56" name="Visitors Count" :value="visitors" color="orange-light" />
+    <Stat class="4xl:col-start-5 row-span-2 min-h-56" name="Month Cost-to-Date" value="$0.95" color="red-light">
       <div class="text-base-50 flex items-center gap-2">
         <span
           >AWS costs for hosting since month start. This portfolio runs serverless with Lambda, S3, and CloudFront with
@@ -117,28 +135,32 @@ const navRoute = routes.find((r) => r.path == route.path)
       </div>
     </Stat>
     <Stat
-      class="row-span-2 4xl:row-start-3 4xl:col-start-4 min-h-56"
+      class="4xl:row-start-3 4xl:col-start-4 row-span-2 min-h-56"
       name="Projects Completed"
       :value="`${projects.length.toString()}+`"
       color="green-light"
       redirect="/projects"
     />
     <Stat
-      class="row-span-2 4xl:row-start-3 4xl:col-start-5 min-h-56"
+      class="4xl:row-start-3 4xl:col-start-5 row-span-2 min-h-56"
       name="Certifications Earned"
       :value="certifications.length.toString()"
       color="blue-light"
       redirect="/certifications"
     />
-    <div class="card md:col-span-full 2xl:col-span-1 4xl:col-span-3 row-span-4 4xl:row-start-5 min-h-75 order-last 2xl:order-0">
+    <div
+      class="card 4xl:col-span-3 4xl:row-start-5 order-last row-span-4 min-h-75 md:col-span-full 2xl:order-0 2xl:col-span-1"
+    >
       <Title title="Activity Logs" :icon="ILucideTerminal" />
       <div class="bg-base-350 h-full rounded-md p-3">
         <Log v-for="log in logs" v-bind="log" />
       </div>
     </div>
-    <div class="card text-base-50 md:col-span-full 2xl:col-span-1 4xl:col-span-2 4xl:col-start-4 row-span-4 4xl:row-start-5 min-h-150">
+    <div
+      class="card text-base-50 4xl:col-span-2 4xl:col-start-4 4xl:row-start-5 row-span-4 min-h-150 md:col-span-full 2xl:col-span-1"
+    >
       <Title title="Featured Projects" :icon="ILucideStar" />
-      <div class="flex grow flex-col gap-3 overflow-x-hidden overflow-y-auto h-0">
+      <div class="flex h-0 grow flex-col gap-3 overflow-x-hidden overflow-y-auto">
         <RouterLink
           v-for="project in projects.filter((p) => p.featured)"
           :key="project.name"
