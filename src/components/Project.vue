@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { FwbModal } from 'flowbite-vue'
 import 'vue3-carousel/carousel.css'
@@ -32,6 +32,14 @@ function closeModal() {
 function showModal() {
   isShowModal.value = true
 }
+
+watch(isShowModal, (newValue) => {
+  if (newValue) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = ''
+  }
+})
 
 const carouselConfig = {
   itemsToShow: 1,
