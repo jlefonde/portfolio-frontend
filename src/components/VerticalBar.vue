@@ -18,6 +18,6 @@ const barColor = getBarColor()
         :style="`height: ${percentage}%`"
       ></div>
     </div>
-    <div v-if="label" class="font-sm text-base-50 h-12 text-center">{{ label }}</div>
+    <div v-if="label" class="text-sm text-base-50 h-12 text-center">{{ label }}</div>
   </div>
 </template>

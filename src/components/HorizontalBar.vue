@@ -13,8 +13,8 @@ const barColor = getBarColor()
 <template>
   <div class="flex flex-col gap-1">
     <div v-if="label && topLabel" class="text-base-100 text-sm">Proficiency</div>
-    <div class="flex items-center gap-5">
-      <div v-if="label && !topLabel" class="font-sm text-base-50 w-16">{{ label }}</div>
+    <div class="flex items-center h-10 gap-3">
+      <div v-if="label && !topLabel" class="text-sm text-base-50 w-32 shrink-0">{{ label }}</div>
       <div class="bg-base-150 flex h-full flex-1 items-center gap-5 rounded-sm">
         <div
           class="h-full rounded-sm border-r-3"
@@ -22,7 +22,7 @@ const barColor = getBarColor()
           :style="`width: ${percentage}%`"
         ></div>
       </div>
-      <div class="font-sm w-12 text-right" :class="`text-${barColor}-light`">{{ percentage }}%</div>
+      <div class="text-sm text-right w-12 shrink-0" :class="`text-${barColor}-light`">{{ percentage }}%</div>
     </div>
   </div>
 </template>

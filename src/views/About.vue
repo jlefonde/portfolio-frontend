@@ -124,7 +124,7 @@ const navRoute = routes.find((r) => r.path == route.path)
       redirect="/projects"
     />
     <Stat
-      class="row-span-2 4xl:row-start-3 4xl:col-start-4 min-h-56"
+      class="row-span-2 4xl:row-start-3 4xl:col-start-5 min-h-56"
       name="Certifications Earned"
       :value="certifications.length.toString()"
       color="blue-light"

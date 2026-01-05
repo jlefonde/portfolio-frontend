@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted, type Component} from 'vue'
 import { useRoute } from 'vue-router'
 import { Chart as ChartJS, Filler, LineElement, PointElement, RadialLinearScale, Tooltip } from 'chart.js'
 import { Radar } from 'vue-chartjs'
@@ -16,6 +16,7 @@ import ILucideChartColumn from '~icons/lucide/chart-column'
 import ILucideList from '~icons/lucide/list'
 import ILucideSearch from '~icons/lucide/search'
 import ILucideGauge from '~icons/lucide/gauge'
+import HorizontalBarChart from '../components/HorizontalBarChart.vue'
 
 const route = useRoute()
 const navRoute = routes.find((r) => r.path == route.path)
@@ -100,10 +101,16 @@ function setActiveCategoryFilter(index: number) {
   activeCategoryFilter.value = index
 }
 
-const overviewSelected = ref(false)
+const overviewSelected = ref(true)
 const showProficiency = ref(false)
 const activeCategoryFilter = ref(-1)
 const skillSearch = ref('')
+
+const getBarChart = (matches: boolean): Component => {
+  return matches ? VerticalBarChart : HorizontalBarChart
+}
+
+const barChart = ref(getBarChart(window.matchMedia('(min-width: 1792px)').matches))
 
 const filteredSkills = computed(() => {
   const selectedCategory = skillCategories[activeCategoryFilter.value]
@@ -120,6 +127,14 @@ const filteredSkills = computed(() => {
 
     return skill.stack.categories.some((cat) => cat.name === selectedCategory.name)
   })
+})
+
+let mediaQuery: MediaQueryList
+onMounted(() => {
+  mediaQuery = window.matchMedia('(min-width: 1792px)')
+  mediaQuery.onchange = (e) => {
+    barChart.value = getBarChart(e.matches)
+  }
 })
 </script>
 
@@ -146,8 +161,8 @@ const filteredSkills = computed(() => {
       </button>
     </div>
   </div>
-  <div v-if="overviewSelected" class="grid grid-cols-5 grid-rows-8 gap-5">
-    <div class="card col-span-2 row-span-4">
+  <div v-if="overviewSelected" class="grid md:grid-cols-2 2xl:grid-cols-4 4xl:grid-cols-5 4xl:grid-rows-8 gap-5">
+    <div class="card md:col-span-2 2xl:col-span-2 2xl:row-span-4 3xl:row-span-4">
       <Title :title="navRoute?.name?.toString() ?? ''" :icon="navRoute?.icon" :icon-color="navRoute?.primaryColor" />
       <div class="flex h-full w-full items-center justify-center px-8 py-4">
         <div class="w-full max-w-lg">
@@ -156,14 +171,14 @@ const filteredSkills = computed(() => {
       </div>
     </div>
     <Gauge
-      class="row-span-2 min-h-56 min-w-72"
+      class="row-span-2 min-h-56"
       v-for="category in categories"
       :key="category[0]"
       :name="category[0]"
       :value="Math.round(category[1].sum / category[1].count)"
     />
-    <div class="card col-span-full row-span-4 row-start-5">
-      <VerticalBarChart :bars="skillBarChart" />
+    <div class="card md:col-span-2 2xl:col-span-2 2xl:row-start-5 4xl:col-span-full 4xl:row-start-5 row-span-4">
+      <component :is="barChart" :bars="skillBarChart" />
     </div>
   </div>
   <div v-else class="mb-5 flex flex-col items-center gap-5">
