@@ -34,7 +34,8 @@
   --color-yellow-dark: #666600;
 
   --font-inter: Inter, sans-serif;
-  --breakpoint-3xl: 112rem;
+  --breakpoint-3xl: 104rem;
+  --breakpoint-4xl: 112rem;
 }
 
 @layer components {

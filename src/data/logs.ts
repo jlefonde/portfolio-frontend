@@ -22,7 +22,7 @@ export const logLevels: Record<string, LogLevel> = {
 export const logs: Log[] = [
   {
     logLevel: logLevels.INFO,
-    timestamp: '2025-01-15 09:23:45',
+    timestamp: '2025-01-15',
     message: 'New certification: HashiCorp Terraform Associate',
   },
 ]

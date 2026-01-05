@@ -22,6 +22,6 @@ withDefaults(
     :class="`bg-${bgColor} text-${textColor}`"
   >
     <component v-if="icon" :is="icon" class="mr-2 size-4" />
-    <span class="m-auto text-center">{{ name }}</span>
+    <span class="m-auto text-center text-nowrap">{{ name }}</span>
   </component>
 </template>

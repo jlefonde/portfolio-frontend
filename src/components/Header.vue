@@ -13,25 +13,24 @@ import ILucideFileDown from '~icons/lucide/file-down'
         </span>
       </div>
       <div class="text-green-light mr-2">
-        <span>AVAILABLE</span>
-        <span class="hidden sm:inline"> FOR HIRE</span>
+        <span>AVAILABLE FOR HIRE</span>
       </div>
     </div>
-    <div class="bg-base-150 h-8 w-px"></div>
+    <div class="bg-base-150 h-8 w-px hidden sm:block"></div>
     <a
       download
       href="resume.pdf"
-      class="item-center text-base-100 hover:text-base-50 hover:bg-base-150 flex size-8 cursor-pointer hover:rounded-sm"
+      class="item-center text-base-100 hover:text-base-50 hover:bg-base-150 hidden sm:flex size-8 cursor-pointer hover:rounded-sm"
       title="Download resume"
     >
       <component :is="ILucideFileDown" class="m-auto size-6" />
     </a>
     <template v-for="contact in CONTACTS">
-      <div class="bg-base-150 h-8 w-px"></div>
+      <div class="bg-base-150 h-8 w-px hidden sm:block"></div>
       <a
         :href="contact.href"
         target="_blank"
-        class="item-center text-base-100 hover:text-base-50 hover:bg-base-150 flex size-8 cursor-pointer hover:rounded-sm"
+        class="item-center text-base-100 hover:text-base-50 hover:bg-base-150 hidden sm:flex size-8 cursor-pointer hover:rounded-sm"
         :title="contact.name"
       >
         <component :is="contact.icon" class="m-auto size-6" />

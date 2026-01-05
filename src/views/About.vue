@@ -26,8 +26,8 @@ const navRoute = routes.find((r) => r.path == route.path)
 </script>
 
 <template>
-  <div class="grid grid-cols-5 gap-5">
-    <div class="card col-span-3 row-span-4">
+  <div class="grid md:grid-cols-2 4xl:grid-cols-5 gap-5">
+    <div class="card row-span-4 md:col-span-full 4xl:col-span-3">
       <div class="flex h-full w-full gap-5">
         <div class="flex flex-1 flex-col gap-5">
           <div class="flex justify-between gap-5">
@@ -69,10 +69,11 @@ const navRoute = routes.find((r) => r.path == route.path)
             <a
               download
               href="resume.pdf"
-              class="bg-base-350 hover:bg-base-200 flex size-12 rounded-md"
+              class="bg-base-350 hover:bg-base-200 flex rounded-md h-12 items-center p-3"
               title="Download resume"
             >
               <component :is="ILucideFileDown" class="text-base-50 m-auto size-6" />
+              <div class="ml-1 text-base-50 text-sm font-bold">Resume</div>
             </a>
             <a
               v-for="contact in CONTACTS"
@@ -106,8 +107,8 @@ const navRoute = routes.find((r) => r.path == route.path)
         </div>
       </div>
     </div>
-    <Stat class="col-start-4 row-span-2 min-h-56 min-w-56" name="Visitors Count" value="50" color="orange-light" />
-    <Stat class="col-start-5 row-span-2 min-h-56 min-w-56" name="Month Cost-to-Date" value="$0.95" color="red-light">
+    <Stat class="row-span-2 4xl:col-start-4 min-h-56" name="Visitors Count" value="50" color="orange-light" />
+    <Stat class="row-span-2 4xl:col-start-5 min-h-56" name="Month Cost-to-Date" value="$0.95" color="red-light">
       <div class="text-base-50 flex items-center gap-2">
         <span
           >AWS costs for hosting since month start. This portfolio runs serverless with Lambda, S3, and CloudFront with
@@ -116,26 +117,26 @@ const navRoute = routes.find((r) => r.path == route.path)
       </div>
     </Stat>
     <Stat
-      class="col-start-4 row-span-2 row-start-3 min-h-56 min-w-56"
+      class="row-span-2 4xl:row-start-3 4xl:col-start-4 min-h-56"
       name="Projects Completed"
       :value="`${projects.length.toString()}+`"
       color="green-light"
       redirect="/projects"
     />
     <Stat
-      class="col-start-5 row-span-2 row-start-3 min-h-56 min-w-56"
+      class="row-span-2 4xl:row-start-3 4xl:col-start-4 min-h-56"
       name="Certifications Earned"
       :value="certifications.length.toString()"
       color="blue-light"
       redirect="/certifications"
     />
-    <div class="card col-span-3 row-span-4 row-start-5">
+    <div class="card md:col-span-full 2xl:col-span-1 4xl:col-span-3 row-span-4 4xl:row-start-5 min-h-75 order-last 2xl:order-0">
       <Title title="Activity Logs" :icon="ILucideTerminal" />
       <div class="bg-base-350 h-full rounded-md p-3">
         <Log v-for="log in logs" v-bind="log" />
       </div>
     </div>
-    <div class="card text-base-50 col-span-2 col-start-4 row-span-4 row-start-5 min-h-150">
+    <div class="card text-base-50 md:col-span-full 2xl:col-span-1 4xl:col-span-2 4xl:col-start-4 row-span-4 4xl:row-start-5 min-h-150">
       <Title title="Featured Projects" :icon="ILucideStar" />
       <div class="flex grow flex-col gap-3 overflow-x-hidden overflow-y-auto h-0">
         <RouterLink
