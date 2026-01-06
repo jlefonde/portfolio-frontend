@@ -118,7 +118,7 @@ onMounted(async () => {
           <div class="flex">
             <Title title="Key Skills" header-size="h2" />
             <div class="flex-1 text-right">
-              <RouterLink to="/skills">
+              <RouterLink to="/skills" aria-label="Go to Skills">
                 <component
                   :is="ILucideArrowRight"
                   class="text-base-100 hover:text-base-50 hover:bg-base-150 inline-block size-6 hover:rounded-sm"

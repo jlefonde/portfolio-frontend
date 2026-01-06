@@ -23,7 +23,7 @@ const slots = useSlots()
       </div>
       <div class="text-base-50 font-bold">{{ name }}</div>
       <div class="flex-1 text-right">
-        <RouterLink v-if="redirect" :to="redirect">
+        <RouterLink v-if="redirect" :to="redirect" :aria-label="`Go to ${name}`">
           <component
             :is="ILucideArrowRight"
             class="text-base-100 hover:text-base-50 hover:bg-base-150 inline-block size-6 hover:rounded-sm"

@@ -71,7 +71,7 @@ onMounted(() => {
           ]
         "
         :to="navRoute.path"
-        :title="navRoute.name"
+        :aria-label="`Go to ${String(navRoute.name)}`"
       >
         <component
           :is="navRoute.icon"
