@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { routes } from '../router'
 import { CONTACTS } from '../data/contacts'
@@ -19,17 +19,12 @@ const closeSidebar = () => {
 }
 
 let mediaQuery: MediaQueryList
-const handleResize = (e: { matches: boolean }) => {
-  sidebarCollapsed.value = !e.matches
-}
-
 onMounted(() => {
   mediaQuery = window.matchMedia('(min-width: 1024px)')
-  handleResize(mediaQuery)
-  mediaQuery.addEventListener('change', handleResize)
+  mediaQuery.onchange = (e) => {
+      sidebarCollapsed.value = !e.matches
+  }
 })
-
-onUnmounted(() => mediaQuery?.removeEventListener('change', handleResize))
 </script>
 
 <template>

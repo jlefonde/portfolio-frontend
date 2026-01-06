@@ -26,11 +26,21 @@ const route = useRoute()
 const navRoute = routes.find((r) => r.path == route.path)
 
 const visitors = ref('N/A')
+const monthlyCTD = ref('N/A')
 
 onMounted(async () => {
   if (import.meta.env.DEV) {
     visitors.value = '50'
+    monthlyCTD.value = '0.95'
   } else {
+    try {
+      const response = await fetch('/api/monthly-ctd')
+      const data = await response.json()
+      monthlyCTD.value = data.count
+    } catch (e) {
+      console.error((e as Error).message)
+    }
+
     try {
       const response = await fetch('/api/visitors/main')
       const data = await response.json()
@@ -126,7 +136,7 @@ onMounted(async () => {
       </div>
     </div>
     <Stat class="4xl:col-start-4 row-span-2 min-h-56" name="Visitors Count" :value="visitors" color="orange-light" />
-    <Stat class="4xl:col-start-5 row-span-2 min-h-56" name="Month Cost-to-Date" value="$0.95" color="red-light">
+    <Stat class="4xl:col-start-5 row-span-2 min-h-56" name="Month Cost-to-Date" :value="'$' +  monthlyCTD" color="red-light">
       <div class="text-base-50 flex items-center gap-2">
         <span
           >AWS costs for hosting since month start. This portfolio runs serverless with Lambda, S3, and CloudFront with

@@ -101,7 +101,7 @@ function setActiveCategoryFilter(index: number) {
   activeCategoryFilter.value = index
 }
 
-const overviewSelected = ref(true)
+const overviewSelected = ref(false)
 const showProficiency = ref(false)
 const activeCategoryFilter = ref(-1)
 const skillSearch = ref('')
