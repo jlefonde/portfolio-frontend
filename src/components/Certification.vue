@@ -42,6 +42,8 @@ defineProps<Certification>()
       class="bg-green-dark flex cursor-pointer items-center justify-center gap-2 rounded-md p-3 transition-colors hover:opacity-75"
       :href="verifyLink"
       target="_blank"
+      aria-label="Verify Credential"
+      title="Verify Credential"
     >
       <component :is="ILucideSquareArrowOutUpRight" class="text-green-light size-5" />
       <span class="text-green-light text-sm font-bold">Verify Credential</span>

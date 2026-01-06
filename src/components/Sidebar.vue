@@ -71,6 +71,7 @@ onMounted(() => {
           ]
         "
         :to="navRoute.path"
+        :title="navRoute.name"
       >
         <component
           :is="navRoute.icon"
@@ -88,6 +89,7 @@ onMounted(() => {
         href="resume.pdf"
         class="bg-base-350 hover:bg-base-200 flex rounded-md h-12 items-center p-3"
         title="Download resume"
+        aria-label="Download resume"
       >
         <component :is="ILucideFileDown" class="text-base-50 m-auto size-6" />
       </a>
@@ -96,6 +98,7 @@ onMounted(() => {
         :href="contact.href"
         class="bg-base-350 hover:bg-base-200 flex size-12 rounded-sm"
         :title="contact.name"
+        :aria-label="contact.name"
       >
         <component :is="contact.icon" class="text-base-50 m-auto size-6" />
       </a>

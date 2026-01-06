@@ -108,6 +108,7 @@ onMounted(async () => {
               :href="contact.href"
               class="bg-base-350 hover:bg-base-200 flex size-12 rounded-sm"
               :title="contact.name"
+              :aria-label="contact.name"
             >
               <component :is="contact.icon" class="text-base-50 m-auto size-6" />
             </a>
