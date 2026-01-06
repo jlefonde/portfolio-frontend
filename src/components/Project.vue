@@ -86,7 +86,7 @@ defineExpose({
       </div>
     </template>
     <template #body>
-      <div class="flex flex-col gap-5 max-h-[calc(100vh-150px)] overflow-y-auto">
+      <div class="flex flex-col gap-5 max-h-[calc(100vh-150px)] overflow-y-auto scrollbar scrollbar-thumb">
         <div class="flex flex-col gap-5 lg:flex-row">
           <Carousel v-bind="carouselConfig" class="w-full touch-pan-y lg:w-2/3">
             <Slide v-for="image in screenshots" :key="image.path">
