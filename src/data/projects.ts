@@ -6,6 +6,14 @@ import ILucideFileClock from '~icons/lucide/file-clock'
 import ILucideShieldUser from '~icons/lucide/shield-user'
 import ILucideContainer from '~icons/lucide/container'
 import ILucideServerCog from '~icons/lucide/server-cog'
+import ILucideCog from '~icons/lucide/cog'
+import ILucideRefreshCw from '~icons/lucide/refresh-cw'
+import ILucideTerminal from '~icons/lucide/terminal'
+import ILucideZap from '~icons/lucide/zap'
+import ILucideFileText from '~icons/lucide/file-text'
+import ILucideUserCog from '~icons/lucide/user-cog'
+import ILucideSignal from '~icons/lucide/signal'
+import ILucideBoxes from '~icons/lucide/boxes'
 
 export const projects: Project[] = [
   {
@@ -108,7 +116,50 @@ export const projects: Project[] = [
       'Process supervisor in Go, with automatic restart policies, hot-reload, privilege de-escalation, and interactive CLI',
     stacks: [stacks.go!],
     featured: true,
+    features: [
+      {
+        name: 'Process Management',
+        icon: ILucideCog,
+        description: 'Start, stop, restart, and monitor multiple processes',
+      },
+      {
+        name: 'Automatic Restart',
+        icon: ILucideRefreshCw,
+        description: 'Configurable restart policies (never, always, on-failure)',
+      },
+      {
+        name: 'Interactive Shell',
+        icon: ILucideTerminal,
+        description: 'Built-in command-line interface with tab completion',
+      },
+      {
+        name: 'Configuration Hot-Reload',
+        icon: ILucideZap,
+        description: 'Update configuration without stopping the supervisor',
+      },
+      {
+        name: 'Logging',
+        icon: ILucideFileText,
+        description: 'Comprehensive logging with configurable levels and output destinations',
+      },
+      {
+        name: 'User Management',
+        icon: ILucideUserCog,
+        description: 'Run processes as different users with proper privilege de-escalation',
+      },
+      {
+        name: 'Signal Handling',
+        icon: ILucideSignal,
+        description: 'Graceful shutdown and configuration reloading via signals',
+      },
+      {
+        name: 'Process Groups',
+        icon: ILucideBoxes,
+        description: 'Support for multiple instances of the same program',
+      },
+    ],
     cover: { path: '', alt: '' },
+    githubLink: 'https://github.com/jlefonde/taskmaster',
   },
   {
     name: 'matt-daemon',
