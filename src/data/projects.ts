@@ -9,11 +9,20 @@ import ILucideServerCog from '~icons/lucide/server-cog'
 import ILucideCog from '~icons/lucide/cog'
 import ILucideRefreshCw from '~icons/lucide/refresh-cw'
 import ILucideTerminal from '~icons/lucide/terminal'
-import ILucideZap from '~icons/lucide/zap'
-import ILucideFileText from '~icons/lucide/file-text'
 import ILucideUserCog from '~icons/lucide/user-cog'
 import ILucideSignal from '~icons/lucide/signal'
-import ILucideBoxes from '~icons/lucide/boxes'
+import ILucideShield from '~icons/lucide/shield'
+import ILucideLock from '~icons/lucide/lock'
+import ILucideServer from '~icons/lucide/server'
+import ILucideArchive from '~icons/lucide/archive'
+import ILucideGitBranch from '~icons/lucide/git-branch'
+import ILucideNetwork from '~icons/lucide/network'
+import ILucideGitlab from '~icons/lucide/gitlab'
+import ILucideDatabase from '~icons/lucide/database'
+import ILucideActivity from '~icons/lucide/activity'
+import ILucideFileCode from '~icons/lucide/file-code'
+import ILucideUpload from '~icons/lucide/upload'
+import ILucideZap from '~icons/lucide/zap'
 
 export const projects: Project[] = [
   {
@@ -66,10 +75,10 @@ export const projects: Project[] = [
         description: 'Ansible playbooks for infrastructure configuration',
       },
     ],
-    cover: { path: '/projects/transcendence/image.png', alt: '' },
+    cover: { path: '', alt: '' },
     screenshots: [
-      { path: '/projects/transcendence/image.png', alt: '' },
-      { path: '/projects/transcendence/image2.png', alt: '' },
+      { path: '', alt: '' },
+      { path: '', alt: '' },
     ],
     githubLink: 'https://github.com/pluieciel/transcendence',
     liveLink: 'https://42pong.com',
@@ -87,28 +96,102 @@ export const projects: Project[] = [
       stacks.tailwindcss!,
     ],
     featured: true,
-    cover: { path: '/projects/transcendence/image3.png', alt: '' },
+    cover: { path: '', alt: '' },
   },
   {
     name: 'webserv',
     highlight: 'Web server in C++, handling HTTP requests, static content, uploads, and CGI',
     stacks: [stacks.cplusplus!, stacks.nginx!],
     featured: false,
+    features: [
+      {
+        name: 'Non-Blocking I/O',
+        icon: ILucideActivity,
+        description: 'Single event loop using poll/epoll/kqueue for high concurrency',
+      },
+      {
+        name: 'NGINX-like Configuration',
+        icon: ILucideFileCode,
+        description: 'Custom config format for multiple servers and route rules',
+      },
+      {
+        name: 'CGI Support',
+        icon: ILucideTerminal,
+        description: 'Execute dynamic scripts (PHP, Python) with environment management',
+      },
+      {
+        name: 'File Management',
+        icon: ILucideUpload,
+        description: 'Static file serving, directory listing, and client uploads',
+      },
+    ],
     cover: { path: '', alt: '' },
+    githubLink: 'https://github.com/jlefonde/webserv',
   },
   {
     name: 'cloud-1',
     highlight: 'Automated WordPress deployment on cloud infrastructure using Ansible and Docker containers',
     stacks: [stacks.ansible!, stacks.docker!, stacks.mariadb!, stacks.nginx!, stacks.aws!, stacks.azure!],
     featured: false,
+    features: [
+      {
+        name: 'Infrastructure as Code',
+        icon: ILucideServerCog,
+        description: 'Zero-touch Ansible automation from fresh instance to production',
+      },
+      {
+        name: 'Container Orchestration',
+        icon: ILucideContainer,
+        description: 'Docker Compose managing Nginx, WordPress, MariaDB, and phpMyAdmin',
+      },
+      {
+        name: 'Security First',
+        icon: ILucideShield,
+        description: 'Ansible Vault encryption, privilege separation, and TLS/SSL',
+      },
+      {
+        name: 'Data Persistence',
+        icon: ILucideDatabase,
+        description: 'Docker volumes ensure data survives container restarts',
+      },
+    ],
     cover: { path: '', alt: '' },
+    githubLink: 'https://github.com/jlefonde/cloud-1',
   },
   {
     name: 'inception-of-things',
     highlight: 'Kubernetes cluster setup with K3s/K3d, Vagrant VMs, and ArgoCD',
     stacks: [stacks.kubernetes!, stacks.k3s!, stacks.vagrant!, stacks.argocd!, stacks.ansible!, stacks.helm!],
     featured: true,
+    features: [
+      {
+        name: 'Multi-Node Clusters',
+        icon: ILucideNetwork,
+        description: 'Controller-Agent architecture with master and worker nodes',
+      },
+      {
+        name: 'Vagrant VM Provisioning',
+        icon: ILucideServer,
+        description: 'Automated multi-VM setup with static networking and K3s installation',
+      },
+      {
+        name: 'K3d Lightweight K8s',
+        icon: ILucideContainer,
+        description: 'Docker-based Kubernetes for rapid development and testing',
+      },
+      {
+        name: 'GitOps Continuous Delivery',
+        icon: ILucideGitBranch,
+        description: 'Automated deployments with Argo CD syncing cluster state',
+      },
+      {
+        name: 'Self-Hosted GitLab',
+        icon: ILucideGitlab,
+        description: 'Complete GitLab instance deployed via Helm charts',
+      },
+    ],
     cover: { path: '', alt: '' },
+    githubLink: 'https://github.com/jlefonde/inception-of-things',
   },
   {
     name: 'taskmaster',
@@ -138,11 +221,6 @@ export const projects: Project[] = [
         description: 'Update configuration without stopping the supervisor',
       },
       {
-        name: 'Logging',
-        icon: ILucideFileText,
-        description: 'Comprehensive logging with configurable levels and output destinations',
-      },
-      {
         name: 'User Management',
         icon: ILucideUserCog,
         description: 'Run processes as different users with proper privilege de-escalation',
@@ -151,11 +229,6 @@ export const projects: Project[] = [
         name: 'Signal Handling',
         icon: ILucideSignal,
         description: 'Graceful shutdown and configuration reloading via signals',
-      },
-      {
-        name: 'Process Groups',
-        icon: ILucideBoxes,
-        description: 'Support for multiple instances of the same program',
       },
     ],
     cover: { path: '', alt: '' },
@@ -166,13 +239,53 @@ export const projects: Project[] = [
     highlight: 'Unix daemon in C++ with socket communication, signal handling, file locking and logging',
     stacks: [stacks.cplusplus!],
     featured: false,
+    features: [
+      {
+        name: 'Daemonization',
+        icon: ILucideShield,
+        description: 'Double-fork mechanism to detach process from terminal',
+      },
+      {
+        name: 'Singleton Enforcement',
+        icon: ILucideLock,
+        description: 'Lock file system prevents multiple daemon instances',
+      },
+      {
+        name: 'Network Server',
+        icon: ILucideServer,
+        description: 'Non-blocking socket server for client connections',
+      },
+      {
+        name: 'Log Rotation',
+        icon: ILucideArchive,
+        description: 'Automatic rotation based on time intervals or file size',
+      },
+      {
+        name: 'Signal Handling',
+        icon: ILucideSignal,
+        description: 'Graceful shutdown with proper resource cleanup',
+      },
+    ],
     cover: { path: '', alt: '' },
+    githubLink: 'https://github.com/jlefonde/matt-daemon',
   },
   {
     name: '42-seconds',
-    highlight: '1st Prize winner Puzzle game developed in one week at LGX 2024 Game Jam',
+    highlight: '1st Prize-winning fast-paced puzzle game built in one week at LGX 2024 Game Jam',
     stacks: [stacks.csharp!, stacks.unity!],
     featured: false,
-    cover: { path: '', alt: '' },
+    cover: { path: '/projects/42-seconds/main-screen.png', alt: '42 Seconds game main menu screen' },
+    screenshots: [
+      { path: '/projects/42-seconds/main-screen.png', alt: '42 Seconds game main menu screen' },
+      { path: '/projects/42-seconds/tutorial.png', alt: '42 Seconds tutorial level showing game mechanics' },
+      { path: '/projects/42-seconds/level-7.png', alt: '42 Seconds level 7 in-progress' },
+      { path: '/projects/42-seconds/level-7-uv.png', alt: '42 Seconds level 7 completion screen' },
+      { path: '/projects/42-seconds/level-9.png', alt: '42 Seconds level 9 in-progress' },
+      { path: '/projects/42-seconds/level-9-completed.png', alt: '42 Seconds level 9 completion screen' },
+      { path: '/projects/42-seconds/level-12.png', alt: '42 Seconds level 12 in-progress' },
+      { path: '/projects/42-seconds/credits.png', alt: '42 Seconds game credits screen' },
+    ],
+    description: '42-seconds is a fast-paced puzzle game that challenges players to solve increasingly complex stages under pressure, each level must be completed in exactly 42 seconds. Developed in just one week during the LGX 2024 Game Jam, it won 1st Prize',
+    liveLink: 'https://ejacquem.itch.io/42seconds',
   },
 ]

@@ -35,7 +35,7 @@ onMounted(() => {
   >
     <header class="border-base-150 flex h-14 items-center justify-between border-b p-3">
       <div class="items-center gap-3 flex" v-if="!sidebarCollapsed">
-        <div class="bg-base-150 size-9"></div>
+        <div class="bg-blue-dark text-blue-light size-9 flex items-center justify-center text-base-50 text-2xl">⅃L</div>
         <div class="flex flex-col">
           <div class="text-base-50">Joris LEFONDEUR</div>
           <div class="text-base-100 text-sm">Devops Engineer</div>

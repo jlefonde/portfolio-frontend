@@ -113,12 +113,13 @@ defineExpose({
             </div>
           </div>
         </div>
-        <div class="flex flex-col gap-3">
+        <div v-if="features" class="flex flex-col gap-3">
           <Title title="Key Features" :icon="ILucideZap" header-size="h2" />
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             <Feature v-for="feature in features" v-bind="feature" :icon-color="navRoute?.primaryColor" />
           </div>
         </div>
+        <div class="text-base-100 text-sm lg:w-2/3">{{ description }}</div>
       </div>
     </template>
     </FwbModal>

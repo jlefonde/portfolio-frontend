@@ -6,5 +6,5 @@ export const about: About = {
   lookingFor: 'DevOps Engineer',
   currently: 'Student at 42 Luxembourg',
   description:
-    'Sed elementum posuere lacus, vehicula maximus lectus convallis at. In  vel ultrices tellus. Sed condimed nisl non posuere facilisis. Nunc  blandit rhoncus imperdiet. Phasellus varius quam et erat semper congue.  Cras diam libero, rutrum vel neque commodo, euismod molestie lacus.  Phasellus luctus dictum quam id fermentum. Etiam tempor, ligula sed  auctor pharetra, arcu neque facilisis velit  Cras diam libero, rutrum vel neque commodo, euismod molestie lacus.  Phasellus luctus dictum quam id fermentum. Etiam tempor, ligula sed  auctor pharetra, arcu neque facilisis velit',
+    "I'm a 24-year-old Junior DevOps Engineer with a Bachelor's in Applied Information Technology, currently studying at 42 Luxembourg. With a background in systems programming and a passion for automation, I build robust cloud-native infrastructure. I love transforming manual processes into automated, reliable workflows whether it's orchestrating Kubernetes clusters, building CI/CD pipelines, or implementing full-stack monitoring solutions. What drives me is reducing operational friction and creating environments that are scalable, secure, and fully automated.",
 }

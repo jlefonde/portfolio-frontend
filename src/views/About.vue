@@ -90,7 +90,7 @@ onMounted(async () => {
               />
             </div>
           </div>
-          <div class="text-base-50 grow text-sm">
+          <div class="text-base-50  grow text-sm">
             {{ about.description }}
           </div>
           <div class="flex gap-3">
