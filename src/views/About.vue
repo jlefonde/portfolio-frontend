@@ -96,7 +96,7 @@ onMounted(async () => {
           <div class="flex gap-3">
             <a
               download
-              href="resume.pdf"
+              href="/Joris-LEFONDEUR-resume.pdf"
               class="bg-base-350 hover:bg-base-200 flex h-12 items-center rounded-md p-3"
               title="Download resume"
             >

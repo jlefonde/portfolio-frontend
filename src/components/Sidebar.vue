@@ -86,7 +86,7 @@ onMounted(() => {
     <div class="flex gap-3 p-3" :class="sidebarCollapsed ? 'hidden' : ''">
       <a
         download
-        href="resume.pdf"
+        href="/Joris-LEFONDEUR-resume.pdf"
         class="bg-base-350 hover:bg-base-200 flex rounded-md h-12 items-center p-3"
         title="Download resume"
         aria-label="Download resume"
