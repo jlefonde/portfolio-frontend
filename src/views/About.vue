@@ -163,14 +163,14 @@ onMounted(async () => {
       class="card 4xl:col-span-3 4xl:row-start-5 order-last row-span-4 min-h-75 md:col-span-full 2xl:order-0 2xl:col-span-1"
     >
       <Title title="Activity Logs" :icon="ILucideTerminal" />
-      <div class="bg-base-350 h-full rounded-md p-3">
+      <div class="bg-base-350 h-full rounded-md p-3 flex flex-col gap-2">
         <Log v-for="log in logs" v-bind="log" />
       </div>
     </div>
     <div
       class="card text-base-50 4xl:col-span-2 4xl:col-start-4 4xl:row-start-5 row-span-4 min-h-150 md:col-span-full 2xl:col-span-1"
     >
-      <Title title="Featured Projects" :icon="ILucideStar" />
+      <Title title="Featured Projects" :icon="ILucideStar" icon-color="green-light" />
       <div class="flex h-0 grow flex-col gap-3 overflow-x-hidden overflow-y-auto scrollbar scrollbar-thumb">
         <RouterLink
           v-for="project in projects.filter((p) => p.featured)"

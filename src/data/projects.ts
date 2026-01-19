@@ -101,7 +101,43 @@ export const projects: Project[] = [
       stacks.tailwindcss!,
     ],
     featured: true,
-    cover: { path: '', alt: '' },
+    features: [
+      {
+        name: 'Infrastructure as Code',
+        icon: ILucideServerCog,
+        description: 'Multi-environment (Dev/Prod) orchestration using Terraform with S3 state backend',
+      },
+      {
+        name: 'Zero-Trust CI/CD',
+        icon: ILucideShieldUser,
+        description: 'Secure GitHub Actions pipelines using OIDC federation and manual deployment approval gates',
+      },
+      {
+        name: 'Origin Shielding',
+        icon: ILucideLock,
+        description: 'CloudFront-to-API-Gateway handshake using Go-based Lambda Authorizers and custom headers',
+      },
+      {
+        name: 'Automated Secret Lifecycle',
+        icon: ILucideRefreshCw,
+        description: 'Event-driven secret rotation with AWS Secrets Manager and dedicated Go rotation functions',
+      },
+      {
+        name: 'FinOps Observability',
+        icon: ILucideActivity,
+        description: 'Automated billing observer using EventBridge and Cost Explorer API with DynamoDB caching',
+      },
+      {
+        name: 'Dynamic Service Discovery',
+        icon: ILucideNetwork,
+        description: 'Cross-repository resource sharing via AWS SSM Parameter Store to decouple infrastructure and code',
+      },
+    ],
+    cover: { path: '/projects/portfolio/architecture-diagram.png', alt: '' },
+    screenshots: [
+      { path: '/projects/portfolio/architecture-diagram.png', alt: '' },
+    ],
+    githubLink: 'https://github.com/jlefonde/portfolio',
   },
   {
     name: 'webserv',
