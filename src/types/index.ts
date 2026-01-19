@@ -87,7 +87,7 @@ export interface Project {
   featured: boolean
   features?: Feature[]
   description?: string
-  cover?: Image
+  cover: Image
   screenshots?: Image[]
   githubLink?: string
   liveLink?: string
