@@ -93,6 +93,24 @@ onMounted(async () => {
           <div class="text-base-50  grow text-sm">
             {{ about.description }}
           </div>
+          <div class="flex">
+            <Title title="Key Skills" header-size="h2" />
+            <div class="flex-1 text-right">
+              <RouterLink to="/skills" aria-label="Go to Skills">
+                <component
+                  :is="ILucideArrowRight"
+                  class="text-base-100 hover:text-base-50 hover:bg-base-150 inline-block size-6 hover:rounded-sm"
+                />
+              </RouterLink>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-x-1 gap-y-2">
+            <Tag
+              v-for="skill in skills.filter((s) => s.featured == true)"
+              v-bind:icon="skill.stack.icon"
+              v-bind:name="skill.stack.name"
+            />
+          </div>
           <div class="flex gap-3">
             <a
               download
@@ -114,7 +132,7 @@ onMounted(async () => {
             </a>
           </div>
         </div>
-        <div class="flex w-1/3 flex-col gap-1">
+        <div class="flex w-1/3 flex-col gap-1 hidden md:flex">
           <div class="flex">
             <Title title="Key Skills" header-size="h2" />
             <div class="flex-1 text-right">
