@@ -7,7 +7,7 @@ export const CONTACTS = {
   email: {
     name: 'Email',
     icon: ILucideMail,
-    href: 'mailto:contact@jorislefondeur.com',
+    href: 'mailto:joris.lefondeur@protonmail.com',
   },
   linkedin: {
     name: 'LinkedIn',
