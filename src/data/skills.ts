@@ -9,7 +9,7 @@ export const skills: Skill[] = [
   },
   {
     stack: stacks.kubernetes!,
-    percentage: 32,
+    percentage: 55,
     featured: true,
   },
   {
